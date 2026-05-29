@@ -1,0 +1,212 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Coretanku | BroHafizi - Artikel Dakwah & AI" description="Koleksi artikel dakwah, tips berdakwah, dakwah digital dan AI oleh BroHafizi. Lebih 69 artikel sejak 2023." canonical="https://brohafizi.com/coretanku">
+
+<style is:global>
+.page-header{background:#0d1b3e;padding:64px 5% 56px;position:relative;overflow:hidden}
+.page-header-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0d1b3e 0%,#162d5e 50%,#0d1b3e 100%)}
+.page-header-pattern{position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(240,192,64,0.06) 0%,transparent 50%)}
+.page-header-deco{position:absolute;right:5%;top:50%;transform:translateY(-50%);width:200px;height:200px;border-radius:50%;border:40px solid rgba(255,255,255,0.03);pointer-events:none}
+.page-header-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px}
+.breadcrumb a{color:#6b8dba;font-size:12px;text-decoration:none}
+.breadcrumb a:hover{color:#f0c040}
+.breadcrumb span{color:#3a5070;font-size:12px}
+.page-header h1{font-family:"Playfair Display",serif;font-size:clamp(36px,5vw,58px);font-weight:700;color:#fff;line-height:1.1;letter-spacing:-1.5px;margin-bottom:14px}
+.page-header h1 em{font-style:italic;color:#f0c040}
+.page-header-sub{font-size:15px;color:#6b8dba;font-weight:300;max-width:520px;line-height:1.7}
+.hstat-n{font-family:"Playfair Display",serif;font-size:24px;font-weight:700;color:#f0c040}
+.hstat-l{font-size:11px;color:#4a6a8e;margin-top:2px}
+
+.filter-bar{background:#fff;border-bottom:1px solid #e8e4dc;position:sticky;top:64px;z-index:90;padding:0 5%}
+.filter-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;flex-wrap:wrap}
+.filter-cats{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex:1}
+.filter-cats::-webkit-scrollbar{display:none}
+.fcat{padding:6px 14px;border-radius:20px;border:1px solid #e0ddd6;background:#fff;font-size:12px;color:#666;cursor:pointer;white-space:nowrap;transition:all 0.15s;font-family:"DM Sans",sans-serif}
+.fcat:hover{border-color:#0d1b3e;color:#0d1b3e}
+.fcat.active{background:#0d1b3e;color:#fff;border-color:#0d1b3e}
+.search-wrap{position:relative;flex-shrink:0}
+.search-input{padding:8px 14px 8px 36px;border:1px solid #e0ddd6;border-radius:20px;font-size:13px;outline:none;font-family:"DM Sans",sans-serif;width:200px;transition:all 0.15s}
+.search-input:focus{border-color:#1a56db;width:240px}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:14px;height:14px;stroke:#aaa;fill:none;stroke-width:2}
+
+.blog-body{max-width:1200px;margin:0 auto;padding:40px 5%}
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.section-label{font-size:10px;letter-spacing:2.5px;color:#1a56db;font-weight:600;text-transform:uppercase}
+.section-count{font-size:12px;color:#aaa}
+
+/* FEATURED — exact match original */
+.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:40px}
+.featured-card{position:relative;border-radius:8px;overflow:hidden;cursor:pointer;text-decoration:none;display:block;background:#0d1b3e;height:240px}
+.featured-img{width:100%;height:240px;object-fit:cover;object-position:center top;display:block;transition:transform 0.4s ease;position:absolute;inset:0}
+.featured-card:hover .featured-img{transform:scale(1.04)}
+.featured-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,15,34,0.95) 0%,rgba(6,15,34,0.2) 60%,transparent 100%);padding:20px;display:flex;flex-direction:column;justify-content:flex-end}
+.fcat-badge{font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(240,192,64,0.2);color:#f0c040;margin-right:4px}
+.featured-title{font-family:"Playfair Display",serif;font-size:clamp(15px,2vw,20px);font-weight:700;color:#fff;line-height:1.3;margin:6px 0}
+.featured-meta{font-size:11px;color:#6b8dba}
+
+/* POST CARDS — exact match original */
+.posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.post-card{background:#fff;border:1px solid #e8e4dc;border-radius:8px;overflow:hidden;cursor:pointer;transition:all 0.2s;text-decoration:none;display:block}
+.post-card:hover{border-color:#1a56db;transform:translateY(-3px);box-shadow:0 8px 24px rgba(13,27,62,0.08)}
+.post-img-wrap{width:100%;height:160px;overflow:hidden;background:#e8edf5;flex-shrink:0}
+.post-img{width:100%;height:160px;object-fit:cover;object-position:center;display:block;transition:transform 0.3s ease}
+.post-card:hover .post-img{transform:scale(1.04)}
+.post-img-ph{width:100%;height:160px;background:linear-gradient(135deg,#e8edf5,#d0daea);display:flex;align-items:center;justify-content:center}
+.post-img-ph svg{width:28px;height:28px;stroke:#9ab0cc;fill:none;stroke-width:1}
+.post-body{padding:16px}
+.post-cats{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
+.post-cat{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:500}
+.post-title{font-size:14px;font-weight:600;color:#0d1b3e;line-height:1.45;margin-bottom:8px;font-family:"DM Sans",sans-serif;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.post-excerpt{font-size:12px;color:#777;line-height:1.6;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.post-meta{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#aaa}
+.post-read{color:#1a56db;font-size:11px;font-weight:500}
+
+.load-more-wrap{text-align:center;margin-top:36px}
+.btn-load{background:#0d1b3e;color:#fff;padding:12px 32px;border-radius:4px;font-size:13px;font-weight:500;border:none;cursor:pointer;font-family:"DM Sans",sans-serif;transition:all 0.15s}
+.btn-load:hover{background:#162d5e}
+.btn-load:disabled{background:#ccc;cursor:not-allowed}
+.load-info{font-size:12px;color:#aaa;margin-top:10px}
+.no-results{text-align:center;padding:60px 20px;color:#aaa}
+.loading{text-align:center;padding:40px;color:#aaa;font-size:14px}
+
+@media(max-width:900px){.posts-grid{grid-template-columns:repeat(2,1fr)}.featured-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.posts-grid{grid-template-columns:1fr}.filter-inner{flex-direction:column}.search-input,.search-wrap{width:100%}}
+</style>
+
+<header class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-pattern"></div>
+  <div class="page-header-deco"></div>
+  <div class="page-header-inner">
+    <nav class="breadcrumb"><a href="/">Laman Utama</a><span>/</span><span style="color:#adc5de">Coretanku</span></nav>
+    <h1>Coretan<em>ku</em></h1>
+    <p class="page-header-sub">Perkongsian artikel dakwah, tips berdakwah, kursus istitabah, dakwah digital dan teknologi AI.</p>
+    <div style="display:flex;gap:28px;margin-top:28px">
+      <div><div class="hstat-n">69</div><div class="hstat-l">Artikel</div></div>
+      <div><div class="hstat-n">2023</div><div class="hstat-l">Bermula</div></div>
+      <div><div class="hstat-n">12+</div><div class="hstat-l">Kategori</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="filter-bar">
+  <div class="filter-inner">
+    <div class="filter-cats">
+      <button class="fcat active" onclick="window.filterBy('all',this)">Semua</button>
+      <button class="fcat" onclick="window.filterBy('Dakwah',this)">Dakwah</button>
+      <button class="fcat" onclick="window.filterBy('Kursus',this)">Kursus</button>
+      <button class="fcat" onclick="window.filterBy('Artikel Dakwah',this)">Artikel Dakwah</button>
+      <button class="fcat" onclick="window.filterBy('Persoalan tentang Islam',this)">Soalan Islam</button>
+      <button class="fcat" onclick="window.filterBy('Social Media',this)">Social Media</button>
+      <button class="fcat" onclick="window.filterBy('Artikel Islam',this)">Artikel Islam</button>
+      <button class="fcat" onclick="window.filterBy('Tips Dakwah',this)">Tips Dakwah</button>
+      <button class="fcat" onclick="window.filterBy('Dakwah Digital',this)">Dakwah Digital</button>
+      <button class="fcat" onclick="window.filterBy('Kursus Istitabah',this)">Kursus Istitabah</button>
+    </div>
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="Cari artikel..." oninput="window.searchBy(this.value)">
+    </div>
+  </div>
+</div>
+
+<main>
+<div class="blog-body">
+  <div id="featuredSection">
+    <div class="section-header" style="margin-bottom:16px"><div class="section-label">Artikel Terkini</div></div>
+    <div class="featured-grid" id="featuredGrid"></div>
+  </div>
+  <div style="margin-top:40px">
+    <div class="section-header">
+      <div class="section-label">Semua Artikel</div>
+      <div class="section-count" id="postsCount"></div>
+    </div>
+    <div class="loading" id="loadingMsg">Memuatkan artikel...</div>
+    <div class="posts-grid" id="postsGrid"></div>
+    <div class="no-results" id="noResults" style="display:none"><p>Tiada artikel dijumpai.</p></div>
+    <div class="load-more-wrap" id="loadWrap" style="display:none">
+      <button class="btn-load" id="loadBtn" onclick="window.loadMore()">Muat Lebih Artikel</button>
+      <div class="load-info" id="loadInfo"></div>
+    </div>
+  </div>
+</div>
+</main>
+
+<script is:inline>
+window.allPosts=[];
+window.catColors={"Dakwah":"#1a56db","Artikel Dakwah":"#1a56db","Artikel Islam":"#059669","Kursus":"#7c3aed","Kursus Dakwah":"#7c3aed","Kursus Istitabah":"#7c3aed","Social Media":"#dc2626","Persoalan tentang Islam":"#d97706","Tips Dakwah":"#0891b2","Dakwah Digital":"#db2777"};
+window.curFilter="all";window.curSearch="";window.curPage=1;window.perPage=9;window.filtered=[];
+window.cc=function(c){return window.catColors[c]||"#6b7280";};
+window.esc=function(s){return (s||"").replace(/</g,"&lt;").replace(/>/g,"&gt;");};
+window.renderFeatured=function(){
+  if(!window.allPosts.length)return;
+  var el=document.getElementById("featuredGrid");if(!el)return;
+  el.innerHTML=window.allPosts.slice(0,2).map(function(p){
+    var b=p.cats.slice(0,2).map(function(c){return'<span class="fcat-badge">'+window.esc(c)+'</span>';}).join("");
+    var i=p.img?'<img class="featured-img" src="'+p.img+'" alt="" loading="eager">':"";
+    return'<a class="featured-card" href="'+p.link+'" target="_blank" rel="noopener">'+i+'<div class="featured-overlay"><div>'+b+'</div><div class="featured-title">'+window.esc(p.title)+'</div><div class="featured-meta">'+p.dateDisplay+'</div></div></a>';
+  }).join("");
+};
+window.renderPosts=function(){
+  var grid=document.getElementById("postsGrid");if(!grid)return;
+  var noRes=document.getElementById("noResults");
+  var countEl=document.getElementById("postsCount");
+  var loadWrap=document.getElementById("loadWrap");
+  var loadBtn=document.getElementById("loadBtn");
+  var loadInfo=document.getElementById("loadInfo");
+  var lm=document.getElementById("loadingMsg");
+  if(lm)lm.style.display="none";
+  countEl.textContent=window.filtered.length+" artikel";
+  if(window.filtered.length===0){grid.innerHTML="";noRes.style.display="block";loadWrap.style.display="none";return;}
+  noRes.style.display="none";
+  var src=(window.curFilter==="all"&&!window.curSearch)?window.filtered.slice(2):window.filtered;
+  var toShow=src.slice(0,window.curPage*window.perPage);
+  grid.innerHTML=toShow.map(function(p){
+    var cats=p.cats.slice(0,2).map(function(c){var col=window.cc(c);return'<span class="post-cat" style="background:'+col+'20;color:'+col+'">'+window.esc(c)+'</span>';}).join("");
+    var img=p.img?'<div class="post-img-wrap"><img class="post-img" src="'+p.img+'" alt="" loading="lazy"></div>':'<div class="post-img-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>';
+    return'<a class="post-card" href="'+p.link+'" target="_blank" rel="noopener">'+img+'<div class="post-body"><div class="post-cats">'+cats+'</div><div class="post-title">'+window.esc(p.title)+'</div><div class="post-excerpt">'+window.esc(p.excerpt)+'</div><div class="post-meta"><span>'+p.dateDisplay+'</span><span class="post-read">Baca &#8594;</span></div></div></a>';
+  }).join("");
+  if(toShow.length<src.length){
+    loadWrap.style.display="block";loadBtn.disabled=false;
+    loadBtn.textContent="Muat Lebih Artikel";
+    loadInfo.textContent="Papar "+toShow.length+" daripada "+src.length+" artikel";
+  } else {
+    if(src.length>window.perPage){loadWrap.style.display="block";loadBtn.disabled=true;loadBtn.textContent="Semua artikel dipaparkan";}
+    else loadWrap.style.display="none";
+  }
+};
+window.applyFilter=function(){
+  window.filtered=window.allPosts.filter(function(p){
+    var mc=window.curFilter==="all"||p.cats.indexOf(window.curFilter)>-1;
+    var ms=!window.curSearch||p.title.toLowerCase().indexOf(window.curSearch.toLowerCase())>-1||p.excerpt.toLowerCase().indexOf(window.curSearch.toLowerCase())>-1;
+    return mc&&ms;
+  });
+  window.curPage=1;window.renderPosts();
+};
+window.filterBy=function(cat,btn){
+  window.curFilter=cat;window.curSearch="";window.curPage=1;
+  document.getElementById("searchInput").value="";
+  document.querySelectorAll(".fcat").forEach(function(b){b.classList.remove("active");});
+  btn.classList.add("active");
+  document.getElementById("featuredSection").style.display=cat==="all"?"block":"none";
+  window.applyFilter();
+};
+window.searchBy=function(val){
+  window.curSearch=val;window.curFilter="all";window.curPage=1;
+  document.querySelectorAll(".fcat").forEach(function(b){b.classList.remove("active");});
+  document.querySelectorAll(".fcat")[0].classList.add("active");
+  document.getElementById("featuredSection").style.display=val?"none":"block";
+  window.applyFilter();
+};
+window.loadMore=function(){window.curPage++;window.renderPosts();window.scrollBy({top:300,behavior:"smooth"});};
+document.addEventListener("DOMContentLoaded",function(){
+  fetch("/posts.json")
+    .then(function(r){return r.json();})
+    .then(function(data){window.allPosts=data;window.renderFeatured();window.applyFilter();})
+    .catch(function(e){var m=document.getElementById("loadingMsg");if(m)m.textContent="Ralat memuatkan artikel.";console.error(e);});
+});
+</script>
+
+</Layout>

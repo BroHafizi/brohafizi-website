@@ -1,0 +1,289 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Galeri | BroHafizi" description="Koleksi gambar korporat, program training, bersama para mufti, ulama dan tokoh agama dari seluruh Malaysia." canonical="https://brohafizi.com/galeri">
+
+<style is:global>
+.page-header{background:#0d1b3e;padding:64px 5% 56px;position:relative;overflow:hidden}
+.page-header-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0d1b3e 0%,#162d5e 50%,#0d1b3e 100%)}
+.page-header-pattern{position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(240,192,64,0.06) 0%,transparent 50%)}
+.page-header-deco{position:absolute;right:5%;top:50%;transform:translateY(-50%);width:200px;height:200px;border-radius:50%;border:40px solid rgba(255,255,255,0.03);pointer-events:none}
+.page-header-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto}
+.page-header h1{font-family:"Playfair Display",serif;font-size:clamp(36px,5vw,58px);font-weight:700;color:#fff;line-height:1.1;letter-spacing:-1.5px;margin-bottom:14px}
+.page-header h1 em{font-style:italic;color:#f0c040}
+.page-header-sub{font-size:15px;color:#6b8dba;font-weight:300;max-width:520px;line-height:1.7}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px}
+.breadcrumb a{color:#6b8dba;font-size:12px;text-decoration:none}
+.breadcrumb a:hover{color:#f0c040}
+.breadcrumb span{color:#3a5070;font-size:12px}
+.filter-bar{background:#fff;border-bottom:1px solid #e8e4dc;padding:0 5%}
+.filter-inner{max-width:1200px;margin:0 auto;display:flex;gap:8px;padding:12px 0}
+.filter-btn{padding:7px 18px;border-radius:20px;border:1px solid #e0ddd6;background:#fff;font-size:13px;color:#666;cursor:pointer;white-space:nowrap;transition:all 0.15s;font-family:"DM Sans",sans-serif}
+.filter-btn:hover{border-color:#0d1b3e;color:#0d1b3e}
+.filter-btn.active{background:#0d1b3e;color:#fff;border-color:#0d1b3e}
+
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:#f2f0eb;color:#1a1a2e;overflow-x:hidden}
+nav{background:#0d1b3e;display:flex;justify-content:space-between;align-items:center;padding:0 5%;height:64px;position:sticky;top:0;z-index:100}
+.nav-brand{display:flex;flex-direction:column;gap:2px}
+.nav-brand strong{color:#fff;font-size:16px;font-weight:600}
+.nav-brand span{color:#6b8dba;font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.nav-links{display:flex;gap:2px}
+.nav-links a{color:#adc5de;font-size:13px;padding:8px 14px;border-radius:4px;text-decoration:none;transition:all 0.15s}
+.nav-links a:hover,.nav-links a.active{background:#1a2f5e;color:#fff}
+.nav-social{display:flex;gap:6px}
+.nav-social a{width:30px;height:30px;border:1px solid #1e3060;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#6b8dba;text-decoration:none;font-size:12px;transition:all 0.15s}
+.nav-social a:hover{background:#1a2f5e;color:#fff}
+.page-header{background:#0d1b3e;padding:64px 5% 56px;position:relative;overflow:hidden}
+.page-header-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0d1b3e 0%,#162d5e 50%,#0d1b3e 100%)}
+.page-header-pattern{position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(240,192,64,0.06) 0%,transparent 50%)}
+.page-header-deco{position:absolute;right:5%;top:50%;transform:translateY(-50%);width:200px;height:200px;border-radius:50%;border:40px solid rgba(255,255,255,0.03);pointer-events:none}
+.page-header-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px}
+.breadcrumb a{color:#6b8dba;font-size:12px;text-decoration:none}
+.breadcrumb a:hover{color:#f0c040}
+.breadcrumb span{color:#3a5070;font-size:12px}
+.page-header h1{font-family:"Playfair Display",serif;font-size:clamp(36px,5vw,58px);font-weight:700;color:#fff;line-height:1.1;letter-spacing:-1.5px;margin-bottom:14px}
+.page-header h1 em{font-style:italic;color:#f0c040}
+.page-header-sub{font-size:15px;color:#6b8dba;font-weight:300;max-width:520px;line-height:1.7}
+.filter-bar{background:#fff;border-bottom:1px solid #e8e4dc;padding:0 5%;position:sticky;top:64px;z-index:90}
+.filter-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:6px;padding:14px 0;overflow-x:auto;scrollbar-width:none}
+.filter-inner::-webkit-scrollbar{display:none}
+.filter-btn{padding:7px 18px;border-radius:20px;border:1px solid #e0ddd6;background:#fff;font-size:13px;color:#666;cursor:pointer;white-space:nowrap;transition:all 0.15s;font-family:"DM Sans",sans-serif}
+.filter-btn:hover{border-color:#0d1b3e;color:#0d1b3e}
+.filter-btn.active{background:#0d1b3e;color:#fff;border-color:#0d1b3e}
+.fc{display:inline-block;background:rgba(255,255,255,0.2);font-size:10px;padding:1px 6px;border-radius:10px;margin-left:4px;color:inherit}
+.gallery-body{max-width:1200px;margin:0 auto;padding:48px 5%;overflow:hidden}
+.gallery-section{margin-bottom:64px}
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px}
+.s-label{font-size:10px;letter-spacing:2.5px;color:#1a56db;font-weight:600;text-transform:uppercase;margin-bottom:8px}
+.s-title{font-family:"Playfair Display",serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:#0d1b3e;line-height:1.2;letter-spacing:-0.5px}
+.section-count{font-size:12px;color:#aaa}
+.photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.photo-item{position:relative;aspect-ratio:1;overflow:hidden;border-radius:6px;cursor:pointer;background:#e0e8f0;max-width:100%}
+.photo-item img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform 0.4s ease}
+.photo-item:hover img{transform:scale(1.06)}
+.photo-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,27,62,0.82) 0%,transparent 55%);opacity:0;transition:opacity 0.3s;display:flex;align-items:flex-end;padding:12px}
+.photo-item:hover .photo-overlay{opacity:1}
+.photo-caption{font-size:11px;color:#fff;line-height:1.4}
+.photo-num{position:absolute;top:8px;left:8px;background:rgba(13,27,62,0.6);color:rgba(255,255,255,0.8);font-size:10px;padding:2px 7px;border-radius:10px}
+.gallery-cta{background:#0d1b3e;padding:56px 5%;text-align:center}
+.gallery-cta h2{font-family:"Playfair Display",serif;font-size:clamp(22px,3vw,32px);color:#fff;margin-bottom:10px}
+.gallery-cta p{font-size:14px;color:#4a6a8e;max-width:420px;margin:0 auto 28px;line-height:1.7}
+.btn-gold{background:#f0c040;color:#0d1b3e;padding:12px 28px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;display:inline-block;margin:0 6px;transition:all 0.15s}
+.btn-ghost{background:transparent;color:#fff;padding:12px 28px;border-radius:4px;font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,0.2);display:inline-block;margin:0 6px;transition:all 0.15s}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(6,15,34,0.96);z-index:999;align-items:center;justify-content:center;padding:20px}
+.lightbox.active{display:flex}
+.lb-content{position:relative;max-width:860px;width:100%;display:flex;flex-direction:column;align-items:center}
+.lb-img{max-width:100%;max-height:78vh;object-fit:contain;border-radius:4px;display:block}
+.lb-footer{display:flex;align-items:flex-start;justify-content:space-between;width:100%;margin-top:14px;gap:12px}
+.lb-section-tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#3a5a7e;margin-bottom:5px}
+.lb-caption{font-size:14px;color:#c8ddf0;font-weight:500;line-height:1.4}
+.lb-counter{font-size:12px;color:#3a5070;white-space:nowrap;padding-top:2px;flex-shrink:0}
+.lb-close{position:fixed;top:20px;right:24px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:#fff;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center}
+.lb-nav{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center}
+.lb-prev{left:16px}
+.lb-next{right:16px}
+footer{background:#060f22;padding:28px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid #0d1b3e}
+.footer-brand strong{color:#adc5de;font-size:13px}
+.footer-brand span{display:block;font-size:10px;color:#2a4060;margin-top:2px}
+.footer-copy{font-size:11px;color:#2a4060}
+@media(max-width:900px){.photo-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.nav-links{display:none}.photo-grid{grid-template-columns:repeat(2,1fr);gap:8px}.lb-nav{display:none}}
+
+</style>
+<header class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-pattern"></div>
+  <div class="page-header-deco"></div>
+  <div class="page-header-inner">
+    <nav class="breadcrumb"><a href="/">Laman Utama</a><span>/</span><span style="color:#adc5de">Galeri</span></nav>
+    <h1>Galeri <em>Gambar</em></h1>
+    <p class="page-header-sub">Koleksi gambar korporat, program training, bersama para mufti, ulama, tokoh agama dan selebriti dakwah dari seluruh Malaysia.</p>
+  </div>
+</header>
+
+<div class="filter-bar" role="navigation" aria-label="Filter Galeri">
+  <div class="filter-inner">
+    <button class="filter-btn active" onclick="window.filterGallery('all',this)">Semua</button>
+    <button class="filter-btn" onclick="window.filterGallery('korporat',this)">Korporat &amp; Training</button>
+    <button class="filter-btn" onclick="window.filterGallery('tokoh',this)">Bersama Tokoh &amp; Ulama</button>
+  </div>
+</div>
+
+
+
+<div class="gallery-body">
+
+  <section class="gallery-section" id="section-korporat" data-section="korporat">
+    <div class="section-header">
+      <div><div class="s-label">Latihan &amp; Program</div><div class="s-title">Gambar Korporat &amp; Training</div></div>
+      <div class="section-count" id="label-korporat"></div>
+    </div>
+    <div class="photo-grid" id="grid-korporat"></div>
+  </section>
+
+  <section class="gallery-section" id="section-tokoh" data-section="tokoh">
+    <div class="section-header">
+      <div><div class="s-label">Jaringan &amp; Ukhuwah</div><div class="s-title">Bersama Tokoh, Mufti &amp; Ulama</div></div>
+      <div class="section-count" id="label-tokoh"></div>
+    </div>
+    <div class="photo-grid" id="grid-tokoh"></div>
+  </section>
+
+</div>
+
+<section class="gallery-cta">
+  <h2>Nak Jemput BroHafizi?</h2>
+  <p>Untuk program training, ceramah atau bengkel AI &mdash; hubungi saya untuk perbincangan.</p>
+  <a href="/hubungi-saya" class="btn-gold">Hubungi Sekarang</a>
+  <a href="/mengenai-saya" class="btn-ghost">Kenali Lebih Lanjut</a>
+</section>
+
+<script is:inline>window.korporatPhotos = [
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779780950/Aku_6a_hsnd28.png",caption:"BroHafizi - Gambar Profesional"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779780907/ChatGPT_Image_May_1_2026_10_04_58_AM_ivj0bx.png",caption:"BroHafizi - Digital Dakwah Trainer"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779780901/Aku_13_fgti0h.png",caption:"BroHafizi - Sesi Training"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779780901/Aku_-_Profesional_2_xsmslk.png",caption:"BroHafizi - Gambar Profesional"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779780900/ChatGPT_Image_May_1_2026_10_03_54_AM_rhgm62.png",caption:"BroHafizi - AI Strategist"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779780899/Aku_9_toev7c.png",caption:"BroHafizi - Program Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779780899/Aku_-_Ustaz_oer7yg.png",caption:"BroHafizi - Sesi Ceramah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779780899/Profile_Picture_gxfw0t.png",caption:"BroHafizi - Gambar Profil"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779780899/Pendakwah_Digital_7_kyv2vx.png",caption:"BroHafizi - Pendakwah Digital"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779780899/Aku_-_Profesional_wgtqna.png",caption:"BroHafizi - Profesional"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779780898/Aku_Corporate_1_h7bwvd.png",caption:"BroHafizi - Korporat"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779780897/Aku_Podcast_-_3_stdbul.png",caption:"BroHafizi - Sesi Podcast"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779780897/Aku_On_Stage_woyugu.png",caption:"BroHafizi - On Stage"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779780897/Aku_14_llprof.png",caption:"BroHafizi - Gambar Profesional"},
+];
+
+window.tokohPhotos = [
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779877/Mantan_Mufti_Wilayah_-_Dr_Luqman_o02cdw.jpg",caption:"Bersama Mantan Mufti Wilayah Persekutuan - S.S Dato Dr Luqman Abdullah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779683/Aku-Mufti-Wilayah-_jk5gnz.jpg",caption:"Bersama Mantan Mufti Wilayah Persekutuan - S.S Dato Dr Luqman Abdullah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779875/Pengarah_JAWI_-_Ustaz_Haniffuddin_uf721p.jpg",caption:"Bersama Pengarah JAWI - Ustaz Hanifuddin bin Roslan"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779873/Dato_Zaidi_wu9p51.jpg",caption:"Bersama Mantan Timbalan Mufti Negeri Sembilan - Dato Ustaz Mohd Zaidi Ramli"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779871/Timbalan_Mufti_Perak_-_Dr_Zamri_pqiaes.jpg",caption:"Bersama Timbalan Mufti Perak - Dr Zambri bin Hashim"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779868/Bengkel-Istitabah-Perak-5_cplb7r.png",caption:"Bersama Timbalan Mufti Perak - Dr Zambri bin Hashim"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779864/Aku-Mufti-Perak-2_zk4jjh.jpg",caption:"Bersama Mantan Mufti Perak - S. Datuk Wan Zahidi Wan Teh"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779862/Aku-Mufti-Perak_nt5cnu.jpg",caption:"Bersama Mantan Mufti Perak - S.S Datuk Wan Zahidi Wan Teh"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779860/Aku-Mantan-Mufti-Wilayah-2_c80pck.jpg",caption:"Bersama Mantan Mufti Wilayah dan Mantan Menteri Agama - Datuk Dr. Zulkifli Mohamad al-Bakri"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779858/Aku-Mantan-Mufti-Wilayah_gw0qie.jpg",caption:"Bersama Mantan Mufti Wilayah dan Mantan Menteri Agama - Datuk Dr. Zulkifli Mohamad al-Bakri"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779848/Aku-dan-Dr-Zul_z4kpqt.png",caption:"Bersama Mantan Mufti Wilayah dan Mantan Menteri Agama - Datuk Dr. Zulkifli Mohamad al-Bakri"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779856/Aku-Mantan-Mufti-N9_r8ywvb.jpg",caption:"Bersama Mantan Mufti Negeri Sembilan - Almarhum S.S. Dato Hj. Mohd Yusof bin Hj. Ahmad"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779854/Aku-dan-Ust-Syed-Shahrizan-scaled_qiad6x.jpg",caption:"Bersama Ketua Penolong Mufti Wilayah Persekutuan Bahagian Fatwa - Ustaz Syed Shahridzan Syed Mohamed"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779851/Aku-dan-Ustaz-Sujak-scaled_wdlzwr.jpg",caption:"Bersama Ketua Penolong Mufti Pejabat Mufti Wilayah Persekutuan Bahagian Fatwa - Muhamad Sujak Bin Muhamad Dasuki"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779849/Aku-dan-Maulana-Helmi_pvbjiw.jpg",caption:"Bersama Tokoh Ulamak Negeri Pahang dan Ikon Dakwah YADIM - Maulana Helmi"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779845/2_e9kmzc.png",caption:"Bersama Perunding Motivasi dan Kaunseling - Tuan Haji Hushim Haji Salleh"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779843/1_hc9zh5.png",caption:"Bersama Perunding Motivasi dan Kaunseling - Tuan Haji Hushim Haji Salleh"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779840/Pengarah-JAWI_w7f9dv.jpg",caption:"Bersama Mantan Pengarah JAWI - YBrs. Datuk Haji Mohd Ajib bin Ismail"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779684/Aku-Pengarah-JAWI-scaled_mdbthl.jpg",caption:"Bersama Mantan Pengarah JAWI - YBrs. Datuk Haji Mohd Ajib bin Ismail"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779839/Mufti-N9_hkbfyd.jpg",caption:"Bersama S.S Mufti Negeri Sembilan - Prof Madya Dr. Faudzinaim bin Badaruddin"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779837/Mufti_Melaka_jt25by.jpg",caption:"Bersama S.S Datuk Wira Hj Abdul Halim Bin Tawil - Mufti Kerajaan Negeri Melaka"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779834/aku-Yusof-Chambers-scaled_mi5qaq.jpg",caption:"Bersama Pendakwah Antarabangsa dari UK - Yusuf Chambers"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779833/aku-Yusof-Chambers-2-scaled_n3u3sx.jpg",caption:"Bersama Pendakwah Antarabangsa dari UK - Yusuf Chambers"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779830/Aku-Ustaz-Firdaus-Subhi_yy0igg.jpg",caption:"Bersama Ustaz Firdaus bin Subhi - Penolong Pengarah Bahagian Dakwah JAIS"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779829/Aku-Ustaz-Don_yidcxx.png",caption:"Bersama Pendakwah Selebriti - Ustaz Don Daniyal Don Biyajid"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779825/Aku-Timb-Mufti-Wilayah_zhzf6y.jpg",caption:"Bersama Timbalan Mufti Wilayah Persekutuan - S.S Ustaz Jamali bin Mohd Adnan"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779826/Aku-Timb-Mufti-Wilayah-2_kibtdq.jpg",caption:"Bersama Timbalan Mufti Wilayah Persekutuan - S.S Ustaz Jamali bin Mohd Adnan"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779823/Aku-Timb-Mufti-N9-5_z4wb14.jpg",caption:"Bersama Mantan Timbalan Mufti Negeri Sembilan - S.F Ustaz Amran bin Awaludin"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779689/Aku-Timb-Mufti-N9-4_cnqwmg.jpg",caption:"Bersama Mantan Timbalan Mufti Negeri Sembilan - S.F Ustaz Amran bin Awaludin"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779687/Aku-Timb-Mufti-N9-2_zey8qy.jpg",caption:"Bersama Mantan Timbalan Mufti Negeri Sembilan - S.F Ustaz Amran bin Awaludin"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779685/Aku-the2-white-Muslims-scaled_amtlvf.jpg",caption:"Bersama Pendakwah Antarabangsa dari UK - The Two White Muslims - Yusuf Bashforth and Junaid Rahim"},
+];
+
+window.window.allPhotos = [];
+var lbCur = 0;
+
+document.addEventListener("DOMContentLoaded", function() {
+  window.buildGrid("grid-korporat", korporatPhotos, "korporat", "Korporat & Training");
+  window.buildGrid("grid-tokoh", tokohPhotos, "tokoh", "Bersama Tokoh & Ulama");
+
+  window.allPhotos = [];
+  window.korporatPhotos.forEach(function(p) { allPhotos.push({url:p.url, caption:p.caption, section:"Korporat & Training"}); });
+  window.tokohPhotos.forEach(function(p) { allPhotos.push({url:p.url, caption:p.caption, section:"Bersama Tokoh & Ulama"}); });
+
+  document.getElementById("count-all").textContent = window.allPhotos.length;
+  document.getElementById("count-korporat").textContent = window.korporatPhotos.length;
+  document.getElementById("count-tokoh").textContent = window.tokohPhotos.length;
+  document.getElementById("label-korporat").textContent = window.korporatPhotos.length + " gambar";
+  document.getElementById("label-tokoh").textContent = window.tokohPhotos.length + " gambar";
+
+  document.addEventListener("keydown", function(e) {
+    if (!document.getElementById("lightbox").classList.contains("active")) return;
+    if (e.key === "ArrowLeft") window.lbNav(-1);
+    if (e.key === "ArrowRight") window.lbNav(1);
+    if (e.key === "Escape") window.closeLb();
+  });
+});
+
+window.buildGrid = function(gridId, photos, section, sectionLabel) {
+  var grid = document.getElementById(gridId);
+  if (!grid) return;
+  var offset = section === "korporat" ? 0 : window.korporatPhotos.length;
+  photos.forEach(function(p, i) {
+    var item = document.createElement("div");
+    item.className = "photo-item";
+    var idx = offset + i;
+    item.innerHTML = '<img src="' + p.url + '" alt="' + p.caption + '" loading="lazy">' +
+      '<div class="photo-overlay"><div class="photo-caption">' + p.caption + '</div></div>' +
+      '<div class="photo-num">' + (i+1) + '</div>';
+    item.onclick = function() { window.openLb(idx); };
+    grid.appendChild(item);
+  });
+}
+
+window.openLb = function(idx) {
+  lbCur = idx;
+  window.updateLb();
+  document.getElementById("lightbox").classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+window.updateLb = function() {
+  var p = window.allPhotos[lbCur];
+  document.getElementById("lbImg").src = p.url;
+  document.getElementById("lbImg").alt = p.caption;
+  document.getElementById("lbCap").textContent = p.caption;
+  document.getElementById("lbTag").textContent = p.section;
+  document.getElementById("lbCtr").textContent = (lbCur+1) + " / " + window.allPhotos.length;
+}
+
+window.lbNav = function(d) {
+  lbCur = (lbCur + d + window.allPhotos.length) % window.allPhotos.length;
+  window.updateLb();
+}
+
+window.closeLb = function() {
+  document.getElementById("lightbox").classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+window.lbBg = function(e) {
+  if (e.target === document.getElementById("lightbox")) window.closeLb();
+}
+
+window.filterGallery = function(type, btn) {
+  document.querySelectorAll(".filter-btn").forEach(function(b) { b.classList.remove("active"); });
+  btn.classList.add("active");
+  document.querySelectorAll(".gallery-section").forEach(function(s) {
+    s.style.display = (type === "all" || s.getAttribute("data-section") === type) ? "block" : "none";
+  });
+}</script>
+
+
+<div class="lightbox" id="lightbox" onclick="window.lbBg(event)">
+  <button class="lb-close" onclick="window.closeLb()">&times;</button>
+  <button class="lb-nav lb-prev" onclick="window.lbNav(-1);event.stopPropagation()">&#8592;</button>
+  <button class="lb-nav lb-next" onclick="window.lbNav(1);event.stopPropagation()">&#8594;</button>
+  <div class="lb-content">
+    <img class="lb-img" id="lbImg" src="" alt="">
+    <div class="lb-footer">
+      <div><div class="lb-section-tag" id="lbTag"></div><div class="lb-caption" id="lbCap"></div></div>
+      <div class="lb-counter" id="lbCtr"></div>
+    </div>
+  </div>
+</div>
+
+</Layout>

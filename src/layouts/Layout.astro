@@ -1,0 +1,76 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+}
+const { title, description = "BroHafizi — Trainer & Pendakwah Digital Malaysia", canonical } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<meta name="description" content={description}>
+{canonical && <link rel="canonical" href={canonical}>}
+<meta name="theme-color" content="#0d1b3e">
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style is:global>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:#f2f0eb;color:#1a1a2e;overflow-x:hidden}
+nav{background:#0d1b3e;display:flex;justify-content:space-between;align-items:center;padding:0 5%;height:64px;position:sticky;top:0;z-index:100}
+.nav-brand{display:flex;flex-direction:column;gap:2px;text-decoration:none}
+.nav-brand strong{color:#fff;font-size:16px;font-weight:600}
+.nav-brand span{color:#6b8dba;font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.nav-links{display:flex;gap:2px}
+.nav-links a{color:#adc5de;font-size:13px;padding:8px 14px;border-radius:4px;text-decoration:none;transition:all 0.15s}
+.nav-links a:hover,.nav-links a.active{background:#1a2f5e;color:#fff}
+.nav-social{display:flex;gap:6px}
+.nav-social a{width:30px;height:30px;border:1px solid #1e3060;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#6b8dba;text-decoration:none;font-size:12px;transition:all 0.15s}
+.nav-social a:hover{background:#1a2f5e;color:#fff}
+footer{background:#060f22;padding:28px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid #0d1b3e}
+.footer-brand strong{color:#adc5de;font-size:13px}
+.footer-brand span{display:block;font-size:10px;color:#2a4060;margin-top:2px}
+.footer-copy{font-size:11px;color:#2a4060}
+@media(max-width:600px){.nav-links{display:none}}
+</style>
+</head>
+<body>
+<nav role="navigation" aria-label="Navigasi Utama">
+  <a href="/" class="nav-brand">
+    <strong>BroHafizi.com</strong>
+    <span>Sebarkan Salam Sampaikan Islam</span>
+  </a>
+  <div class="nav-links">
+    <a href="/" class={currentPath === "/" ? "active" : ""}>Laman Utama</a>
+    <a href="/mengenai-saya" class={currentPath === "/mengenai-saya" ? "active" : ""}>Mengenai Saya</a>
+    <a href="/coretanku" class={currentPath.startsWith("/coretanku") ? "active" : ""}>Coretanku</a>
+    <a href="/galeri" class={currentPath === "/galeri" ? "active" : ""}>Galeri</a>
+    <a href="/hubungi-saya" class={currentPath === "/hubungi-saya" ? "active" : ""}>Hubungi Saya</a>
+  </div>
+  <div class="nav-social">
+    <a href="https://www.facebook.com/BroHafizidotcom" target="_blank" rel="noopener">f</a>
+    <a href="https://www.instagram.com/brotherhafizi/" target="_blank" rel="noopener">&#9678;</a>
+    <a href="https://www.tiktok.com/@brohafizi.com" target="_blank" rel="noopener">&#9654;</a>
+  </div>
+</nav>
+
+<slot />
+
+<footer role="contentinfo">
+  <div class="footer-brand">
+    <strong>BroHafizi.com</strong>
+    <span>Sebarkan Salam Sampaikan Islam &middot; &copy; 2026</span>
+  </div>
+  <div class="footer-copy">Dibina dengan Astro + Keystatic CMS &middot; Hosted on Vercel</div>
+</footer>
+</body>
+</html>
