@@ -13,7 +13,7 @@ function renderFeatured(){
   el.innerHTML=top2.map(function(p){
     var badges=p.cats.slice(0,2).map(function(c){return'<span class="fcat-badge">'+esc(c)+'</span>';}).join("");
     var imgTag=p.img?'<img class="featured-img" src="'+p.img+'" alt="" loading="eager">':"";
-    return'<a class="featured-card" href="'+p.link+'" target="_blank" rel="noopener">'+imgTag+'<div class="featured-overlay"><div>'+badges+'</div><div class="featured-title">'+esc(p.title)+'</div><div class="featured-meta">'+p.dateDisplay+'</div></div></a>';
+    return'<a class="featured-card" href="'+p.link+'">'+imgTag+'<div class="featured-overlay"><div>'+badges+'</div><div class="featured-title">'+esc(p.title)+'</div><div class="featured-meta">'+p.dateDisplay+'</div></div></a>';
   }).join("");
 }
 
@@ -45,7 +45,7 @@ function renderPosts(){
     var imgEl=p.img
       ?'<div class="post-img-wrap"><img class="post-img" src="'+p.img+'" alt="" loading="lazy"></div>'
       :'<div class="post-img-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>';
-    return'<a class="post-card" href="'+p.link+'" target="_blank" rel="noopener">'+imgEl+'<div class="post-body"><div class="post-cats">'+cats+'</div><div class="post-title">'+esc(p.title)+'</div><div class="post-excerpt">'+esc(p.excerpt)+'</div><div class="post-meta"><span>'+p.dateDisplay+'</span><span class="post-read">Baca &rarr;</span></div></div></a>';
+    return'<a class="post-card" href="'+p.link+'">'+imgEl+'<div class="post-body"><div class="post-cats">'+cats+'</div><div class="post-title">'+esc(p.title)+'</div><div class="post-excerpt">'+esc(p.excerpt)+'</div><div class="post-meta"><span>'+p.dateDisplay+'</span><span class="post-read">Baca &rarr;</span></div></div></a>';
   }).join("");
   if(toShow.length<src.length){
     loadWrap.style.display="block";
@@ -65,7 +65,15 @@ function renderPosts(){
 
 function applyFilter(){
   filtered=allPosts.filter(function(p){
-    var mc=curFilter==="all"||p.cats.indexOf(curFilter)>-1;
+    var mc;
+    if(curFilter==="all"){
+      mc=true;
+    } else if(curFilter.indexOf("__bulan__")===0){
+      var ym=curFilter.replace("__bulan__","");
+      mc=p.date&&p.date.indexOf(ym)===0;
+    } else {
+      mc=p.cats.indexOf(curFilter)>-1;
+    }
     var ms=!curSearch||p.title.toLowerCase().indexOf(curSearch.toLowerCase())>-1||p.excerpt.toLowerCase().indexOf(curSearch.toLowerCase())>-1;
     return mc&&ms;
   });
@@ -101,6 +109,18 @@ document.addEventListener("DOMContentLoaded",function(){
     .then(function(r){return r.json();})
     .then(function(data){
       allPosts=data;
+      var params=new URLSearchParams(window.location.search);
+      var cat=params.get("cat");
+      var bulan=params.get("bulan");
+      if(cat){
+        curFilter=cat;
+        document.getElementById("featuredSection").style.display="none";
+        document.querySelectorAll(".fcat").forEach(function(b){b.classList.remove("active");});
+      } else if(bulan){
+        curFilter="__bulan__"+bulan;
+        document.getElementById("featuredSection").style.display="none";
+        document.querySelectorAll(".fcat").forEach(function(b){b.classList.remove("active");});
+      }
       renderFeatured();
       applyFilter();
     })
