@@ -57,7 +57,7 @@ nav{background:#0d1b3e;display:flex;justify-content:space-between;align-items:ce
 .hero-photo-mobile .hero-photo-tag strong{font-size:12px}
 
 /* STATS BAR */
-.stats-bar{background:#060f22;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #0d1b3e}
+.stats-bar{background:#060f22;display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid #0d1b3e}
 .sb-item{padding:18px 20px;border-right:1px solid #0d1b3e;text-align:center}
 .sb-item:last-child{border:none}
 .sb-n{font-family:"Playfair Display",serif;font-size:24px;font-weight:700;color:#f0c040}
@@ -149,7 +149,7 @@ footer{background:#060f22;padding:28px 5%;display:flex;justify-content:space-bet
 .footer-copy{font-size:11px;color:#2a4060}
 
 /* RESPONSIVE */
-@media(max-width:900px){
+@media(max-width:900px){.stats-bar{grid-template-columns:repeat(3,1fr)}
   .hero-inner{grid-template-columns:1fr;gap:0}
   .hero-photo-wrap{display:none}
   .hero-photo-mobile{display:block}
@@ -157,7 +157,7 @@ footer{background:#060f22;padding:28px 5%;display:flex;justify-content:space-bet
   .social-grid{grid-template-columns:repeat(2,1fr)}
   .stats-bar{grid-template-columns:repeat(2,1fr)}
 }
-@media(max-width:600px){
+@media(max-width:600px){.stats-bar{grid-template-columns:repeat(2,1fr)}
   .nav-links{display:none}
   .hero h1{font-size:32px}
   .hero-btns{flex-direction:column}
@@ -179,9 +179,9 @@ footer{background:#060f22;padding:28px 5%;display:flex;justify-content:space-bet
   <div class="hero-inner">
 
     <div class="hero-content">
-      <div class="hero-badge"><span></span>Available untuk Training &amp; Ceramah</div>
+      <div class="hero-badge"><span></span>Pendakwah Digital &bull; AI Strategist &bull; Trainer</div>
       <h1>Bro Hafizi<br><em>Bukan Ustaz.</em><br>Tapi Berdakwah.</h1>
-      <p class="hero-desc">Orang biasa-biasa jer tapi boleh buat kerja dakwah — membantu organisasi &amp; komuniti melalui training korporat, teknologi AI, dan pendekatan dakwah digital yang relevan.</p>
+      <p class="hero-desc">Menggabungkan pengalaman dakwah lapangan, strategi media digital dan teknologi AI untuk membantu organisasi, komuniti dan pendakwah bergerak lebih luas, tersusun dan berimpak.</p>
       <div class="hero-btns">
         <a href="/mengenai-saya" class="btn-gold">Kenali Saya &rarr;</a>
         <a href="/hubungi-saya" class="btn-ghost">Jemput Saya</a>
@@ -225,17 +225,19 @@ footer{background:#060f22;padding:28px 5%;display:flex;justify-content:space-bet
 </section>
 
 <div class="stats-bar">
-  <div class="sb-item"><div class="sb-n">1983</div><div class="sb-l">TikTok Likes</div></div>
-  <div class="sb-item"><div class="sb-n">405</div><div class="sb-l">Followers TikTok</div></div>
-  <div class="sb-item"><div class="sb-n">5</div><div class="sb-l">Domain Kepakaran</div></div>
-  <div class="sb-item"><div class="sb-n">&infin;</div><div class="sb-l">Semangat Dakwah</div></div>
+  <div class="sb-item"><div class="sb-n">8+</div><div class="sb-l">Tahun Pengalaman</div></div>
+  <div class="sb-item"><div class="sb-n">200+</div><div class="sb-l">Program Dijayakan</div></div>
+  <div class="sb-item"><div class="sb-n">1000+</div><div class="sb-l">Peserta Dilatih</div></div>
+  <div class="sb-item"><div class="sb-n">13+</div><div class="sb-l">Negeri di Malaysia</div></div>
+  <div class="sb-item"><div class="sb-n">50+</div><div class="sb-l">Organisasi & Institusi</div></div>
+  <div class="sb-item"><div class="sb-n">3+</div><div class="sb-l">Negara Terlibat</div></div>
 </div>
 
 <section class="services-section">
   <div class="services-header">
     <div>
       <div class="s-label" style="color:#6b8dba">Apa Yang Saya Tawarkan</div>
-      <div class="s-title" style="color:#fff;margin-bottom:0">Lima Domain Kepakaran</div>
+      <div class="s-title" style="color:#fff;margin-bottom:0">Kepakaran Utama</div>
     </div>
     <a href="/hubungi-saya" class="btn-gold">Jemput Saya</a>
   </div>
@@ -272,8 +274,56 @@ footer{background:#060f22;padding:28px 5%;display:flex;justify-content:space-bet
     </div>
     <div class="svc svc-cta" onclick="window.location='hubungi.html'">
       <svg width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      <span>Bincang keperluan<br>program awak</span>
+      <span>Bincang keperluan<br>program anda</span>
     </div>
+  </div>
+</section>
+
+<section style="background:#fff;padding:72px 5%">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+    <div>
+      <div style="font-size:10px;letter-spacing:2.5px;color:#1a56db;font-weight:600;text-transform:uppercase;margin-bottom:10px">Kenali Saya</div>
+      <div style="font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,42px);font-weight:700;color:#0d1b3e;line-height:1.2;letter-spacing:-0.5px;margin-bottom:20px">Siapa <em style="font-style:italic;color:#1a56db">Bro Hafizi?</em></div>
+      <p style="font-size:15px;color:#555;line-height:1.85;margin-bottom:16px">Bro Hafizi merupakan seorang <strong>pendakwah lapangan, AI Strategist dan Digital Dakwah Trainer</strong> yang aktif membantu organisasi, komuniti dan pendakwah memanfaatkan teknologi AI serta media digital untuk memperluaskan capaian dakwah secara lebih strategik dan berimpak.</p>
+      <p style="font-size:15px;color:#555;line-height:1.85;margin-bottom:16px">Dengan gabungan pengalaman dalam dakwah lapangan, latihan profesional dan teknologi digital, beliau memberi fokus kepada pembangunan generasi pendakwah yang relevan dengan cabaran era moden.</p>
+      <p style="font-size:15px;color:#555;line-height:1.85;margin-bottom:28px">Misi beliau adalah membina ekosistem <strong>Dakwah Digital</strong> yang mampu menyampaikan mesej Islam secara lebih luas, berhikmah dan berkesan.</p>
+      <a href="/mengenai-saya" style="background:#0d1b3e;color:#f0c040;padding:12px 28px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;display:inline-block;transition:all 0.15s">Kenali Lebih Lanjut &rarr;</a>
+    </div>
+    <div style="position:relative">
+      <div style="background:linear-gradient(135deg,#0d1b3e,#162d5e);border-radius:8px;padding:36px;color:#fff">
+        <div style="font-size:11px;letter-spacing:2px;color:#6b8dba;text-transform:uppercase;margin-bottom:20px">Fokus Utama</div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:flex-start;gap:14px">
+            <div style="width:36px;height:36px;background:#1a2f5e;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f0c040" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+            </div>
+            <div><div style="font-size:13px;font-weight:600;color:#e0eaf8;margin-bottom:3px">Dakwah Digital & AI</div><div style="font-size:12px;color:#4a6a8e;line-height:1.5">Strategi dakwah menggunakan AI, content creation dan media digital</div></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px">
+            <div style="width:36px;height:36px;background:#1a2f5e;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f0c040" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div><div style="font-size:13px;font-weight:600;color:#e0eaf8;margin-bottom:3px">Training & Coaching</div><div style="font-size:12px;color:#4a6a8e;line-height:1.5">Latihan pendakwah digital, public speaking dan komunikasi strategik</div></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px">
+            <div style="width:36px;height:36px;background:#1a2f5e;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f0c040" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            </div>
+            <div><div style="font-size:13px;font-weight:600;color:#e0eaf8;margin-bottom:3px">NGO & Komuniti</div><div style="font-size:12px;color:#4a6a8e;line-height:1.5">Pembangunan organisasi dan ekosistem dakwah berimpak</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE QUOTE -->
+<section style="background:#0d1b3e;padding:64px 5%;text-align:center">
+  <div style="max-width:800px;margin:0 auto">
+    <div style="font-size:48px;color:#f0c040;font-family:'Playfair Display',serif;line-height:1;margin-bottom:16px">&ldquo;</div>
+    <p style="font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,26px);font-weight:600;color:#fff;line-height:1.6;margin-bottom:20px;font-style:italic">Teknologi AI bukan untuk menggantikan pendakwah, tetapi memperkasakan penyampaian dakwah agar lebih luas, cepat dan berimpak.</p>
+    <div style="width:48px;height:2px;background:#f0c040;margin:0 auto 16px"></div>
+    <p style="font-size:13px;color:#6b8dba;letter-spacing:1px;text-transform:uppercase">Mohammad Hafizi Mohd Radzi &mdash; BroHafizi</p>
   </div>
 </section>
 
@@ -422,11 +472,11 @@ footer{background:#060f22;padding:28px 5%;display:flex;justify-content:space-bet
 
 <section class="cta-section">
   <div class="s-label" style="color:rgba(13,27,62,0.45)">Jom Bekerjasama</div>
-  <div class="s-title">Bersedia untuk tingkatkan pasukan atau komuniti awak?</div>
-  <p>Hubungi saya untuk perbincangan awal tentang program yang sesuai. Sesi konsultasi pertama adalah percuma.</p>
+  <div class="s-title">Mahu Membina Gerakan Dakwah Yang Lebih Berimpak?</div>
+  <p>Saya membantu organisasi, NGO, agensi agama dan komuniti menggunakan teknologi AI, media digital dan strategi komunikasi untuk memperluaskan mesej dakwah secara lebih efektif.</p>
   <div class="cta-btns">
-    <a href="/hubungi-saya" class="btn-dark">Tempah Sesi</a>
-    <a href="https://wa.me/60100000000" class="btn-outline-dark">WhatsApp Terus</a>
+    <a href="/hubungi-saya" class="btn-dark">Tempah Sesi Konsultasi</a>
+    <a href="https://wa.me/60116490493" class="btn-outline-dark">WhatsApp Sekarang</a>
   </div>
 </section>
 
