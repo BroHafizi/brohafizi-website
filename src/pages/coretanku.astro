@@ -191,7 +191,14 @@ function renderPosts(){
 
 function applyFilter(){
   filtered=allPosts.filter(function(p){
-    var mc=curFilter==="all"||p.cats.indexOf(curFilter)>-1;
+    var mc;
+    if(curFilter==="all"){mc=true;}
+    else if(curFilter.indexOf("__bulan__")===0){
+      var ym=curFilter.replace("__bulan__","");
+      mc=p.date&&p.date.indexOf(ym)===0;
+    } else {
+      mc=p.cats.indexOf(curFilter)>-1;
+    }
     var ms=!curSearch||p.title.toLowerCase().indexOf(curSearch.toLowerCase())>-1||p.excerpt.toLowerCase().indexOf(curSearch.toLowerCase())>-1;
     return mc&&ms;
   });
@@ -219,6 +226,18 @@ fetch("/posts.json")
   .then(function(data){
     allPosts=data;
     document.getElementById("loadingMsg").style.display="none";
+    var params=new URLSearchParams(window.location.search);
+    var cat=params.get("cat");
+    var bulan=params.get("bulan");
+    if(cat){
+      curFilter=cat;
+      document.getElementById("featuredSection").style.display="none";
+      document.querySelectorAll(".fcat").forEach(function(b){b.classList.remove("active");});
+    } else if(bulan){
+      curFilter="__bulan__"+bulan;
+      document.getElementById("featuredSection").style.display="none";
+      document.querySelectorAll(".fcat").forEach(function(b){b.classList.remove("active");});
+    }
     renderFeatured();
     applyFilter();
   })
