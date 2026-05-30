@@ -158,12 +158,6 @@ const slug = post.id.replace(/\.md$/, '');
   </div>
 </header>
 
-{post.data.featuredImage && post.data.featuredImage !== '' && (
-  <div class="featured-img-wrap">
-    <img src={post.data.featuredImage} alt={post.data.title} loading="eager">
-  </div>
-)}
-
 <main>
   <div class="article-layout">
 
@@ -181,9 +175,9 @@ const slug = post.id.replace(/\.md$/, '');
           </div>
         )}
         <div class="author-box">
-          <div class="author-avatar">B</div>
+          <img class="author-avatar" src="https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780154248/Author_-_Bro_Hafizi_ysre5w.png" alt="Bro Hafizi" style="object-fit:cover;">
           <div>
-            <div class="author-name">BroHafizi — Mohammad Hafizi Mohd Radzi</div>
+            <div class="author-name">Penulis — Bro Hafizi</div>
             <div class="author-desc">Pendakwah Digital • AI Strategist • Trainer. Membantu organisasi dan komuniti menggunakan teknologi AI untuk dakwah yang lebih berimpak.</div>
           </div>
         </div>

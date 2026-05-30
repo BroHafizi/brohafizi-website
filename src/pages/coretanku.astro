@@ -94,20 +94,20 @@ import Layout from '../layouts/Layout.astro';
 <div class="filter-bar">
   <div class="filter-inner">
     <div class="filter-cats">
-      <button class="fcat active" onclick="window.filterBy('all',this)">Semua</button>
-      <button class="fcat" onclick="window.filterBy('Dakwah',this)">Dakwah</button>
-      <button class="fcat" onclick="window.filterBy('Kursus',this)">Kursus</button>
-      <button class="fcat" onclick="window.filterBy('Artikel Dakwah',this)">Artikel Dakwah</button>
-      <button class="fcat" onclick="window.filterBy('Persoalan tentang Islam',this)">Soalan Islam</button>
-      <button class="fcat" onclick="window.filterBy('Social Media',this)">Social Media</button>
-      <button class="fcat" onclick="window.filterBy('Artikel Islam',this)">Artikel Islam</button>
-      <button class="fcat" onclick="window.filterBy('Tips Dakwah',this)">Tips Dakwah</button>
-      <button class="fcat" onclick="window.filterBy('Dakwah Digital',this)">Dakwah Digital</button>
-      <button class="fcat" onclick="window.filterBy('Kursus Istitabah',this)">Kursus Istitabah</button>
+      <button class="fcat active" onclick="filterBy('all',this)">Semua</button>
+      <button class="fcat" onclick="filterBy('Dakwah',this)">Dakwah</button>
+      <button class="fcat" onclick="filterBy('Kursus',this)">Kursus</button>
+      <button class="fcat" onclick="filterBy('Artikel Dakwah',this)">Artikel Dakwah</button>
+      <button class="fcat" onclick="filterBy('Persoalan tentang Islam',this)">Soalan Islam</button>
+      <button class="fcat" onclick="filterBy('Social Media',this)">Social Media</button>
+      <button class="fcat" onclick="filterBy('Artikel Islam',this)">Artikel Islam</button>
+      <button class="fcat" onclick="filterBy('Tips Dakwah',this)">Tips Dakwah</button>
+      <button class="fcat" onclick="filterBy('Dakwah Digital',this)">Dakwah Digital</button>
+      <button class="fcat" onclick="filterBy('Kursus Istitabah',this)">Kursus Istitabah</button>
     </div>
     <div class="search-wrap">
       <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" class="search-input" id="searchInput" placeholder="Cari artikel..." oninput="window.searchBy(this.value)">
+      <input type="text" class="search-input" id="searchInput" placeholder="Cari artikel..." oninput="searchBy(this.value)">
     </div>
   </div>
 </div>
@@ -127,86 +127,105 @@ import Layout from '../layouts/Layout.astro';
     <div class="posts-grid" id="postsGrid"></div>
     <div class="no-results" id="noResults" style="display:none"><p>Tiada artikel dijumpai.</p></div>
     <div class="load-more-wrap" id="loadWrap" style="display:none">
-      <button class="btn-load" id="loadBtn" onclick="window.loadMore()">Muat Lebih Artikel</button>
+      <button class="btn-load" id="loadBtn" onclick="loadMore()">Muat Lebih Artikel</button>
       <div class="load-info" id="loadInfo"></div>
     </div>
   </div>
 </div>
 </main>
 
-<script is:inline>
-window.allPosts=[];
-window.catColors={"Dakwah":"#1a56db","Artikel Dakwah":"#1a56db","Artikel Islam":"#059669","Kursus":"#7c3aed","Kursus Dakwah":"#7c3aed","Kursus Istitabah":"#7c3aed","Social Media":"#dc2626","Persoalan tentang Islam":"#d97706","Tips Dakwah":"#0891b2","Dakwah Digital":"#db2777"};
-window.curFilter="all";window.curSearch="";window.curPage=1;window.perPage=9;window.filtered=[];
-window.cc=function(c){return window.catColors[c]||"#6b7280";};
-window.esc=function(s){return (s||"").replace(/</g,"&lt;").replace(/>/g,"&gt;");};
-window.renderFeatured=function(){
-  if(!window.allPosts.length)return;
-  var el=document.getElementById("featuredGrid");if(!el)return;
-  el.innerHTML=window.allPosts.slice(0,2).map(function(p){
-    var b=p.cats.slice(0,2).map(function(c){return'<span class="fcat-badge">'+window.esc(c)+'</span>';}).join("");
-    var i=p.img?'<img class="featured-img" src="'+p.img+'" alt="" loading="eager">':"";
-    return'<a class="featured-card" href="'+p.link+'" >'+i+'<div class="featured-overlay"><div>'+b+'</div><div class="featured-title">'+window.esc(p.title)+'</div><div class="featured-meta">'+p.dateDisplay+'</div></div></a>';
+<script is:inline src="/coretanku.js">
+var allPosts=[];
+var catColors={"Dakwah":"#1a56db","Artikel Dakwah":"#1a56db","Artikel Islam":"#059669","Kursus":"#7c3aed","Kursus Dakwah":"#7c3aed","Kursus Istitabah":"#7c3aed","Social Media":"#dc2626","Persoalan tentang Islam":"#d97706","Tips Dakwah":"#0891b2","Islam & Sains":"#059669","Dakwah Digital":"#db2777"};
+var curFilter="all",curSearch="",curPage=1,perPage=9,filtered=[];
+function cc(c){return catColors[c]||"#6b7280";}
+function esc(s){return (s||"").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+function renderFeatured(){
+  var top2=allPosts.slice(0,2);
+  document.getElementById("featuredGrid").innerHTML=top2.map(function(p){
+    var badges=p.cats.slice(0,2).map(function(c){return'<span class="fcat-badge">'+esc(c)+'</span>';}).join("");
+    var imgTag=p.img?'<img class="featured-img" src="'+p.img+'" alt="" loading="eager">':"";
+    return'<a class="featured-card" href="'+p.link+'" target="_blank" rel="noopener">'+
+      imgTag+
+      '<div class="featured-overlay">'+
+        '<div>'+badges+'</div>'+
+        '<div class="featured-title">'+esc(p.title)+'</div>'+
+        '<div class="featured-meta">'+p.dateDisplay+'</div>'+
+      '</div>'+
+    '</a>';
   }).join("");
-};
-window.renderPosts=function(){
-  var grid=document.getElementById("postsGrid");if(!grid)return;
+}
+
+function renderPosts(){
+  var grid=document.getElementById("postsGrid");
   var noRes=document.getElementById("noResults");
   var countEl=document.getElementById("postsCount");
   var loadWrap=document.getElementById("loadWrap");
   var loadBtn=document.getElementById("loadBtn");
   var loadInfo=document.getElementById("loadInfo");
-  var lm=document.getElementById("loadingMsg");
-  if(lm)lm.style.display="none";
-  countEl.textContent=window.filtered.length+" artikel";
-  if(window.filtered.length===0){grid.innerHTML="";noRes.style.display="block";loadWrap.style.display="none";return;}
+  countEl.textContent=filtered.length+" artikel";
+  if(filtered.length===0){grid.innerHTML="";noRes.style.display="block";loadWrap.style.display="none";return;}
   noRes.style.display="none";
-  var src=(window.curFilter==="all"&&!window.curSearch)?window.filtered.slice(2):window.filtered;
-  var toShow=src.slice(0,window.curPage*window.perPage);
+  var src=(curFilter==="all"&&!curSearch)?filtered.slice(2):filtered;
+  var toShow=src.slice(0,curPage*perPage);
   grid.innerHTML=toShow.map(function(p){
-    var cats=p.cats.slice(0,2).map(function(c){var col=window.cc(c);return'<span class="post-cat" style="background:'+col+'20;color:'+col+'">'+window.esc(c)+'</span>';}).join("");
-    var img=p.img?'<div class="post-img-wrap"><img class="post-img" src="'+p.img+'" alt="" loading="lazy"></div>':'<div class="post-img-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>';
-    return'<a class="post-card" href="'+p.link+'" >'+img+'<div class="post-body"><div class="post-cats">'+cats+'</div><div class="post-title">'+window.esc(p.title)+'</div><div class="post-excerpt">'+window.esc(p.excerpt)+'</div><div class="post-meta"><span>'+p.dateDisplay+'</span><span class="post-read">Baca &#8594;</span></div></div></a>';
+    var cats=p.cats.slice(0,2).map(function(c){
+      var col=cc(c);
+      return'<span class="post-cat" style="background:'+col+'20;color:'+col+'">'+esc(c)+'</span>';
+    }).join("");
+    var imgEl=p.img
+      ?'<div class="post-img-wrap"><img class="post-img" src="'+p.img+'" alt="" loading="lazy"></div>'
+      :'<div class="post-img-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>';
+    return'<a class="post-card" href="'+p.link+'" target="_blank" rel="noopener">'+
+      imgEl+
+      '<div class="post-body">'+
+        '<div class="post-cats">'+cats+'</div>'+
+        '<div class="post-title">'+esc(p.title)+'</div>'+
+        '<div class="post-excerpt">'+esc(p.excerpt)+'</div>'+
+        '<div class="post-meta"><span>'+p.dateDisplay+'</span><span class="post-read">Baca &rarr;</span></div>'+
+      '</div>'+
+    '</a>';
   }).join("");
-  if(toShow.length<src.length){
-    loadWrap.style.display="block";loadBtn.disabled=false;
-    loadBtn.textContent="Muat Lebih Artikel";
-    loadInfo.textContent="Papar "+toShow.length+" daripada "+src.length+" artikel";
-  } else {
-    if(src.length>window.perPage){loadWrap.style.display="block";loadBtn.disabled=true;loadBtn.textContent="Semua artikel dipaparkan";}
-    else loadWrap.style.display="none";
-  }
-};
-window.applyFilter=function(){
-  window.filtered=window.allPosts.filter(function(p){
-    var mc=window.curFilter==="all"||p.cats.indexOf(window.curFilter)>-1;
-    var ms=!window.curSearch||p.title.toLowerCase().indexOf(window.curSearch.toLowerCase())>-1||p.excerpt.toLowerCase().indexOf(window.curSearch.toLowerCase())>-1;
+}
+
+function applyFilter(){
+  filtered=allPosts.filter(function(p){
+    var mc=curFilter==="all"||p.cats.indexOf(curFilter)>-1;
+    var ms=!curSearch||p.title.toLowerCase().indexOf(curSearch.toLowerCase())>-1||p.excerpt.toLowerCase().indexOf(curSearch.toLowerCase())>-1;
     return mc&&ms;
   });
-  window.curPage=1;window.renderPosts();
-};
-window.filterBy=function(cat,btn){
-  window.curFilter=cat;window.curSearch="";window.curPage=1;
+  curPage=1;renderPosts();
+}
+function filterBy(cat,btn){
+  curFilter=cat;curSearch="";curPage=1;
   document.getElementById("searchInput").value="";
   document.querySelectorAll(".fcat").forEach(function(b){b.classList.remove("active");});
   btn.classList.add("active");
   document.getElementById("featuredSection").style.display=cat==="all"?"block":"none";
-  window.applyFilter();
-};
-window.searchBy=function(val){
-  window.curSearch=val;window.curFilter="all";window.curPage=1;
+  applyFilter();
+}
+function searchBy(val){
+  curSearch=val;curFilter="all";curPage=1;
   document.querySelectorAll(".fcat").forEach(function(b){b.classList.remove("active");});
   document.querySelectorAll(".fcat")[0].classList.add("active");
   document.getElementById("featuredSection").style.display=val?"none":"block";
-  window.applyFilter();
-};
-window.loadMore=function(){window.curPage++;window.renderPosts();window.scrollBy({top:300,behavior:"smooth"});};
-document.addEventListener("DOMContentLoaded",function(){
-  fetch("/posts.json")
-    .then(function(r){return r.json();})
-    .then(function(data){window.allPosts=data;window.renderFeatured();window.applyFilter();})
-    .catch(function(e){var m=document.getElementById("loadingMsg");if(m)m.textContent="Ralat memuatkan artikel.";console.error(e);});
-});
+  applyFilter();
+}
+function loadMore(){curPage++;renderPosts();window.scrollBy({top:300,behavior:"smooth"});}
+
+fetch("/posts.json")
+  .then(function(r){return r.json();})
+  .then(function(data){
+    allPosts=data;
+    document.getElementById("loadingMsg").style.display="none";
+    renderFeatured();
+    applyFilter();
+  })
+  .catch(function(e){
+    document.getElementById("loadingMsg").textContent="Ralat memuatkan artikel.";
+    console.error(e);
+  });
 </script>
 
 </Layout>
