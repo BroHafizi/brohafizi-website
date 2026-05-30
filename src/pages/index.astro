@@ -171,6 +171,13 @@ footer{background:#060f22;padding:28px 5%;display:flex;justify-content:space-bet
   .hero-tags{display:none}
 }
 
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+@media(max-width:768px){
+  .about-grid{grid-template-columns:1fr;gap:36px}
+  .about-focus-box{order:2}
+  .about-text-col{order:1}
+}
 </style>
 
 <section class="hero" aria-label="Pengenalan BroHafizi">
@@ -279,9 +286,9 @@ footer{background:#060f22;padding:28px 5%;display:flex;justify-content:space-bet
   </div>
 </section>
 
-<section style="background:#fff;padding:72px 5%">
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
-    <div>
+<section style="background:#fff;padding:64px 5%">
+  <div style="max-width:1200px;margin:0 auto" class="about-grid">
+    <div class="about-text-col">
       <div style="font-size:10px;letter-spacing:2.5px;color:#1a56db;font-weight:600;text-transform:uppercase;margin-bottom:10px">Kenali Saya</div>
       <div style="font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,42px);font-weight:700;color:#0d1b3e;line-height:1.2;letter-spacing:-0.5px;margin-bottom:20px">Siapa <em style="font-style:italic;color:#1a56db">Bro Hafizi?</em></div>
       <p style="font-size:15px;color:#555;line-height:1.85;margin-bottom:16px">Bro Hafizi merupakan seorang <strong>pendakwah lapangan, AI Strategist dan Digital Dakwah Trainer</strong> yang aktif membantu organisasi, komuniti dan pendakwah memanfaatkan teknologi AI serta media digital untuk memperluaskan capaian dakwah secara lebih strategik dan berimpak.</p>
@@ -289,7 +296,7 @@ footer{background:#060f22;padding:28px 5%;display:flex;justify-content:space-bet
       <p style="font-size:15px;color:#555;line-height:1.85;margin-bottom:28px">Misi beliau adalah membina ekosistem <strong>Dakwah Digital</strong> yang mampu menyampaikan mesej Islam secara lebih luas, berhikmah dan berkesan.</p>
       <a href="/mengenai-saya" style="background:#0d1b3e;color:#f0c040;padding:12px 28px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;display:inline-block;transition:all 0.15s">Kenali Lebih Lanjut &rarr;</a>
     </div>
-    <div style="position:relative">
+    <div class="about-focus-box" style="position:relative">
       <div style="background:linear-gradient(135deg,#0d1b3e,#162d5e);border-radius:8px;padding:36px;color:#fff">
         <div style="font-size:11px;letter-spacing:2px;color:#6b8dba;text-transform:uppercase;margin-bottom:20px">Fokus Utama</div>
         <div style="display:flex;flex-direction:column;gap:14px">
