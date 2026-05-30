@@ -1,0 +1,143 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map(post => ({
+    params: { slug: post.id.replace(/\.md$/, '') },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const months: Record<string, string> = {
+  '01':'Jan','02':'Feb','03':'Mac','04':'Apr','05':'Mei','06':'Jun',
+  '07':'Jul','08':'Ogos','09':'Sep','10':'Okt','11':'Nov','12':'Dis'
+};
+
+function formatDate(dateStr: string) {
+  const parts = dateStr.split('-');
+  if (parts.length === 3) {
+    return `${parseInt(parts[2])} ${months[parts[1]] || parts[1]} ${parts[0]}`;
+  }
+  return dateStr;
+}
+
+const catColors: Record<string, string> = {
+  "Dakwah":"#1a56db","Artikel Dakwah":"#1a56db","Artikel Islam":"#059669",
+  "Kursus":"#7c3aed","Kursus Istitabah":"#7c3aed","Social Media":"#dc2626",
+  "Persoalan tentang Islam":"#d97706","Tips Dakwah":"#0891b2","Dakwah Digital":"#db2777"
+};
+
+const slug = post.id.replace(/\.md$/, '');
+---
+
+<Layout 
+  title={`${post.data.title} | BroHafizi`}
+  description={post.data.excerpt || post.data.title}
+  canonical={`https://brohafizi.com/coretanku/${slug}`}
+>
+
+<style is:global>
+.article-header{background:#0d1b3e;padding:56px 5% 48px;position:relative;overflow:hidden}
+.article-header-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0d1b3e 0%,#162d5e 50%,#0d1b3e 100%)}
+.article-header-inner{position:relative;z-index:2;max-width:800px;margin:0 auto}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.breadcrumb a{color:#6b8dba;font-size:12px;text-decoration:none}
+.breadcrumb a:hover{color:#f0c040}
+.breadcrumb span{color:#3a5070;font-size:12px}
+.article-cats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.article-cat{font-size:11px;padding:3px 10px;border-radius:12px;font-weight:500}
+.article-title{font-family:"Playfair Display",serif;font-size:clamp(22px,4vw,40px);font-weight:700;color:#fff;line-height:1.2;letter-spacing:-0.5px;margin-bottom:16px}
+.article-meta{display:flex;align-items:center;gap:16px;font-size:12px;color:#6b8dba;flex-wrap:wrap}
+.featured-img-wrap{max-width:800px;margin:0 auto;padding:0 5%}
+.featured-img-wrap img{width:100%;max-height:420px;object-fit:cover;border-radius:0 0 8px 8px;display:block}
+.article-body{max-width:800px;margin:0 auto;padding:40px 5% 60px}
+.article-content{font-size:16px;line-height:1.9;color:#333}
+.article-content h2{font-family:"Playfair Display",serif;font-size:22px;font-weight:700;color:#0d1b3e;margin:32px 0 12px;line-height:1.3}
+.article-content h3{font-family:"Playfair Display",serif;font-size:18px;font-weight:600;color:#0d1b3e;margin:24px 0 10px}
+.article-content p{margin-bottom:18px}
+.article-content img{width:100%;border-radius:6px;margin:20px 0;display:block}
+.article-content ul,.article-content ol{margin:12px 0 18px 24px}
+.article-content li{margin-bottom:6px;line-height:1.7}
+.article-content strong{color:#0d1b3e;font-weight:600}
+.article-content a{color:#1a56db;text-decoration:underline}
+.article-content blockquote{border-left:3px solid #f0c040;padding:12px 20px;margin:24px 0;background:#f8f6f0;border-radius:0 6px 6px 0;font-style:italic;color:#555}
+.article-footer{border-top:1px solid #e8e4dc;padding-top:28px;margin-top:40px}
+.article-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.article-tag{font-size:11px;padding:4px 10px;border-radius:12px;background:#f0ede8;color:#666;text-decoration:none}
+.author-box{background:#f8f6f0;border:1px solid #e8e4dc;border-radius:8px;padding:20px;display:flex;align-items:center;gap:16px;margin-top:28px}
+.author-avatar{width:48px;height:48px;border-radius:50%;background:#0d1b3e;display:flex;align-items:center;justify-content:center;color:#f0c040;font-size:16px;font-weight:700;flex-shrink:0}
+.author-name{font-size:13px;font-weight:600;color:#0d1b3e}
+.author-desc{font-size:12px;color:#777;margin-top:3px;line-height:1.5}
+.article-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;flex-wrap:wrap;gap:12px}
+.btn-back{background:#0d1b3e;color:#fff;padding:10px 20px;border-radius:4px;font-size:13px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all 0.15s}
+.btn-back:hover{background:#162d5e}
+</style>
+
+<header class="article-header">
+  <div class="article-header-bg"></div>
+  <div class="article-header-inner">
+    <nav class="breadcrumb">
+      <a href="/">Laman Utama</a>
+      <span>/</span>
+      <a href="/coretanku">Coretanku</a>
+      <span>/</span>
+      <span style="color:#adc5de">{post.data.title.substring(0,45)}{post.data.title.length > 45 ? '...' : ''}</span>
+    </nav>
+    <div class="article-cats">
+      {post.data.categories.slice(0,3).map((cat: string) => (
+        <span class="article-cat" style={`background:${(catColors[cat] || '#6b7280')}20;color:${catColors[cat] || '#6b7280'}`}>
+          {cat}
+        </span>
+      ))}
+    </div>
+    <h1 class="article-title">{post.data.title}</h1>
+    <div class="article-meta">
+      <span>{formatDate(post.data.date)}</span>
+      <span>&bull;</span>
+      <span>{post.data.author}</span>
+    </div>
+  </div>
+</header>
+
+{post.data.featuredImage && post.data.featuredImage !== '' && (
+  <div class="featured-img-wrap">
+    <img src={post.data.featuredImage} alt={post.data.title} loading="eager">
+  </div>
+)}
+
+<main>
+  <div class="article-body">
+    <div class="article-content">
+      <Content />
+    </div>
+    <div class="article-footer">
+      {post.data.tags.length > 0 && (
+        <div class="article-tags">
+          {post.data.tags.map((tag: string) => (
+            <span class="article-tag">#{tag}</span>
+          ))}
+        </div>
+      )}
+      <div class="author-box">
+        <div class="author-avatar">B</div>
+        <div>
+          <div class="author-name">BroHafizi — Mohammad Hafizi Mohd Radzi</div>
+          <div class="author-desc">Pendakwah Digital • AI Strategist • Trainer. Membantu organisasi dan komuniti menggunakan teknologi AI untuk dakwah yang lebih berimpak.</div>
+        </div>
+      </div>
+      <div class="article-nav">
+        <a href="/coretanku" class="btn-back">
+          &larr; Kembali ke Coretanku
+        </a>
+        <a href="/hubungi-saya" style="font-size:13px;color:#1a56db;text-decoration:none">Jemput BroHafizi &rarr;</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+</Layout>

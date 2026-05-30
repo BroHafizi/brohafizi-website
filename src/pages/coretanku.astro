@@ -146,7 +146,7 @@ window.renderFeatured=function(){
   el.innerHTML=window.allPosts.slice(0,2).map(function(p){
     var b=p.cats.slice(0,2).map(function(c){return'<span class="fcat-badge">'+window.esc(c)+'</span>';}).join("");
     var i=p.img?'<img class="featured-img" src="'+p.img+'" alt="" loading="eager">':"";
-    return'<a class="featured-card" href="'+p.link+'" target="_blank" rel="noopener">'+i+'<div class="featured-overlay"><div>'+b+'</div><div class="featured-title">'+window.esc(p.title)+'</div><div class="featured-meta">'+p.dateDisplay+'</div></div></a>';
+    return'<a class="featured-card" href="'+p.link+'" >'+i+'<div class="featured-overlay"><div>'+b+'</div><div class="featured-title">'+window.esc(p.title)+'</div><div class="featured-meta">'+p.dateDisplay+'</div></div></a>';
   }).join("");
 };
 window.renderPosts=function(){
@@ -166,7 +166,7 @@ window.renderPosts=function(){
   grid.innerHTML=toShow.map(function(p){
     var cats=p.cats.slice(0,2).map(function(c){var col=window.cc(c);return'<span class="post-cat" style="background:'+col+'20;color:'+col+'">'+window.esc(c)+'</span>';}).join("");
     var img=p.img?'<div class="post-img-wrap"><img class="post-img" src="'+p.img+'" alt="" loading="lazy"></div>':'<div class="post-img-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>';
-    return'<a class="post-card" href="'+p.link+'" target="_blank" rel="noopener">'+img+'<div class="post-body"><div class="post-cats">'+cats+'</div><div class="post-title">'+window.esc(p.title)+'</div><div class="post-excerpt">'+window.esc(p.excerpt)+'</div><div class="post-meta"><span>'+p.dateDisplay+'</span><span class="post-read">Baca &#8594;</span></div></div></a>';
+    return'<a class="post-card" href="'+p.link+'" >'+img+'<div class="post-body"><div class="post-cats">'+cats+'</div><div class="post-title">'+window.esc(p.title)+'</div><div class="post-excerpt">'+window.esc(p.excerpt)+'</div><div class="post-meta"><span>'+p.dateDisplay+'</span><span class="post-read">Baca &#8594;</span></div></div></a>';
   }).join("");
   if(toShow.length<src.length){
     loadWrap.style.display="block";loadBtn.disabled=false;
