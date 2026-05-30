@@ -41,6 +41,14 @@ footer{background:#060f22;padding:28px 5%;display:flex;justify-content:space-bet
 .footer-brand span{display:block;font-size:10px;color:#2a4060;margin-top:2px}
 .footer-copy{font-size:11px;color:#2a4060}
 @media(max-width:600px){.nav-links{display:none}}
+
+.nav-hamburger{background:none;border:1px solid #1e3060;border-radius:4px;padding:6px 10px;cursor:pointer;display:none;flex-direction:column;gap:4px;align-items:center;justify-content:center}
+.nav-hamburger span{display:block;width:18px;height:2px;background:#adc5de;border-radius:2px;transition:all 0.3s}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:#0d1b3e;border-top:1px solid #1a2f5e;z-index:99;flex-direction:column;padding:8px 0;box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:#adc5de;font-size:14px;padding:14px 5%;text-decoration:none;border-bottom:1px solid #0a1530;transition:all 0.15s;display:block}
+.mobile-menu a:hover,.mobile-menu a.active{background:#1a2f5e;color:#fff}
+.mobile-menu a:last-child{border-bottom:none}
 </style>
 </head>
 <body>
@@ -56,12 +64,23 @@ footer{background:#060f22;padding:28px 5%;display:flex;justify-content:space-bet
     <a href="/galeri" class={currentPath === "/galeri" ? "active" : ""}>Galeri</a>
     <a href="/hubungi-saya" class={currentPath === "/hubungi-saya" ? "active" : ""}>Hubungi Saya</a>
   </div>
+  <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <div class="nav-social">
     <a href="https://www.facebook.com/BroHafizidotcom" target="_blank" rel="noopener">f</a>
     <a href="https://www.instagram.com/brotherhafizi/" target="_blank" rel="noopener">&#9678;</a>
     <a href="https://www.tiktok.com/@brohafizi.com" target="_blank" rel="noopener">&#9654;</a>
   </div>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/" id="mobileHome">Laman Utama</a>
+  <a href="/mengenai-saya" id="mobileMengenai">Mengenai Saya</a>
+  <a href="/coretanku" id="mobileCoretanku">Coretanku</a>
+  <a href="/galeri" id="mobileGaleri">Galeri</a>
+  <a href="/hubungi-saya" id="mobileHubungi">Hubungi Saya</a>
+</div>
 
 <slot />
 
@@ -72,5 +91,43 @@ footer{background:#060f22;padding:28px 5%;display:flex;justify-content:space-bet
   </div>
   <div class="footer-copy">Dibina dengan Astro + Keystatic CMS &middot; Hosted on Vercel</div>
 </footer>
+<script is:inline>
+function toggleMobileMenu() {
+  var menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+  // Change hamburger icon
+  var btn = document.querySelector('.nav-hamburger');
+  btn.classList.toggle('active');
+}
+// Close menu when clicking a link
+document.addEventListener('DOMContentLoaded', function() {
+  var links = document.querySelectorAll('.mobile-menu a');
+  links.forEach(function(link) {
+    link.addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.remove('open');
+    });
+  });
+  // Set active link
+  var path = window.location.pathname;
+  var links2 = document.querySelectorAll('.mobile-menu a');
+  links2.forEach(function(link) {
+    if (link.getAttribute('href') === path || 
+        (path.startsWith('/coretanku') && link.getAttribute('href') === '/coretanku')) {
+      link.classList.add('active');
+    }
+  });
+});
+// Close menu when clicking outside
+document.addEventListener('click', function(e) {
+  var menu = document.getElementById('mobileMenu');
+  var btn = document.querySelector('.nav-hamburger');
+  if (menu && menu.classList.contains('open')) {
+    if (!menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.remove('open');
+      btn.classList.remove('active');
+    }
+  }
+});
+</script>
 </body>
 </html>
