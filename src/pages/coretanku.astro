@@ -146,7 +146,7 @@ function renderFeatured(){
   document.getElementById("featuredGrid").innerHTML=top2.map(function(p){
     var badges=p.cats.slice(0,2).map(function(c){return'<span class="fcat-badge">'+esc(c)+'</span>';}).join("");
     var imgTag=p.img?'<img class="featured-img" src="'+p.img+'" alt="" loading="eager">':"";
-    return'<a class="featured-card" href="'+p.link+'" target="_blank" rel="noopener">'+
+    return'<a class="featured-card" href="'+p.link+'">'+
       imgTag+
       '<div class="featured-overlay">'+
         '<div>'+badges+'</div>'+
@@ -177,7 +177,7 @@ function renderPosts(){
     var imgEl=p.img
       ?'<div class="post-img-wrap"><img class="post-img" src="'+p.img+'" alt="" loading="lazy"></div>'
       :'<div class="post-img-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>';
-    return'<a class="post-card" href="'+p.link+'" target="_blank" rel="noopener">'+
+    return'<a class="post-card" href="'+p.link+'">'+
       imgEl+
       '<div class="post-body">'+
         '<div class="post-cats">'+cats+'</div>'+
