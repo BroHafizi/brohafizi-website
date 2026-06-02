@@ -1,148 +1,217 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Galeri | BroHafizi" description="Koleksi gambar korporat, program training, bersama para mufti, ulama dan tokoh agama dari seluruh Malaysia." canonical="https://brohafizi.com/galeri">
+
+<Layout title="Galeri | BroHafizi" description="Koleksi gambar dakwah lapangan, interfaith, program dakwah dan ceramah BroHafizi dari seluruh Malaysia." canonical="https://brohafizi.com/galeri">
 
 <style is:global>
-.page-header{background:#0d1b3e;padding:64px 5% 56px;position:relative;overflow:hidden}
+.page-header{background:#0d1b3e;padding:64px 5% 48px;position:relative;overflow:hidden}
 .page-header-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0d1b3e 0%,#162d5e 50%,#0d1b3e 100%)}
-.page-header-pattern{position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(240,192,64,0.06) 0%,transparent 50%)}
-.page-header-deco{position:absolute;right:5%;top:50%;transform:translateY(-50%);width:200px;height:200px;border-radius:50%;border:40px solid rgba(255,255,255,0.03);pointer-events:none}
 .page-header-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto}
-.page-header h1{font-family:"Playfair Display",serif;font-size:clamp(36px,5vw,58px);font-weight:700;color:#fff;line-height:1.1;letter-spacing:-1.5px;margin-bottom:14px}
-.page-header h1 em{font-style:italic;color:#f0c040}
-.page-header-sub{font-size:15px;color:#6b8dba;font-weight:300;max-width:520px;line-height:1.7}
-.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px}
-.breadcrumb a{color:#6b8dba;font-size:12px;text-decoration:none}
-.breadcrumb a:hover{color:#f0c040}
-.breadcrumb span{color:#3a5070;font-size:12px}
-.filter-bar{background:#fff;border-bottom:1px solid #e8e4dc;padding:0 5%}
-.filter-inner{max-width:1200px;margin:0 auto;display:flex;gap:8px;padding:12px 0}
-.filter-btn{padding:7px 18px;border-radius:20px;border:1px solid #e0ddd6;background:#fff;font-size:13px;color:#666;cursor:pointer;white-space:nowrap;transition:all 0.15s;font-family:"DM Sans",sans-serif}
-.filter-btn:hover{border-color:#0d1b3e;color:#0d1b3e}
-.filter-btn.active{background:#0d1b3e;color:#fff;border-color:#0d1b3e}
+.page-header-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#6b8dba;margin-bottom:12px;font-weight:500}
+.page-header-title{font-family:"Playfair Display",serif;font-size:clamp(28px,5vw,48px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:16px}
+.page-header-sub{font-size:15px;color:#6b8dba;max-width:560px;line-height:1.7}
 
-
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:"DM Sans",sans-serif;background:#f2f0eb;color:#1a1a2e;overflow-x:hidden}
-nav{background:#0d1b3e;display:flex;justify-content:space-between;align-items:center;padding:0 5%;height:64px;position:sticky;top:0;z-index:100}
-.nav-brand{display:flex;flex-direction:column;gap:2px}
-.nav-brand strong{color:#fff;font-size:16px;font-weight:600}
-.nav-brand span{color:#6b8dba;font-size:10px;letter-spacing:1px;text-transform:uppercase}
-.nav-links{display:flex;gap:2px}
-.nav-links a{color:#adc5de;font-size:13px;padding:8px 14px;border-radius:4px;text-decoration:none;transition:all 0.15s}
-.nav-links a:hover,.nav-links a.active{background:#1a2f5e;color:#fff}
-.nav-social{display:flex;gap:6px}
-.nav-social a{width:30px;height:30px;border:1px solid #1e3060;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#6b8dba;text-decoration:none;font-size:12px;transition:all 0.15s}
-.nav-social a:hover{background:#1a2f5e;color:#fff}
-.page-header{background:#0d1b3e;padding:64px 5% 56px;position:relative;overflow:hidden}
-.page-header-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0d1b3e 0%,#162d5e 50%,#0d1b3e 100%)}
-.page-header-pattern{position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(240,192,64,0.06) 0%,transparent 50%)}
-.page-header-deco{position:absolute;right:5%;top:50%;transform:translateY(-50%);width:200px;height:200px;border-radius:50%;border:40px solid rgba(255,255,255,0.03);pointer-events:none}
-.page-header-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto}
-.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px}
-.breadcrumb a{color:#6b8dba;font-size:12px;text-decoration:none}
-.breadcrumb a:hover{color:#f0c040}
-.breadcrumb span{color:#3a5070;font-size:12px}
-.page-header h1{font-family:"Playfair Display",serif;font-size:clamp(36px,5vw,58px);font-weight:700;color:#fff;line-height:1.1;letter-spacing:-1.5px;margin-bottom:14px}
-.page-header h1 em{font-style:italic;color:#f0c040}
-.page-header-sub{font-size:15px;color:#6b8dba;font-weight:300;max-width:520px;line-height:1.7}
 .filter-bar{background:#fff;border-bottom:1px solid #e8e4dc;padding:0 5%;position:sticky;top:64px;z-index:90}
 .filter-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:6px;padding:14px 0;overflow-x:auto;scrollbar-width:none}
 .filter-inner::-webkit-scrollbar{display:none}
 .filter-btn{padding:7px 18px;border-radius:20px;border:1px solid #e0ddd6;background:#fff;font-size:13px;color:#666;cursor:pointer;white-space:nowrap;transition:all 0.15s;font-family:"DM Sans",sans-serif}
 .filter-btn:hover{border-color:#0d1b3e;color:#0d1b3e}
 .filter-btn.active{background:#0d1b3e;color:#fff;border-color:#0d1b3e}
-.fc{display:inline-block;background:rgba(255,255,255,0.2);font-size:10px;padding:1px 6px;border-radius:10px;margin-left:4px;color:inherit}
-.gallery-body{max-width:1200px;margin:0 auto;padding:48px 5%;overflow:hidden}
-.gallery-section{margin-bottom:64px}
-.section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px}
-.s-label{font-size:10px;letter-spacing:2.5px;color:#1a56db;font-weight:600;text-transform:uppercase;margin-bottom:8px}
-.s-title{font-family:"Playfair Display",serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:#0d1b3e;line-height:1.2;letter-spacing:-0.5px}
-.section-count{font-size:12px;color:#aaa}
-.photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.photo-item{position:relative;aspect-ratio:1;overflow:hidden;border-radius:6px;cursor:pointer;background:#e0e8f0;max-width:100%}
-.photo-item img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform 0.4s ease}
-.photo-item:hover img{transform:scale(1.06)}
-.photo-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,27,62,0.82) 0%,transparent 55%);opacity:0;transition:opacity 0.3s;display:flex;align-items:flex-end;padding:12px}
-.photo-item:hover .photo-overlay{opacity:1}
-.photo-caption{font-size:11px;color:#fff;line-height:1.4}
-.photo-num{position:absolute;top:8px;left:8px;background:rgba(13,27,62,0.6);color:rgba(255,255,255,0.8);font-size:10px;padding:2px 7px;border-radius:10px}
-.gallery-cta{background:#0d1b3e;padding:56px 5%;text-align:center}
-.gallery-cta h2{font-family:"Playfair Display",serif;font-size:clamp(22px,3vw,32px);color:#fff;margin-bottom:10px}
-.gallery-cta p{font-size:14px;color:#4a6a8e;max-width:420px;margin:0 auto 28px;line-height:1.7}
-.btn-gold{background:#f0c040;color:#0d1b3e;padding:12px 28px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;display:inline-block;margin:0 6px;transition:all 0.15s}
-.btn-ghost{background:transparent;color:#fff;padding:12px 28px;border-radius:4px;font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,0.2);display:inline-block;margin:0 6px;transition:all 0.15s}
-.lightbox{display:none;position:fixed;inset:0;background:rgba(6,15,34,0.96);z-index:999;align-items:center;justify-content:center;padding:20px}
+.filter-count{font-size:11px;background:#f0ede8;color:#999;padding:2px 7px;border-radius:10px;margin-left:4px}
+.filter-btn.active .filter-count{background:rgba(255,255,255,0.2);color:#fff}
+
+.gallery-main{max-width:1200px;margin:0 auto;padding:40px 5% 60px}
+
+/* Masonry layout */
+.masonry-grid{columns:4;column-gap:12px}
+.masonry-item{break-inside:avoid;margin-bottom:12px;cursor:pointer;position:relative;overflow:hidden;border-radius:6px;display:block}
+.masonry-item img{width:100%;display:block;transition:transform 0.3s ease}
+.masonry-item:hover img{transform:scale(1.04)}
+.masonry-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,27,62,0.7) 0%,transparent 50%);opacity:0;transition:opacity 0.3s;display:flex;align-items:flex-end;padding:12px}
+.masonry-item:hover .masonry-overlay{opacity:1}
+.masonry-caption{color:#fff;font-size:11px;font-weight:500;line-height:1.4}
+
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #e8e4dc}
+.section-title{font-family:"Playfair Display",serif;font-size:22px;font-weight:700;color:#0d1b3e}
+.section-badge{font-size:11px;background:#f0ede8;color:#888;padding:3px 10px;border-radius:10px}
+
+.gallery-section{margin-bottom:48px}
+.gallery-section.hidden{display:none}
+
+/* Lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(6,15,34,0.97);z-index:999;align-items:center;justify-content:center;padding:20px}
 .lightbox.active{display:flex}
-.lb-content{position:relative;max-width:860px;width:100%;display:flex;flex-direction:column;align-items:center}
-.lb-img{max-width:100%;max-height:78vh;object-fit:contain;border-radius:4px;display:block}
-.lb-footer{display:flex;align-items:flex-start;justify-content:space-between;width:100%;margin-top:14px;gap:12px}
-.lb-section-tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#3a5a7e;margin-bottom:5px}
-.lb-caption{font-size:14px;color:#c8ddf0;font-weight:500;line-height:1.4}
-.lb-counter{font-size:12px;color:#3a5070;white-space:nowrap;padding-top:2px;flex-shrink:0}
-.lb-close{position:fixed;top:20px;right:24px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:#fff;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center}
-.lb-nav{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center}
+.lb-inner{position:relative;max-width:90vw;max-height:90vh;display:flex;align-items:center;justify-content:center}
+.lb-img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:4px}
+.lb-close{position:fixed;top:20px;right:24px;background:rgba(255,255,255,0.1);border:none;color:#fff;font-size:24px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.15s}
+.lb-close:hover{background:rgba(255,255,255,0.2)}
+.lb-nav{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:none;color:#fff;font-size:20px;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.15s}
+.lb-nav:hover{background:rgba(255,255,255,0.2)}
 .lb-prev{left:16px}
 .lb-next{right:16px}
-footer{background:#060f22;padding:28px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid #0d1b3e}
-.footer-brand strong{color:#adc5de;font-size:13px}
-.footer-brand span{display:block;font-size:10px;color:#2a4060;margin-top:2px}
-.footer-copy{font-size:11px;color:#2a4060}
-@media(max-width:900px){.photo-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:600px){.nav-links{display:none}.photo-grid{grid-template-columns:repeat(2,1fr);gap:8px}.lb-nav{display:none}}
+.lb-caption{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);color:#aaa;font-size:13px;text-align:center;max-width:600px}
+.lb-counter{position:fixed;top:20px;left:50%;transform:translateX(-50%);color:#aaa;font-size:12px}
 
+@media(max-width:900px){.masonry-grid{columns:3}}
+@media(max-width:600px){.masonry-grid{columns:2;column-gap:8px}.masonry-item{margin-bottom:8px}.lb-nav{display:none}}
 </style>
-<header class="page-header">
+
+<div class="page-header">
   <div class="page-header-bg"></div>
-  <div class="page-header-pattern"></div>
-  <div class="page-header-deco"></div>
   <div class="page-header-inner">
-    <nav class="breadcrumb"><a href="/">Laman Utama</a><span>/</span><span style="color:#adc5de">Galeri</span></nav>
-    <h1>Galeri <em>Gambar</em></h1>
-    <p class="page-header-sub">Koleksi gambar korporat, program training, bersama para mufti, ulama, tokoh agama dan selebriti dakwah dari seluruh Malaysia.</p>
+    <div class="page-header-label">Galeri Foto</div>
+    <h1 class="page-header-title">Dakwah di<br><em style="color:#f0c040;font-style:italic">Setiap Tempat</em></h1>
+    <p class="page-header-sub">Koleksi gambar dakwah lapangan, interfaith, program dakwah dan ceramah BroHafizi dari seluruh Malaysia.</p>
   </div>
-</header>
+</div>
 
-<div class="filter-bar" role="navigation" aria-label="Filter Galeri">
+<div class="filter-bar">
   <div class="filter-inner">
-    <button class="filter-btn active" onclick="window.filterGallery('all',this)">Semua</button>
-    <button class="filter-btn" onclick="window.filterGallery('korporat',this)">Korporat &amp; Training</button>
-    <button class="filter-btn" onclick="window.filterGallery('tokoh',this)">Bersama Tokoh &amp; Ulama</button>
+    <button class="filter-btn active" onclick="window.filterGallery('all',this)">Semua <span class="filter-count" id="count-all"></span></button>
+    <button class="filter-btn" onclick="window.filterGallery('street',this)">Street Dakwah <span class="filter-count" id="count-street"></span></button>
+    <button class="filter-btn" onclick="window.filterGallery('interfaith',this)">Interfaith <span class="filter-count" id="count-interfaith"></span></button>
+    <button class="filter-btn" onclick="window.filterGallery('program',this)">Program Dakwah <span class="filter-count" id="count-program"></span></button>
+    <button class="filter-btn" onclick="window.filterGallery('ceramah',this)">Ceramah <span class="filter-count" id="count-ceramah"></span></button>
+    <button class="filter-btn" onclick="window.filterGallery('korporat',this)">Korporat <span class="filter-count" id="count-korporat"></span></button>
+    <button class="filter-btn" onclick="window.filterGallery('tokoh',this)">Bersama Tokoh <span class="filter-count" id="count-tokoh"></span></button>
   </div>
 </div>
 
+<div class="gallery-main">
 
-
-<div class="gallery-body">
-
-  <section class="gallery-section" id="section-korporat" data-section="korporat">
+  <section class="gallery-section" id="section-street">
     <div class="section-header">
-      <div><div class="s-label">Latihan &amp; Program</div><div class="s-title">Gambar Korporat &amp; Training</div></div>
-      <div class="section-count" id="label-korporat"></div>
+      <div class="section-title">Street Dakwah</div>
+      <div class="section-badge" id="label-street"></div>
     </div>
-    <div class="photo-grid" id="grid-korporat"></div>
+    <div class="masonry-grid" id="grid-street"></div>
   </section>
 
-  <section class="gallery-section" id="section-tokoh" data-section="tokoh">
+  <section class="gallery-section" id="section-interfaith">
     <div class="section-header">
-      <div><div class="s-label">Jaringan &amp; Ukhuwah</div><div class="s-title">Bersama Tokoh, Mufti &amp; Ulama</div></div>
-      <div class="section-count" id="label-tokoh"></div>
+      <div class="section-title">Interfaith</div>
+      <div class="section-badge" id="label-interfaith"></div>
     </div>
-    <div class="photo-grid" id="grid-tokoh"></div>
+    <div class="masonry-grid" id="grid-interfaith"></div>
+  </section>
+
+  <section class="gallery-section" id="section-program">
+    <div class="section-header">
+      <div class="section-title">Program Dakwah</div>
+      <div class="section-badge" id="label-program"></div>
+    </div>
+    <div class="masonry-grid" id="grid-program"></div>
+  </section>
+
+  <section class="gallery-section" id="section-ceramah">
+    <div class="section-header">
+      <div class="section-title">Ceramah</div>
+      <div class="section-badge" id="label-ceramah"></div>
+    </div>
+    <div class="masonry-grid" id="grid-ceramah"></div>
+  </section>
+
+  <section class="gallery-section" id="section-korporat">
+    <div class="section-header">
+      <div class="section-title">Korporat &amp; Training</div>
+      <div class="section-badge" id="label-korporat"></div>
+    </div>
+    <div class="masonry-grid" id="grid-korporat"></div>
+  </section>
+
+  <section class="gallery-section" id="section-tokoh">
+    <div class="section-header">
+      <div class="section-title">Bersama Tokoh &amp; Ulama</div>
+      <div class="section-badge" id="label-tokoh"></div>
+    </div>
+    <div class="masonry-grid" id="grid-tokoh"></div>
   </section>
 
 </div>
 
-<section class="gallery-cta">
-  <h2>Nak Jemput BroHafizi?</h2>
-  <p>Untuk program training, ceramah atau bengkel AI &mdash; hubungi saya untuk perbincangan.</p>
-  <a href="/hubungi-saya" class="btn-gold">Hubungi Sekarang</a>
-  <a href="/mengenai-saya" class="btn-ghost">Kenali Lebih Lanjut</a>
-</section>
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="window.closeLightbox(event)">
+  <div class="lb-inner">
+    <img class="lb-img" id="lb-img" src="" alt="">
+  </div>
+  <button class="lb-close" onclick="window.closeLb()">&times;</button>
+  <button class="lb-nav lb-prev" onclick="window.lbNav(-1)">&#8249;</button>
+  <button class="lb-nav lb-next" onclick="window.lbNav(1)">&#8250;</button>
+  <div class="lb-caption" id="lb-caption"></div>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
 
-<script is:inline>window.korporatPhotos = [
+<script is:inline>
+window.streetPhotos = [
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380778/Street_Dakwah_4_szsr2s.jpg",caption:"Street Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380778/Street_Dakwah_3_en5qsq.jpg",caption:"Street Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380777/Street_Dakwah_2_ryovkg.jpg",caption:"Street Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380777/Street_Dakwah_1_ycp3gj.jpg",caption:"Street Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380775/Aku_UFO_8_crfon9.jpg",caption:"Aktiviti UFO"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380775/Aku_UFO_4_dmdrbq.jpg",caption:"Aktiviti UFO"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380775/Aku_UFO_12_srsbkd.png",caption:"Aktiviti UFO"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380774/Aku_UFO_2_delxcn.jpg",caption:"Aktiviti UFO"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380774/Aku_UFO_7_oa7ah5.jpg",caption:"Aktiviti UFO"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380773/Aku_UFO_11_tmlxtg.jpg",caption:"Aktiviti UFO"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380772/Aku_UFO_6_ft6d5a.jpg",caption:"Aktiviti UFO"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380772/Aku_UFO_3_ut2low.jpg",caption:"Aktiviti UFO"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380771/Aku_UFO_5_owjvbp.jpg",caption:"Aktiviti UFO"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380771/Aku_UFO_1_acpx0b.jpg",caption:"Aktiviti UFO"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380770/Aku_UFO_10_rs7ift.jpg",caption:"Aktiviti UFO"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380770/Aku_UFO_9_aufias.jpg",caption:"Aktiviti UFO"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380770/Aku_UFO_13_rkmvg4.png",caption:"Aktiviti UFO"}
+];
+
+window.interfaithPhotos = [
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380744/Interfaith_14_vnuz2p.jpg",caption:"Program Interfaith"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380742/Interfaith_1_nhhhi2.jpg",caption:"Program Interfaith"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380743/Interfaith_2_eezecd.jpg",caption:"Program Interfaith"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380743/Interfaith_11_mcvruv.jpg",caption:"Program Interfaith"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380743/Interfaith_12_o9yllq.jpg",caption:"Program Interfaith"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380743/Interfaith_13_mg6nwj.jpg",caption:"Program Interfaith"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380743/Interfaith_9_ajaqer.jpg",caption:"Program Interfaith"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380743/Interfaith_10_wqayo9.jpg",caption:"Program Interfaith"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380742/Interfaith_8_oo3mzu.jpg",caption:"Program Interfaith"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380742/Interfaith_6_u1l4by.jpg",caption:"Program Interfaith"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380742/Interfaith_4_htim9q.jpg",caption:"Program Interfaith"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380742/Interfaith_3_iyrpbp.jpg",caption:"Program Interfaith"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380742/Interfaith_7_a9oqqg.jpg",caption:"Program Interfaith"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380741/Interfaith_5_c4fjve.jpg",caption:"Program Interfaith"}
+];
+
+window.programPhotos = [
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780382498/Program_Dakwah_7_cuj73s.jpg",caption:"Program Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780382496/Program_Dakwah_8_bg1min.jpg",caption:"Program Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780382495/Program_Dakwah_13_hccrtd.jpg",caption:"Program Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780382494/Program_Dakwah_12_ajzzud.jpg",caption:"Program Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780382493/Program_Dakwah_11_cdrzwc.jpg",caption:"Program Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780382492/photo_2026-05-20_23-02-26_vmr71q.jpg",caption:"Program Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780382491/photo_2026-05-20_23-02-21_skn8cr.jpg",caption:"Program Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780382491/photo_2026-05-20_23-02-18_nb1txe.jpg",caption:"Program Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780382490/photo_2026-05-20_22-59-58_rt23rz.jpg",caption:"Program Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780382489/Aku_dan_Ceramah_24_pufgq5.jpg",caption:"Program Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780382488/Aku_dan_Ceramah_23_ek2oa7.jpg",caption:"Program Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780382487/Aku_dan_Ceramah_22_mfheui.jpg",caption:"Program Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780382486/Aku_dan_Ceramah_16_nts1cb.jpg",caption:"Program Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780382486/Aku_dan_Ceramah_21_ice2ft.jpg",caption:"Program Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780382486/Aku_dan_Ceramah_17_kmymoq.jpg",caption:"Program Dakwah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780382485/Aku_dan_Ceramah_18_zw0vks.jpg",caption:"Program Dakwah"}
+];
+
+window.ceramahPhotos = [
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380796/WhatsApp_Image_2026-06-02_at_1.19.20_PMxc_ovdwxk.jpg",caption:"Ceramah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380795/WhatsApp_Image_2026-06-02_at_1.19.19_PM1111_hetpur.jpg",caption:"Ceramah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380794/WhatsApp_Image_2026-06-02_at_1.19.19_PM111_n8pols.jpg",caption:"Ceramah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380793/WhatsApp_Image_2026-06-02_at_1.19.19_PM_kvkkwt.jpg",caption:"Ceramah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380793/Ceramah_5_qt1gjx.jpg",caption:"Ceramah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380792/Ceramah_4_khtsyu.jpg",caption:"Ceramah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380792/Ceramah_3_skameq.jpg",caption:"Ceramah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380791/Ceramah_1_bqiahe.jpg",caption:"Ceramah"},
+  {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1780380791/Ceramah_2_cbkbco.jpg",caption:"Ceramah"}
+];
+
+window.korporatPhotos = [
   {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779780950/Aku_6a_hsnd28.png",caption:"BroHafizi - Gambar Profesional"},
   {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779780907/ChatGPT_Image_May_1_2026_10_04_58_AM_ivj0bx.png",caption:"BroHafizi - Digital Dakwah Trainer"},
   {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779780901/Aku_13_fgti0h.png",caption:"BroHafizi - Sesi Training"},
@@ -193,97 +262,112 @@ window.tokohPhotos = [
   {url:"https://res.cloudinary.com/dqiqvxcy0/image/upload/q_auto/f_auto/v1779779685/Aku-the2-white-Muslims-scaled_amtlvf.jpg",caption:"Bersama Pendakwah Antarabangsa dari UK - The Two White Muslims - Yusuf Bashforth and Junaid Rahim"},
 ];
 
-window.window.allPhotos = [];
-var lbCur = 0;
+var allPhotos = [];
+var currentIndex = 0;
 
-document.addEventListener("DOMContentLoaded", function() {
-  window.buildGrid("grid-korporat", korporatPhotos, "korporat", "Korporat & Training");
-  window.buildGrid("grid-tokoh", tokohPhotos, "tokoh", "Bersama Tokoh & Ulama");
-
-  window.allPhotos = [];
-  window.korporatPhotos.forEach(function(p) { allPhotos.push({url:p.url, caption:p.caption, section:"Korporat & Training"}); });
-  window.tokohPhotos.forEach(function(p) { allPhotos.push({url:p.url, caption:p.caption, section:"Bersama Tokoh & Ulama"}); });
-
-  document.getElementById("count-all").textContent = window.allPhotos.length;
-  document.getElementById("count-korporat").textContent = window.korporatPhotos.length;
-  document.getElementById("count-tokoh").textContent = window.tokohPhotos.length;
-  document.getElementById("label-korporat").textContent = window.korporatPhotos.length + " gambar";
-  document.getElementById("label-tokoh").textContent = window.tokohPhotos.length + " gambar";
-
-  document.addEventListener("keydown", function(e) {
-    if (!document.getElementById("lightbox").classList.contains("active")) return;
-    if (e.key === "ArrowLeft") window.lbNav(-1);
-    if (e.key === "ArrowRight") window.lbNav(1);
-    if (e.key === "Escape") window.closeLb();
-  });
-});
-
-window.buildGrid = function(gridId, photos, section, sectionLabel) {
+function buildMasonry(gridId, photos, section) {
   var grid = document.getElementById(gridId);
   if (!grid) return;
-  var offset = section === "korporat" ? 0 : window.korporatPhotos.length;
-  photos.forEach(function(p, i) {
-    var item = document.createElement("div");
-    item.className = "photo-item";
-    var idx = offset + i;
-    item.innerHTML = '<img src="' + p.url + '" alt="' + p.caption + '" loading="lazy">' +
-      '<div class="photo-overlay"><div class="photo-caption">' + p.caption + '</div></div>' +
-      '<div class="photo-num">' + (i+1) + '</div>';
-    item.onclick = function() { window.openLb(idx); };
-    grid.appendChild(item);
+  grid.innerHTML = photos.map(function(p, i) {
+    return '<div class="masonry-item" onclick="window.openLightbox(' + allPhotos.length + ')">'
+      + '<img src="' + p.url + '" alt="' + p.caption + '" loading="lazy">'
+      + '<div class="masonry-overlay"><div class="masonry-caption">' + p.caption + '</div></div>'
+      + '</div>';
+    allPhotos.push({url: p.url, caption: p.caption, section: section});
+  }).join('');
+  // Fix: rebuild with correct indices after allPhotos is populated
+}
+
+function rebuildMasonry(gridId, photos, startIndex, section) {
+  var grid = document.getElementById(gridId);
+  if (!grid) return;
+  grid.innerHTML = photos.map(function(p, i) {
+    return '<div class="masonry-item" onclick="window.openLightbox(' + (startIndex + i) + ')">'
+      + '<img src="' + p.url + '" alt="' + p.caption + '" loading="lazy">'
+      + '<div class="masonry-overlay"><div class="masonry-caption">' + p.caption + '</div></div>'
+      + '</div>';
+  }).join('');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Build allPhotos array first
+  var sections = [
+    {id:'grid-street', photos:window.streetPhotos, label:'street', title:'Street Dakwah'},
+    {id:'grid-interfaith', photos:window.interfaithPhotos, label:'interfaith', title:'Interfaith'},
+    {id:'grid-program', photos:window.programPhotos, label:'program', title:'Program Dakwah'},
+    {id:'grid-ceramah', photos:window.ceramahPhotos, label:'ceramah', title:'Ceramah'},
+    {id:'grid-korporat', photos:window.korporatPhotos, label:'korporat', title:'Korporat & Training'},
+    {id:'grid-tokoh', photos:window.tokohPhotos, label:'tokoh', title:'Bersama Tokoh & Ulama'}
+  ];
+
+  var idx = 0;
+  sections.forEach(function(s) {
+    s.photos.forEach(function(p) {
+      allPhotos.push({url:p.url, caption:p.caption, section:s.title});
+    });
   });
-}
 
-window.openLb = function(idx) {
-  lbCur = idx;
-  window.updateLb();
-  document.getElementById("lightbox").classList.add("active");
-  document.body.style.overflow = "hidden";
-}
+  // Now build grids with correct indices
+  idx = 0;
+  sections.forEach(function(s) {
+    rebuildMasonry(s.id, s.photos, idx, s.title);
+    var countEl = document.getElementById('count-' + s.label);
+    var labelEl = document.getElementById('label-' + s.label);
+    if (countEl) countEl.textContent = s.photos.length;
+    if (labelEl) labelEl.textContent = s.photos.length + ' gambar';
+    idx += s.photos.length;
+  });
 
-window.updateLb = function() {
-  var p = window.allPhotos[lbCur];
-  document.getElementById("lbImg").src = p.url;
-  document.getElementById("lbImg").alt = p.caption;
-  document.getElementById("lbCap").textContent = p.caption;
-  document.getElementById("lbTag").textContent = p.section;
-  document.getElementById("lbCtr").textContent = (lbCur+1) + " / " + window.allPhotos.length;
-}
+  var countAll = document.getElementById('count-all');
+  if (countAll) countAll.textContent = allPhotos.length;
+});
 
-window.lbNav = function(d) {
-  lbCur = (lbCur + d + window.allPhotos.length) % window.allPhotos.length;
-  window.updateLb();
-}
+window.filterGallery = function(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  var sections = ['street','interfaith','program','ceramah','korporat','tokoh'];
+  sections.forEach(function(s) {
+    var sec = document.getElementById('section-' + s);
+    if (cat === 'all' || cat === s) {
+      sec.classList.remove('hidden');
+    } else {
+      sec.classList.add('hidden');
+    }
+  });
+};
+
+window.openLightbox = function(index) {
+  currentIndex = index;
+  var photo = allPhotos[index];
+  document.getElementById('lb-img').src = photo.url;
+  document.getElementById('lb-caption').textContent = photo.caption;
+  document.getElementById('lb-counter').textContent = (index + 1) + ' / ' + allPhotos.length;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+};
 
 window.closeLb = function() {
-  document.getElementById("lightbox").classList.remove("active");
-  document.body.style.overflow = "";
-}
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+};
 
-window.lbBg = function(e) {
-  if (e.target === document.getElementById("lightbox")) window.closeLb();
-}
+window.closeLightbox = function(e) {
+  if (e.target === document.getElementById('lightbox')) {
+    window.closeLb();
+  }
+};
 
-window.filterGallery = function(type, btn) {
-  document.querySelectorAll(".filter-btn").forEach(function(b) { b.classList.remove("active"); });
-  btn.classList.add("active");
-  document.querySelectorAll(".gallery-section").forEach(function(s) {
-    s.style.display = (type === "all" || s.getAttribute("data-section") === type) ? "block" : "none";
-  });
-}</script>
+window.lbNav = function(dir) {
+  currentIndex = (currentIndex + dir + allPhotos.length) % allPhotos.length;
+  window.openLightbox(currentIndex);
+};
 
-
-<div class="lightbox" id="lightbox" onclick="window.lbBg(event)">
-  <button class="lb-close" onclick="window.closeLb()">&times;</button>
-  <button class="lb-nav lb-prev" onclick="window.lbNav(-1);event.stopPropagation()">&#8592;</button>
-  <button class="lb-nav lb-next" onclick="window.lbNav(1);event.stopPropagation()">&#8594;</button>
-  <div class="lb-content">
-    <img class="lb-img" id="lbImg" src="" alt="">
-    <div class="lb-footer">
-      <div><div class="lb-section-tag" id="lbTag"></div><div class="lb-caption" id="lbCap"></div></div>
-      <div class="lb-counter" id="lbCtr"></div>
-    </div>
-  </div>
-</div>
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('lightbox').classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') window.lbNav(-1);
+  if (e.key === 'ArrowRight') window.lbNav(1);
+  if (e.key === 'Escape') window.closeLb();
+});
+</script>
 
 </Layout>
