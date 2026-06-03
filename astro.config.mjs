@@ -1,16 +1,16 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-
 import tailwindcss from '@tailwindcss/vite';
-
 import sitemap from '@astrojs/sitemap';
+import keystatic from '@keystatic/astro';
+import react from '@astrojs/react';
 
-// https://astro.build/config
+import markdoc from '@astrojs/markdoc';
+
 export default defineConfig({
   site: 'https://brohafizi.com',
   vite: {
     plugins: [tailwindcss()]
   },
-
-  integrations: [sitemap()]
+  integrations: [sitemap(), react(), keystatic(), markdoc()]
 });

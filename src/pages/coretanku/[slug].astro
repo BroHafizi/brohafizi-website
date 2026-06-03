@@ -5,7 +5,7 @@ import { getCollection, render } from 'astro:content';
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
   return posts.map(post => ({
-    params: { slug: post.id.replace(/\.md$/, '') },
+    params: { slug: post.id.replace(/\.(md|mdoc)$/, '') },
     props: { post },
   }));
 }
@@ -32,7 +32,7 @@ const catColors: Record<string, string> = {
   "Persoalan tentang Islam":"#d97706","Tips Dakwah":"#0891b2","Dakwah Digital":"#db2777"
 };
 
-const slug = post.id.replace(/\.md$/, '');
+const slug = post.id.replace(/\.(md|mdoc)$/, '');
 ---
 
 <Layout 
