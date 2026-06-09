@@ -33,12 +33,17 @@ const catColors: Record<string, string> = {
 };
 
 const slug = post.id.replace(/\.(md|mdoc)$/, '');
+const articleUrl = `https://brohafizi.com/coretanku/${slug}`;
+const featuredImg = post.data.featuredImage || 'https://res.cloudinary.com/dqiqvxcy0/image/upload/v1780911095/OG_Image_BroHafizi_myhden.png';
+const shareText = encodeURIComponent(post.data.title);
+const shareUrl = encodeURIComponent(articleUrl);
 ---
 
 <Layout 
   title={`${post.data.title} | BroHafizi`}
   description={post.data.excerpt || post.data.title}
-  canonical={`https://brohafizi.com/coretanku/${slug}`}
+  canonical={articleUrl}
+  ogImage={featuredImg}
 >
 
 <style is:global>
@@ -83,6 +88,15 @@ const slug = post.id.replace(/\.(md|mdoc)$/, '');
 .author-name{font-size:13px;font-weight:600;color:#0d1b3e}
 .author-desc{font-size:12px;color:#777;margin-top:3px;line-height:1.5}
 .article-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;flex-wrap:wrap;gap:12px}
+.share-box{margin-top:32px;padding:24px;background:#f8f9ff;border-radius:12px;border:1px solid #e5e7eb}
+.share-title{font-size:14px;font-weight:600;color:#0d1b3e;margin-bottom:14px}
+.share-buttons{display:flex;gap:10px;flex-wrap:wrap}
+.share-btn{display:flex;align-items:center;gap:7px;padding:9px 16px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;transition:all 0.2s}
+.share-fb{background:#1877f2;color:#fff}.share-fb:hover{background:#1464d8}
+.share-li{background:#0a66c2;color:#fff}.share-li:hover{background:#084e96}
+.share-wa{background:#25d366;color:#fff}.share-wa:hover{background:#1eb856}
+.share-th{background:#000;color:#fff}.share-th:hover{background:#333}
+.share-x{background:#000;color:#fff}.share-x:hover{background:#333}
 .btn-back{background:#0d1b3e;color:#fff;padding:10px 20px;border-radius:4px;font-size:13px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all 0.15s}
 .btn-back:hover{background:#162d5e}
 
@@ -184,6 +198,33 @@ const slug = post.id.replace(/\.(md|mdoc)$/, '');
         <div class="article-nav">
           <a href="/coretanku" class="btn-back">&larr; Kembali ke Coretanku</a>
           <a href="/hubungi-saya" style="font-size:13px;color:#1a56db;text-decoration:none">Jemput BroHafizi &rarr;</a>
+        </div>
+
+        <!-- Social Share -->
+        <div class="share-box">
+          <div class="share-title">Kongsikan Artikel Ini</div>
+          <div class="share-buttons">
+            <a href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`} target="_blank" rel="noopener" class="share-btn share-fb">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </a>
+            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`} target="_blank" rel="noopener" class="share-btn share-li">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+            <a href={`https://wa.me/?text=${shareText}%20${shareUrl}`} target="_blank" rel="noopener" class="share-btn share-wa">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`https://www.threads.net/intent/post?text=${shareText}%20${shareUrl}`} target="_blank" rel="noopener" class="share-btn share-th">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.473 12.01v-.017c.027-3.579.877-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-.521-1.923-1.483-3.438-2.86-4.507-1.439-1.105-3.304-1.666-5.538-1.682-3.026.024-5.357.933-6.928 2.701-1.491 1.675-2.24 4.12-2.264 7.264.024 3.141.773 5.589 2.264 7.264 1.569 1.766 3.9 2.675 6.923 2.698 2.698-.02 4.489-.677 5.977-2.195 1.385-1.41 2.08-3.43 2.08-6.004 0-.144-.005-.284-.014-.42H12.36v-2.04h9.81c.052.48.078.96.078 1.438 0 3.18-.85 5.698-2.525 7.486-1.764 1.882-4.237 2.844-7.537 2.864z"/></svg>
+              Threads
+            </a>
+            <a href={`https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`} target="_blank" rel="noopener" class="share-btn share-x">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              X
+            </a>
+          </div>
         </div>
       </div>
     </div>
