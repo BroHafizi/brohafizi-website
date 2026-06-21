@@ -34,7 +34,7 @@ const catColors: Record<string, string> = {
 
 const slug = post.id.replace(/\.(md|mdoc)$/, '');
 const articleUrl = `https://brohafizi.com/coretanku/${slug}`;
-const featuredImg = post.data.featuredImage || 'https://res.cloudinary.com/dqiqvxcy0/image/upload/v1780911095/OG_Image_BroHafizi_myhden.png';
+const featuredImg = post.data.featuredImage || '/images/og-images/OG_Image_BroHafizi.png
 const shareText = encodeURIComponent(post.data.title);
 const shareUrl = encodeURIComponent(articleUrl);
 ---
@@ -189,7 +189,7 @@ const shareUrl = encodeURIComponent(articleUrl);
           </div>
         )}
         <div class="author-box">
-          <img class="author-avatar" src="https://res.cloudinary.com/dqiqvxcy0/image/upload/v1780154248/Author_-_Bro_Hafizi_ysre5w.png" alt="Bro Hafizi" style="object-fit:cover;">
+          <img class="author-avatar" src="/images/author/Author_Bro_Hafizi.png" alt="Bro Hafizi" style="object-fit:cover;">
           <div>
             <div class="author-name">Penulis — Bro Hafizi</div>
             <div class="author-desc">Pendakwah Digital • AI Strategist • Trainer. Membantu organisasi dan komuniti menggunakan teknologi AI untuk dakwah yang lebih berimpak.</div>
@@ -217,7 +217,7 @@ const shareUrl = encodeURIComponent(articleUrl);
               WhatsApp
             </a>
             <a href={`https://www.threads.net/intent/post?text=${shareText}%20${shareUrl}`} target="_blank" rel="noopener" class="share-btn share-th">
-              <img src="https://res.cloudinary.com/dqiqvxcy0/image/upload/v1780985898/black-logo-threads-png-0_dmzkgf.png" width="18" height="18" alt="Threads" style="filter:invert(1);border-radius:0">
+              <img src="/images/icons/black-logo-threads.png" width="18" height="18" alt="Threads" style="filter:invert(1);border-radius:0">
               Threads
             </a>
             <a href={`https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`} target="_blank" rel="noopener" class="share-btn share-x">
@@ -246,7 +246,7 @@ const shareUrl = encodeURIComponent(articleUrl);
         <div class="widget-body" style="padding:0">
           <a href="/hubungi-saya" title="Bengkel Dakwah Digital">
             <img 
-              src="https://res.cloudinary.com/dqiqvxcy0/image/upload/v1780398336/Iklan_-_Bengkel_Dakwah_Digital_3x_l2txdc.gif" 
+              src="/images/ads/Iklan_Bengkel_Dakwah_Digital.gif" 
               alt="Bengkel Dakwah Digital - BroHafizi"
               width="300" height="250"
               style="width:100%;height:auto;display:block;border-radius:0 0 8px 8px"
@@ -302,7 +302,7 @@ const shareUrl = encodeURIComponent(articleUrl);
         <div class="widget-body" style="padding:0">
           <a href="/hubungi-saya" title="Bengkel AI For Office">
             <img 
-              src="https://res.cloudinary.com/dqiqvxcy0/image/upload/v1780400711/Iklan_-_Bengkel_AI_For_Office_loauhk.gif" 
+              src="/images/ads/Iklan_Bengkel_AI_For_Office.gif" 
               alt="Bengkel AI For Office - BroHafizi"
               width="300" height="125"
               style="width:100%;height:auto;display:block;border-radius:0 0 8px 8px"

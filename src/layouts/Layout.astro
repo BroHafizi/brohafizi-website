@@ -5,7 +5,7 @@ export interface Props {
   canonical?: string;
   ogImage?: string;
 }
-const { title, description = "BroHafizi — Trainer & Pendakwah Digital Malaysia", canonical, ogImage = "https://res.cloudinary.com/dqiqvxcy0/image/upload/v1780911095/OG_Image_BroHafizi_myhden.png" } = Astro.props;
+const { title, description = "BroHafizi — Trainer & Pendakwah Digital Malaysia", canonical, ogImage = "/images/og-images/OG_Image_BroHafizi.png" } = Astro.props;
 const currentPath = Astro.url.pathname;
 ---
 <!DOCTYPE html>
@@ -15,14 +15,6 @@ const currentPath = Astro.url.pathname;
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title}</title>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-30JQ3S45GP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-30JQ3S45GP');
-</script>
 <meta name="description" content={description}>
 {canonical && <link rel="canonical" href={canonical}>}
 <meta name="theme-color" content="#0d1b3e">
