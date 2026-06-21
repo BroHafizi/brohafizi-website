@@ -34,7 +34,7 @@ const catColors: Record<string, string> = {
 
 const slug = post.id.replace(/\.(md|mdoc)$/, '');
 const articleUrl = `https://brohafizi.com/coretanku/${slug}`;
-const featuredImg = post.data.featuredImage || '/images/og-images/OG_Image_BroHafizi.png
+const featuredImg = post.data.featuredImage || '/images/og-images/OG_Image_BroHafizi.png';
 const shareText = encodeURIComponent(post.data.title);
 const shareUrl = encodeURIComponent(articleUrl);
 ---
