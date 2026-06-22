@@ -34,7 +34,16 @@ const catColors: Record<string, string> = {
 
 const slug = post.id.replace(/\.(md|mdoc)$/, '');
 const articleUrl = `https://brohafizi.com/coretanku/${slug}`;
-const featuredImg = post.data.featuredImage || 'https://res.cloudinary.com/dqiqvxcy0/image/upload/v1780911095/OG_Image_BroHafizi_myhden.png';
+const defaultOgImage = 'https://brohafizi.com/images/og-images/OG-Image-BroHafizi.png';
+const baseUrl = 'https://brohafizi.com';
+
+// Convert relative path to absolute URL for OG image
+let featuredImg = defaultOgImage;
+if (post.data.featuredImage && post.data.featuredImage.trim()) {
+  const imgPath = post.data.featuredImage;
+  featuredImg = imgPath.startsWith('http') ? imgPath : `${baseUrl}${imgPath}`;
+}
+
 const shareText = encodeURIComponent(post.data.title);
 const shareUrl = encodeURIComponent(articleUrl);
 ---
