@@ -3,7 +3,7 @@ title: "Dialog Harmoni Antara Kaum Bersama Non-Muslim: Menyemai Keharmonian"
 slug: "dialog-harmoni-antara-kaum-bersama-non-muslim-menyemai-keharmonian"
 date: "2024-06-10"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780120203/wordpress-assets/Islam-101-19/Islam-101-19.png?_i=AA"
+featuredImage: "/images/posts/Islam-101-19.png"
 categories:
   - "Islam 101"
   - "Kursus"

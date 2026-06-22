@@ -3,7 +3,7 @@ title: "Orang Islam sembah BERHALA?"
 slug: "orang-islam-sembah-berhala"
 date: "2024-03-10"
 excerpt: ""
-featuredImage: "https://brohafizi.com/wp-content/uploads/2024/03/misunderstanding-of-Islam.png"
+featuredImage: "/images/posts/misunderstanding-of-Islam.png"
 categories:
   - "Dakwah"
 tags:

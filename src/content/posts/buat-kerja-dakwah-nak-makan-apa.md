@@ -3,7 +3,7 @@ title: "BUAT KERJA DAKWAH, NAK MAKAN APA?"
 slug: "buat-kerja-dakwah-nak-makan-apa"
 date: "2024-11-03"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_451,c_scale/v1780122545/wordpress-assets/Quran/Quran.png?_i=AA"
+featuredImage: "/images/posts/Quran.png"
 categories:
   - "Artikel Dakwah"
   - "Dakwah"

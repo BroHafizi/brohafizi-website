@@ -3,7 +3,7 @@ title: "Kursus Intensif Fardhu Ain(KIFA) Mualaf JAWI"
 slug: "kursus-intensif-fardhu-ainkifa-mualaf-jawi"
 date: "2023-10-22"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780120697/wordpress-assets/KIFA-16/KIFA-16.jpeg?_i=AA"
+featuredImage: "/images/posts/KIFA-16.jpeg"
 categories:
   - "Kursus"
   - "Kursus Dakwah"

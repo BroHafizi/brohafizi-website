@@ -3,7 +3,7 @@ title: "Jika al-Quran Untuk Semua Manusia, Kenapa Diturunkan Dalam Bahasa Arab?"
 slug: "kenapa-al-quran-bahasa-arab"
 date: "2026-02-01"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780108796/wordpress-assets/kenapa-al-quran-bahasa-arab/kenapa-al-quran-bahasa-arab.png?_i=AA"
+featuredImage: "/images/posts/kenapa-al-quran-bahasa-arab.png"
 categories:
   - "Artikel Islam"
   - "Dakwah"

@@ -3,7 +3,7 @@ title: "Apa Itu Islam?"
 slug: "apa-itu-islam"
 date: "2024-06-11"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780120110/wordpress-assets/Definisi-Islam/Definisi-Islam.png?_i=AA"
+featuredImage: "/images/posts/Definisi-Islam.png"
 categories:
   - "Dakwah"
   - "Persoalan tentang Islam"

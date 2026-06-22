@@ -3,7 +3,7 @@ title: "Sains dalam Al-Quran: Lahirnya Saintis Muslim yang Mengagumkan"
 slug: "sains-dalam-al-quran-lahirnya-saintis-muslim-yang-mengagumkan"
 date: "2024-08-15"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780118562/wordpress-assets/al-quran-dan-sains/al-quran-dan-sains.png?_i=AA"
+featuredImage: "/images/posts/al-quran-dan-sains.png"
 categories:
   - "Dakwah"
 tags:

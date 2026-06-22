@@ -3,7 +3,7 @@ title: "Tips Dakwah - Umpan"
 slug: "tips-dakwah-umpan"
 date: "2024-04-17"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780121812/wordpress-assets/umpan-cacing/umpan-cacing.png?_i=AA"
+featuredImage: "/images/posts/umpan-cacing.png"
 categories:
   - "Dakwah"
   - "Tips Dakwah"

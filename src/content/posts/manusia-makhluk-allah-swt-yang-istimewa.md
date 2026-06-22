@@ -3,7 +3,7 @@ title: "Manusia: Makhluk Allah SWT Yang Istimewa"
 slug: "manusia-makhluk-allah-swt-yang-istimewa"
 date: "2024-06-15"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780120070/wordpress-assets/Manusia-Harmoni/Manusia-Harmoni.png?_i=AA"
+featuredImage: "/images/posts/Manusia-Harmoni.png"
 categories:
   - "Artikel Dakwah"
   - "Dakwah"

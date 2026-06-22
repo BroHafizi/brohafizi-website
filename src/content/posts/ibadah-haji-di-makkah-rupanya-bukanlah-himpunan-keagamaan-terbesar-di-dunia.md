@@ -3,7 +3,7 @@ title: "Ibadah haji di Makkah rupanya bukanlah himpunan keagamaan terbesar di du
 slug: "ibadah-haji-di-makkah-rupanya-bukanlah-himpunan-keagamaan-terbesar-di-dunia"
 date: "2024-06-15"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780120048/wordpress-assets/Mekah-Kaabah/Mekah-Kaabah.png?_i=AA"
+featuredImage: "/images/posts/Mekah-Kaabah.png"
 categories:
   - "Artikel Islam"
   - "Dakwah"

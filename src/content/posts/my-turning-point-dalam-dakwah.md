@@ -3,7 +3,7 @@ title: "My Turning Point dalam Dakwah"
 slug: "my-turning-point-dalam-dakwah"
 date: "2024-03-21"
 excerpt: ""
-featuredImage: "https://brohafizi.com/wp-content/uploads/2024/03/BFW-3.jpeg"
+featuredImage: "/images/posts/BFW-3.jpeg"
 categories:
   - "Dakwah"
 tags:

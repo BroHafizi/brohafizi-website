@@ -3,7 +3,7 @@ title: "Bolehkah non-Muslim masuk Syurga?"
 slug: "bolehkah-non-muslim-masuk-syurga"
 date: "2024-07-06"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780120026/wordpress-assets/boleh-kah-non-Muslim-masuk-Syurga/boleh-kah-non-Muslim-masuk-Syurga.png?_i=AA"
+featuredImage: "/images/posts/boleh-kah-non-Muslim-masuk-Syurga.png"
 categories:
   - "Artikel Dakwah"
   - "Persoalan tentang Islam"

@@ -3,7 +3,7 @@ title: "Apa Itu Dakwah Digital? Revolusi Baru Da’ie Dalam Era Teknologi"
 slug: "apa-itu-dakwah-digital-revolusi-baru-daie-dalam-era-teknologi"
 date: "2025-10-05"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_717,c_scale/v1780111209/wordpress-assets/Artikel-1/Artikel-1.png?_i=AA"
+featuredImage: "/images/posts/Artikel-1.png"
 categories:
   - "Artikel Islam"
   - "Dakwah"

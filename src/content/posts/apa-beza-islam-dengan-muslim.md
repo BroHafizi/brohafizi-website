@@ -3,7 +3,7 @@ title: "Apa Beza Islam dengan Muslim?"
 slug: "apa-beza-islam-dengan-muslim"
 date: "2024-06-15"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780120097/wordpress-assets/Islam-vs-Muslim/Islam-vs-Muslim.png?_i=AA"
+featuredImage: "/images/posts/Islam-vs-Muslim.png"
 categories:
   - "Dakwah"
   - "Persoalan tentang Islam"

@@ -3,7 +3,7 @@ title: "Perkongsian mengenai usaha dakwah saya"
 slug: "perkongsian-mengenai-usaha-dakwah-saya"
 date: "2024-02-29"
 excerpt: ""
-featuredImage: "https://brohafizi.com/wp-content/uploads/2024/02/Aku-UFO-8-1024x768.jpeg"
+featuredImage: "/images/posts/Aku-UFO-8-1024x768.jpeg"
 categories:
   - "Dakwah"
 tags:

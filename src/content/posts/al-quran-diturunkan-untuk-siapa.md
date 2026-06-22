@@ -3,7 +3,7 @@ title: "Al-Quran diturunkan untuk siapa??"
 slug: "al-quran-diturunkan-untuk-siapa"
 date: "2024-03-29"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780122552/wordpress-assets/al-Quran-to-non-Muslim/al-Quran-to-non-Muslim.png?_i=AA"
+featuredImage: "/images/posts/al-Quran-to-non-Muslim.png"
 categories:
   - "Dakwah"
 tags:

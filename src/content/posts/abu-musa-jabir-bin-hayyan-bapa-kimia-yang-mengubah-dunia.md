@@ -3,7 +3,7 @@ title: "Abu Musa Jabir bin Hayyan: Bapa Kimia yang Mengubah Dunia!"
 slug: "abu-musa-jabir-bin-hayyan-bapa-kimia-yang-mengubah-dunia"
 date: "2024-08-11"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_843,h_1024,c_scale/v1780119896/wordpress-assets/Geber_1145c777a/Geber_1145c777a.jpg?_i=AA"
+featuredImage: "/images/posts/Geber_1145c777a.jpg"
 categories:
   - "Dakwah"
   - "Islam & Sains"

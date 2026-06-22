@@ -3,7 +3,7 @@ title: "Ganjaran Besar Menanti Mereka yang Berdakwah: Mengajak Kepada Kebaikan d
 slug: "ganjaran-besar-menanti-mereka-yang-berdakwah-mengajak-kepada-kebaikan-dan-islam"
 date: "2024-08-23"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780116063/wordpress-assets/AKu-dan-sami/AKu-dan-sami.png?_i=AA"
+featuredImage: "/images/posts/AKu-dan-sami.png"
 categories:
   - "Artikel Dakwah"
   - "Dakwah"

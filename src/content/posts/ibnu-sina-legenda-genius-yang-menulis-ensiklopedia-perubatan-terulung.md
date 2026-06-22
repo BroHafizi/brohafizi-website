@@ -3,7 +3,7 @@ title: "Ibnu Sina: Legenda Genius yang Menulis Ensiklopedia Perubatan Terulung"
 slug: "ibnu-sina-legenda-genius-yang-menulis-ensiklopedia-perubatan-terulung"
 date: "2024-08-25"
 excerpt: ""
-featuredImage: "https://brohafizi.com/wp-content/uploads/2024/08/Ibnu-Sina-1024x724.png"
+featuredImage: "/images/posts/Ibnu-Sina-1024x724.png"
 categories:
   - "Dakwah"
   - "Islam & Sains"

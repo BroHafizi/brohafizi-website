@@ -3,7 +3,7 @@ title: "Bengkel Tip & Trik Istitabah Jabatan Mufti Perak"
 slug: "bengkel-tip-trik-istitabah-jabatan-mufti-perak"
 date: "2023-10-20"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780121123/wordpress-assets/TipTrik-1/TipTrik-1.jpeg?_i=AA"
+featuredImage: "/images/posts/TipTrik-1.jpeg"
 categories:
   - "Kursus"
   - "Kursus Istitabah"

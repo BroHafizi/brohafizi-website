@@ -3,7 +3,7 @@ title: "AI Membuktikan Kewujudan Tuhan? Analisis Sains dan Akal"
 slug: "ai-membuktikan-kewujudan-tuhan"
 date: "2026-02-02"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780108755/wordpress-assets/ketepatan-alam-semesta-kosmologi/ketepatan-alam-semesta-kosmologi.png?_i=AA"
+featuredImage: "/images/posts/ketepatan-alam-semesta-kosmologi.png"
 categories:
   - "Artikel Islam"
   - "Dakwah"

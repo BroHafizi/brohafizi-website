@@ -3,7 +3,7 @@ title: "Our Job Is Just To Convey Not To Convert!"
 slug: "our-job-is-just-to-convey-not-to-convert"
 date: "2024-05-09"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780121730/wordpress-assets/bersama-non-Muslim/bersama-non-Muslim.jpeg?_i=AA"
+featuredImage: "/images/posts/bersama-non-Muslim.jpeg"
 categories:
   - "Dakwah"
   - "Tips Dakwah"

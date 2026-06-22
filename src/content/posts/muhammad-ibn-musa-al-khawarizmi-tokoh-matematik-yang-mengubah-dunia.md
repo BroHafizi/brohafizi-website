@@ -3,7 +3,7 @@ title: "Muhammad ibn Musa al-Khawarizmi: Tokoh Matematik yang Mengubah Dunia"
 slug: "muhammad-ibn-musa-al-khawarizmi-tokoh-matematik-yang-mengubah-dunia"
 date: "2024-08-31"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780118855/wordpress-assets/al-Khawarizmi/al-Khawarizmi.png?_i=AA"
+featuredImage: "/images/posts/al-Khawarizmi.png"
 categories:
   - "Artikel Dakwah"
   - "Dakwah"

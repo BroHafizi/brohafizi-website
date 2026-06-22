@@ -3,7 +3,7 @@ title: "Akademi Daie Muda YADIM 2024"
 slug: "akademi-daie-muda-yadim-2024"
 date: "2024-05-08"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780121422/wordpress-assets/WhatsApp-Image-2024-05-08-at-10.55.17/WhatsApp-Image-2024-05-08-at-10.55.17.jpeg?_i=AA"
+featuredImage: "/images/posts/WhatsApp-Image-2024-05-08-at-10.55.17.jpeg"
 categories:
   - "Kursus"
   - "Kursus Dakwah"

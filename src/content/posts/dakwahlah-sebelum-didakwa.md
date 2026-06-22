@@ -3,7 +3,7 @@ title: "Dakwahlah sebelum diDakwa"
 slug: "dakwahlah-sebelum-didakwa"
 date: "2024-04-18"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780121774/wordpress-assets/maze/maze.png?_i=AA"
+featuredImage: "/images/posts/maze.png"
 categories:
   - "Dakwah"
 tags:

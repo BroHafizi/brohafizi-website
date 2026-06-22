@@ -3,7 +3,7 @@ title: "Bengkel Istitabah Jabatan Mufti Pahang"
 slug: "bengkel-istitabah-jabatan-mufti-pahang"
 date: "2023-12-07"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780122391/wordpress-assets/Pahang-1/Pahang-1.jpeg?_i=AA"
+featuredImage: "/images/posts/Pahang-1.jpeg"
 categories:
   - "Kursus"
   - "Kursus Istitabah"

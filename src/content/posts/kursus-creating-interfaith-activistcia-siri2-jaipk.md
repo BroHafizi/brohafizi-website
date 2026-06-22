@@ -3,7 +3,7 @@ title: "Kursus Creating Interfaith Activist(CIA) Siri2 - JAIPk"
 slug: "kursus-creating-interfaith-activistcia-siri2-jaipk"
 date: "2023-08-20"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780121132/wordpress-assets/GAD-JAIPk-Ogos-2023-29/GAD-JAIPk-Ogos-2023-29.jpg?_i=AA"
+featuredImage: "/images/posts/GAD-JAIPk-Ogos-2023-29.jpg"
 categories:
   - "Kursus"
   - "Kursus Dakwah"

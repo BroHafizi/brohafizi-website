@@ -3,7 +3,7 @@ title: "Penggunaan Teknologi AI dalam Pelaporan Sesi Istitabah Bersama Jabatan M
 slug: "penggunaan-teknologi-ai-dalam-pelaporan-sesi-istitabah-bersama-jabatan-mufti-perak"
 date: "2025-12-17"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780109822/wordpress-assets/Bengkel-Istitabah-Perak-2/Bengkel-Istitabah-Perak-2.png?_i=AA"
+featuredImage: "/images/posts/Bengkel-Istitabah-Perak-2.png"
 categories:
   - "Kursus"
   - "Kursus Istitabah"

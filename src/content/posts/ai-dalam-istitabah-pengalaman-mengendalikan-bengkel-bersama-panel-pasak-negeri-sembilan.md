@@ -3,7 +3,7 @@ title: "AI dalam Istitabah: Pengalaman Mengendalikan Bengkel Bersama Panel PASAK
 slug: "ai-dalam-istitabah-pengalaman-mengendalikan-bengkel-bersama-panel-pasak-negeri-sembilan"
 date: "2025-12-28"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780109406/wordpress-assets/Pic-1/Pic-1.png?_i=AA"
+featuredImage: "/images/posts/Pic-1.png"
 categories:
   - "Kursus"
   - "Kursus Istitabah"

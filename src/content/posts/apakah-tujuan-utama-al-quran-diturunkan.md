@@ -3,7 +3,7 @@ title: "Apakah Tujuan UTAMA al-Quran diturunkan?"
 slug: "apakah-tujuan-utama-al-quran-diturunkan"
 date: "2024-03-28"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780111131/wordpress-assets/Nuzul-al-Quran/Nuzul-al-Quran.png?_i=AA"
+featuredImage: "/images/posts/Nuzul-al-Quran.png"
 categories:
   - "Dakwah"
 tags:

@@ -3,7 +3,7 @@ title: "Wira Negara, Wira Dakwah: Pengalaman Perkongsian Dakwah di ILMI"
 slug: "wira-negara-wira-dakwah-pengalaman-perkongsian-dakwah-di-ilmi"
 date: "2025-08-16"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780113925/wordpress-assets/Kagat-10/Kagat-10.png?_i=AA"
+featuredImage: "/images/posts/Kagat-10.png"
 categories:
   - "Dakwah"
   - "Kursus Dakwah"

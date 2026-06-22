@@ -3,7 +3,7 @@ title: "Dari Taiwan ke Malaysia – Demi Ilmu Dakwah Digital"
 slug: "dari-taiwan-ke-malaysia-demi-ilmu-dakwah-digital"
 date: "2025-08-15"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780113709/wordpress-assets/Taiwan-1/Taiwan-1.png?_i=AA"
+featuredImage: "/images/posts/Taiwan-1.png"
 categories:
   - "Dakwah"
   - "Kursus"

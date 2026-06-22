@@ -3,7 +3,7 @@ title: "Rahmat Allah dan Ganjaran Tak Putus Melalui Dakwah"
 slug: "rahmat-allah-dan-ganjaran-tak-putus-melalui-dakwah"
 date: "2024-10-28"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780119966/wordpress-assets/berdoa/berdoa.png?_i=AA"
+featuredImage: "/images/posts/berdoa.png"
 categories:
   - "Artikel Dakwah"
   - "Dakwah"

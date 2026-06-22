@@ -3,7 +3,7 @@ title: "Hari Raya AidilAdha: Menyemai Ruh Pengorbanan, Menyuburkan Jiwa Dakwah"
 slug: "hari-raya-aidiladha-menyemai-ruh-pengorbanan-menyuburkan-jiwa-dakwah"
 date: "2025-06-07"
 excerpt: ""
-featuredImage: "https://brohafizi.com/wp-content/uploads/2025/06/arafah-1024x724.png"
+featuredImage: "/images/posts/arafah-1024x724.png"
 categories:
   - "Artikel Islam"
   - "Dakwah"

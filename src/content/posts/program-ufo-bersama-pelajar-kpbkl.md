@@ -3,7 +3,7 @@ title: "Program UFO bersama pelajar KPBKL"
 slug: "program-ufo-bersama-pelajar-kpbkl"
 date: "2024-08-19"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780117782/wordpress-assets/Pic-10_12603740e/Pic-10_12603740e.png?_i=AA"
+featuredImage: "/images/posts/Pic-10_12603740e.png"
 categories:
   - "Kursus"
   - "Kursus Dakwah"

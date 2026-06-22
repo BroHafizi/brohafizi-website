@@ -3,7 +3,7 @@ title: "Kursus Intensif Fardhu Ain (KIFA) Mualaf Anjuran JAWI"
 slug: "kursus-intensif-fardhu-ain-kifa-mualaf-anjuran-jawi"
 date: "2024-09-28"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780115844/wordpress-assets/KIFA-8/KIFA-8.png?_i=AA"
+featuredImage: "/images/posts/KIFA-8.png"
 categories:
   - "Kursus"
   - "Kursus Muallaf"

@@ -3,7 +3,7 @@ title: "Ibn al-Haytham: Saintis Gila-Cahaya yang Mengubah Dunia Optik!"
 slug: "ibn-al-haytham-saintis-gila-cahaya-yang-mengubah-dunia-optik"
 date: "2024-08-18"
 excerpt: ""
-featuredImage: "https://brohafizi.com/wp-content/uploads/2024/08/Ibn-al-Haytham-1-1024x724.png"
+featuredImage: "/images/posts/Ibn-al-Haytham-1-1024x724.png"
 categories:
   - "Dakwah"
   - "Islam & Sains"

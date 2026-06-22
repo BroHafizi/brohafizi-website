@@ -3,7 +3,7 @@ title: "Pengalaman di Kota Kinabalu: Kursus Dakwah Digital Bersama Pendakwah Ant
 slug: "pengalaman-di-kota-kinabalu-kursus-dakwah-digital-bersama-pendakwah-antarabangsa"
 date: "2025-08-21"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780114525/wordpress-assets/RISEAP-SABAH-Dakwah-Digital-1/RISEAP-SABAH-Dakwah-Digital-1.png?_i=AA"
+featuredImage: "/images/posts/RISEAP-SABAH-Dakwah-Digital-1.png"
 categories:
   - "Dakwah"
   - "Kursus"

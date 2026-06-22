@@ -3,7 +3,7 @@ title: "Bengkel Dakwah Digital & Teknologi AI: Melahirkan NextGen Daie!"
 slug: "bengkel-dakwah-digital-teknologi-ai-melahirkan-nextgen-daie"
 date: "2025-09-29"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780111649/wordpress-assets/5/5.png?_i=AA"
+featuredImage: "/images/posts/5.png"
 categories:
   - "Dakwah Digital"
   - "Kursus"

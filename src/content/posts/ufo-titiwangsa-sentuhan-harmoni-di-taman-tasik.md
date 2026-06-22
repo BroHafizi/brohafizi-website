@@ -3,7 +3,7 @@ title: "UFO Titiwangsa: Sentuhan Harmoni di Taman Tasik"
 slug: "ufo-titiwangsa-sentuhan-harmoni-di-taman-tasik"
 date: "2025-06-23"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780115145/wordpress-assets/UFO-Edisi-Jun-1/UFO-Edisi-Jun-1.png?_i=AA"
+featuredImage: "/images/posts/UFO-Edisi-Jun-1.png"
 categories:
   - "Aktiviti UFO"
   - "Dakwah"

@@ -3,7 +3,7 @@ title: "AI Dicipta Oleh Barat, Tapi Kenapa Sokong Islam?"
 slug: "ai-dicipta-oleh-barat-tapi-kenapa-sokong-islam"
 date: "2025-10-08"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780111168/wordpress-assets/Artikel-2-a/Artikel-2-a.png?_i=AA"
+featuredImage: "/images/posts/Artikel-2-a.png"
 categories:
   - "Artikel Dakwah"
   - "Dakwah"

@@ -3,7 +3,7 @@ title: "Hukum AI Dalam Islam: Panduan Syariah Untuk Dakwah & NGO"
 slug: "hukum-ai-dalam-islam-panduan-syariah"
 date: "2026-02-19"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780108391/wordpress-assets/ai-dalam-dakwah-digital-etika-ai-islam-1_1705786ae/ai-dalam-dakwah-digital-etika-ai-islam-1_1705786ae.png?_i=AA"
+featuredImage: "/images/posts/ai-dalam-dakwah-digital-etika-ai-islam-1_1705786ae.png"
 categories:
   - "Dakwah"
 tags:

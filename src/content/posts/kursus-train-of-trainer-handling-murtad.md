@@ -3,7 +3,7 @@ title: "Kursus Train of Trainer - Handling Murtad"
 slug: "kursus-train-of-trainer-handling-murtad"
 date: "2024-03-06"
 excerpt: ""
-featuredImage: "https://brohafizi.com/wp-content/uploads/2024/03/Kursus-Training-of-Trainer-Handling-Murtad-2.jpg"
+featuredImage: "/images/posts/Kursus-Training-of-Trainer-Handling-Murtad-2.jpg"
 categories:
   - "Kursus"
   - "Kursus Istitabah"

@@ -3,7 +3,7 @@ title: "Ambang Tahun Baru 2025: Cerita Kami di Dataran Merdeka"
 slug: "ambang-tahun-baru-2025-cerita-kami-di-dataran-merdeka"
 date: "2025-01-01"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780115765/wordpress-assets/UFO-1/UFO-1.png?_i=AA"
+featuredImage: "/images/posts/UFO-1.png"
 categories:
   - "Aktiviti UFO"
   - "Dakwah"

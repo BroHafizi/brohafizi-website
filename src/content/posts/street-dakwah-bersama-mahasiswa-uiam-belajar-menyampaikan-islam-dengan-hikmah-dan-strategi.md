@@ -3,7 +3,7 @@ title: "Street Dakwah Bersama Mahasiswa UIAM: Belajar Menyampaikan Islam dengan 
 slug: "street-dakwah-bersama-mahasiswa-uiam-belajar-menyampaikan-islam-dengan-hikmah-dan-strategi"
 date: "2025-12-30"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780108984/wordpress-assets/Image-1/Image-1.png?_i=AA"
+featuredImage: "/images/posts/Image-1.png"
 categories:
   - "Dakwah"
   - "Kursus"

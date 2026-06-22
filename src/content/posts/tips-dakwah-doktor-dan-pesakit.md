@@ -3,7 +3,7 @@ title: "Tips Dakwah : Doktor dan Pesakit"
 slug: "tips-dakwah-doktor-dan-pesakit"
 date: "2024-04-20"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780121795/wordpress-assets/doktor-pesakit/doktor-pesakit.png?_i=AA"
+featuredImage: "/images/posts/doktor-pesakit.png"
 categories:
   - "Dakwah"
   - "Tips Dakwah"

@@ -3,7 +3,7 @@ title: "Pengenalan Dakwah Digital - IDIP-KL"
 slug: "pengenalan-dakwah-digital-idip-kl"
 date: "2024-06-04"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780120527/wordpress-assets/IDIP-1/IDIP-1.png?_i=AA"
+featuredImage: "/images/posts/IDIP-1.png"
 categories:
   - "Kursus"
   - "Kursus Dakwah"

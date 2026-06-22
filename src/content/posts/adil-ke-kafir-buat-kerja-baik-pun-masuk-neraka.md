@@ -3,7 +3,7 @@ title: "Adil Ke Kafir Buat Kerja Baik Pun Masuk Neraka?"
 slug: "adil-ke-kafir-buat-kerja-baik-pun-masuk-neraka"
 date: "2024-08-11"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780118802/wordpress-assets/heaven-hell/heaven-hell.png?_i=AA"
+featuredImage: "/images/posts/heaven-hell.png"
 categories:
   - "Artikel Dakwah"
   - "Dakwah"

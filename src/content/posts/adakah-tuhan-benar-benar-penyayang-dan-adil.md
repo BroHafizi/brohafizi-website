@@ -3,7 +3,7 @@ title: "Adakah Tuhan Benar-Benar Penyayang dan Adil?"
 slug: "adakah-tuhan-benar-benar-penyayang-dan-adil"
 date: "2024-07-31"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780119939/wordpress-assets/putus-harapan/putus-harapan.png?_i=AA"
+featuredImage: "/images/posts/putus-harapan.png"
 categories:
   - "Dakwah"
   - "Persoalan tentang Islam"

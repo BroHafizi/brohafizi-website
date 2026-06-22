@@ -3,7 +3,7 @@ title: "Kursus Asas Dakwah Fundamentals and Basics of Interfaith(FBI Lite)"
 slug: "kursus-asas-dakwah-fundamentals-and-basics-of-interfaithfbi-lite"
 date: "2024-03-31"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780122398/wordpress-assets/KYUEM-11/KYUEM-11.jpeg?_i=AA"
+featuredImage: "/images/posts/KYUEM-11.jpeg"
 categories:
   - "Kursus"
   - "Kursus Dakwah"

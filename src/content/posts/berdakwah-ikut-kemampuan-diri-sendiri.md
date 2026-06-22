@@ -3,7 +3,7 @@ title: "Berdakwah ikut kemampuan diri sendiri"
 slug: "berdakwah-ikut-kemampuan-diri-sendiri"
 date: "2024-05-11"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780121714/wordpress-assets/gym/gym.png?_i=AA"
+featuredImage: "/images/posts/gym.png"
 categories:
   - "Dakwah"
   - "Tips Dakwah"

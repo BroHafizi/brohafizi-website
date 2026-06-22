@@ -3,7 +3,7 @@ title: "Jika Tuhan Adil, Kenapa ada Yang Lahir Muslim Dan Ada Yang Lahir Non Mus
 slug: "jika-tuhan-adil-kenapa-ada-yang-lahir-muslim-dan-ada-yang-lahir-non-muslim"
 date: "2024-07-07"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780120000/wordpress-assets/Tuhan-Tidak-Adil/Tuhan-Tidak-Adil.png?_i=AA"
+featuredImage: "/images/posts/Tuhan-Tidak-Adil.png"
 categories:
   - "Artikel Dakwah"
   - "Dakwah"

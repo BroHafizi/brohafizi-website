@@ -3,7 +3,7 @@ title: "Pengenalan Dakwah Digital - PERKIM Dato Keramat"
 slug: "pengenalan-dakwah-digital-perkim-dato-keramat"
 date: "2024-06-02"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780120597/wordpress-assets/Perkim-DK-4/Perkim-DK-4.png?_i=AA"
+featuredImage: "/images/posts/Perkim-DK-4.png"
 categories:
   - "Kursus"
   - "Kursus Dakwah"

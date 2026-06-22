@@ -3,7 +3,7 @@ title: "Penemuan Sains Moden dalam al-Quran: Bukti Kebesaran Allah SWT"
 slug: "penemuan-sains-moden-dalam-al-quran-bukti-kebesaran-allah-swt"
 date: "2024-08-14"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/w_1024,h_724,c_scale/v1780118788/wordpress-assets/BigBang/BigBang.png?_i=AA"
+featuredImage: "/images/posts/BigBang.png"
 categories:
   - "Dakwah"
 tags:

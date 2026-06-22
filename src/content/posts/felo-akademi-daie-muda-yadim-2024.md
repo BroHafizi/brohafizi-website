@@ -3,7 +3,7 @@ title: "Felo Akademi Daie Muda YADIM 2024"
 slug: "felo-akademi-daie-muda-yadim-2024"
 date: "2024-05-09"
 excerpt: ""
-featuredImage: "https://res.cloudinary.com/dqiqvxcy0/images/v1780121267/wordpress-assets/WhatsApp-Image-2024-05-07-at-18.03.44/WhatsApp-Image-2024-05-07-at-18.03.44.jpeg?_i=AA"
+featuredImage: "/images/posts/WhatsApp-Image-2024-05-07-at-18.03.44.jpeg"
 categories:
   - "Kursus"
   - "Kursus Dakwah"
