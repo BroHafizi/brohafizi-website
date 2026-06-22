@@ -6,7 +6,7 @@ export interface Props {
   ogImage?: string;
 }
 const baseUrl = "https://brohafizi.com";
-const { title, description = "BroHafizi — Trainer & Pendakwah Digital Malaysia", canonical, ogImage = `${baseUrl}/images/og-images/OG Image BroHafizi.png` } = Astro.props;
+const { title, description = "BroHafizi — Trainer & Pendakwah Digital Malaysia", canonical, ogImage = `${baseUrl}/images/og-images/OG-Image-BroHafizi.png` } = Astro.props;
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${baseUrl}${ogImage}`;
 const currentPath = Astro.url.pathname;
 ---
