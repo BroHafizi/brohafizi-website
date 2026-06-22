@@ -12,16 +12,12 @@ import Layout from '../layouts/Layout.astro';
 .page-header-title{font-family:"Playfair Display",serif;font-size:clamp(28px,5vw,48px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:16px}
 .page-header-sub{font-size:15px;color:#6b8dba;max-width:560px;line-height:1.7}
 
-.filter-bar{background:#fff;border-bottom:1px solid #e8e4dc;padding:0 5%;position:sticky;top:64px;z-index:90}
-.filter-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:6px;padding:14px 0;overflow-x:auto;scrollbar-width:none}
-.filter-inner::-webkit-scrollbar{display:none}
-.filter-btn{padding:7px 18px;border-radius:20px;border:1px solid #e0ddd6;background:#fff;font-size:13px;color:#666;cursor:pointer;white-space:nowrap;transition:all 0.15s;font-family:"DM Sans",sans-serif}
-.filter-btn:hover{border-color:#0d1b3e;color:#0d1b3e}
-.filter-btn.active{background:#0d1b3e;color:#fff;border-color:#0d1b3e}
-.filter-count{font-size:11px;background:#f0ede8;color:#999;padding:2px 7px;border-radius:10px;margin-left:4px}
-.filter-btn.active .filter-count{background:rgba(255,255,255,0.2);color:#fff}
-
 .gallery-main{max-width:1200px;margin:0 auto;padding:40px 5% 60px}
+
+.gallery-section{margin-bottom:56px}
+.section-header{margin-bottom:28px;padding-bottom:20px;border-bottom:2px solid #f0c040}
+.section-title{font-family:"Playfair Display",serif;font-size:28px;font-weight:700;color:#0d1b3e;margin-bottom:12px}
+.section-desc{font-size:15px;color:#666;line-height:1.8;max-width:800px}
 
 .masonry-grid{columns:4;column-gap:12px}
 .masonry-item{break-inside:avoid;margin-bottom:12px;cursor:pointer;position:relative;overflow:hidden;border-radius:6px;display:block}
@@ -45,7 +41,7 @@ import Layout from '../layouts/Layout.astro';
 .lb-counter{position:fixed;top:20px;left:50%;transform:translateX(-50%);color:#aaa;font-size:12px}
 
 @media(max-width:900px){.masonry-grid{columns:3}}
-@media(max-width:600px){.masonry-grid{columns:2;column-gap:8px}.masonry-item{margin-bottom:8px}.lb-nav{display:none}}
+@media(max-width:600px){.masonry-grid{columns:2;column-gap:8px}.masonry-item{margin-bottom:8px}.lb-nav{display:none}.section-title{font-size:20px}}
 </style>
 
 <div class="page-header">
@@ -57,21 +53,7 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </div>
 
-<div class="filter-bar">
-  <div class="filter-inner">
-    <button class="filter-btn active" onclick="window.filterGallery('all')">Semua <span class="filter-count" id="count-all">82</span></button>
-    <button class="filter-btn" onclick="window.filterGallery('street')">Street Dakwah <span class="filter-count" id="count-street">4</span></button>
-    <button class="filter-btn" onclick="window.filterGallery('ufo')">UFO <span class="filter-count" id="count-ufo">13</span></button>
-    <button class="filter-btn" onclick="window.filterGallery('ceramah')">Ceramah <span class="filter-count" id="count-ceramah">9</span></button>
-    <button class="filter-btn" onclick="window.filterGallery('program')">Program <span class="filter-count" id="count-program">17</span></button>
-    <button class="filter-btn" onclick="window.filterGallery('interfaith')">Interfaith <span class="filter-count" id="count-interfaith">14</span></button>
-    <button class="filter-btn" onclick="window.filterGallery('tokoh')">Tokoh <span class="filter-count" id="count-tokoh">31</span></button>
-  </div>
-</div>
-
-<div class="gallery-main">
-  <div class="masonry-grid" id="gallery-grid"></div>
-</div>
+<div class="gallery-main" id="gallery-main"></div>
 
 <div class="lightbox" id="lightbox" onclick="window.closeLightbox(event)">
   <button class="lb-close" onclick="window.closeLightbox()">✕</button>
@@ -85,33 +67,38 @@ import Layout from '../layouts/Layout.astro';
 </div>
 
 <script is:inline>
-var galleryData = [
+var allGalleryData = [
   {url:"/images/gallery/street%20dakwah/Street%20Dakwah%201.jpg",caption:"Street Dakwah",category:"street"},
   {url:"/images/gallery/street%20dakwah/Street%20Dakwah%202.jpg",caption:"Street Dakwah",category:"street"},
   {url:"/images/gallery/street%20dakwah/Street%20Dakwah%203.jpg",caption:"Street Dakwah",category:"street"},
   {url:"/images/gallery/street%20dakwah/Street%20Dakwah%204.jpg",caption:"Street Dakwah",category:"street"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%201.jpeg",caption:"Aktiviti UFO",category:"ufo"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%202.jpeg",caption:"Aktiviti UFO",category:"ufo"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%203.jpeg",caption:"Aktiviti UFO",category:"ufo"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%204.jpeg",caption:"Aktiviti UFO",category:"ufo"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%205.jpeg",caption:"Aktiviti UFO",category:"ufo"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%206.jpeg",caption:"Aktiviti UFO",category:"ufo"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%207.jpeg",caption:"Aktiviti UFO",category:"ufo"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%208.jpeg",caption:"Aktiviti UFO",category:"ufo"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%209.jpeg",caption:"Aktiviti UFO",category:"ufo"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%2010.jpeg",caption:"Aktiviti UFO",category:"ufo"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%2011.jpeg",caption:"Aktiviti UFO",category:"ufo"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%2012.png",caption:"Aktiviti UFO",category:"ufo"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%2013.png",caption:"Aktiviti UFO",category:"ufo"},
-  {url:"/images/gallery/Ceramah/Ceramah%201.jpg",caption:"Ceramah",category:"ceramah"},
-  {url:"/images/gallery/Ceramah/Ceramah%202.jpg",caption:"Ceramah",category:"ceramah"},
-  {url:"/images/gallery/Ceramah/Ceramah%203.jpg",caption:"Ceramah",category:"ceramah"},
-  {url:"/images/gallery/Ceramah/Ceramah%204.jpg",caption:"Ceramah",category:"ceramah"},
-  {url:"/images/gallery/Ceramah/Ceramah%205.jpeg",caption:"Ceramah",category:"ceramah"},
-  {url:"/images/gallery/Ceramah/WhatsApp%20Image%202026-06-02%20at%201.19.19%20PM.jpeg",caption:"Ceramah",category:"ceramah"},
-  {url:"/images/gallery/Ceramah/WhatsApp%20Image%202026-06-02%20at%201.19.19%20PM111.jpeg",caption:"Ceramah",category:"ceramah"},
-  {url:"/images/gallery/Ceramah/WhatsApp%20Image%202026-06-02%20at%201.19.19%20PM1111.jpeg",caption:"Ceramah",category:"ceramah"},
-  {url:"/images/gallery/Ceramah/WhatsApp%20Image%202026-06-02%20at%201.19.20%20PMxc.jpeg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%201.jpeg",caption:"Aktiviti UFO",category:"street"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%202.jpeg",caption:"Aktiviti UFO",category:"street"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%203.jpeg",caption:"Aktiviti UFO",category:"street"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%204.jpeg",caption:"Aktiviti UFO",category:"street"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%205.jpeg",caption:"Aktiviti UFO",category:"street"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%206.jpeg",caption:"Aktiviti UFO",category:"street"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%207.jpeg",caption:"Aktiviti UFO",category:"street"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%208.jpeg",caption:"Aktiviti UFO",category:"street"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%209.jpeg",caption:"Aktiviti UFO",category:"street"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%2010.jpeg",caption:"Aktiviti UFO",category:"street"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%2011.jpeg",caption:"Aktiviti UFO",category:"street"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%2012.png",caption:"Aktiviti UFO",category:"street"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%2013.png",caption:"Aktiviti UFO",category:"street"},
+  {url:"/images/gallery/Interfaith/Interfaith%201.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%202.jpeg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%203.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%204.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%205.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%206.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%207.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%208.jpeg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%209.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%2010.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%2011.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%2012.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%2013.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%2014.jpg",caption:"Program Interfaith",category:"interfaith"},
   {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2016.jpeg",caption:"Program Dakwah",category:"program"},
   {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2017.jpeg",caption:"Program Dakwah",category:"program"},
   {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2018.jpeg",caption:"Program Dakwah",category:"program"},
@@ -140,32 +127,27 @@ var galleryData = [
   {url:"/images/gallery/Program%20Dakwah/photo_2026-05-20_23-02-18.jpg",caption:"Program Dakwah",category:"program"},
   {url:"/images/gallery/Program%20Dakwah/photo_2026-05-20_23-02-21.jpg",caption:"Program Dakwah",category:"program"},
   {url:"/images/gallery/Program%20Dakwah/photo_2026-05-20_23-02-26.jpg",caption:"Program Dakwah",category:"program"},
-  {url:"/images/gallery/Interfaith/Interfaith%201.jpg",caption:"Program Interfaith",category:"interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%202.jpeg",caption:"Program Interfaith",category:"interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%203.jpg",caption:"Program Interfaith",category:"interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%204.jpg",caption:"Program Interfaith",category:"interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%205.jpg",caption:"Program Interfaith",category:"interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%206.jpg",caption:"Program Interfaith",category:"interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%207.jpg",caption:"Program Interfaith",category:"interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%208.jpeg",caption:"Program Interfaith",category:"interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%209.jpg",caption:"Program Interfaith",category:"interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%2010.jpg",caption:"Program Interfaith",category:"interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%2011.jpg",caption:"Program Interfaith",category:"interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%2012.jpg",caption:"Program Interfaith",category:"interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%2013.jpg",caption:"Program Interfaith",category:"interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%2014.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Ceramah/Ceramah%201.jpg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/Ceramah/Ceramah%202.jpg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/Ceramah/Ceramah%203.jpg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/Ceramah/Ceramah%204.jpg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/Ceramah/Ceramah%205.jpeg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/Ceramah/WhatsApp%20Image%202026-06-02%20at%201.19.19%20PM.jpeg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/Ceramah/WhatsApp%20Image%202026-06-02%20at%201.19.19%20PM111.jpeg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/Ceramah/WhatsApp%20Image%202026-06-02%20at%201.19.19%20PM1111.jpeg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/Ceramah/WhatsApp%20Image%202026-06-02%20at%201.19.20%20PMxc.jpeg",caption:"Ceramah",category:"ceramah"},
   {url:"/images/gallery/Tokoh%20dan%20Ulama/1.png",caption:"Bersama Tokoh Ulamak",category:"tokoh"},
   {url:"/images/gallery/Tokoh%20dan%20Ulama/2.png",caption:"Bersama Tokoh Ulamak",category:"tokoh"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mantan-Mufti-N9.jpeg",caption:"Bersama Mantan Mufti Negeri Sembilan",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mantan-Mufti-N9.jpeg",caption:"Bersama Mantan Mufti",category:"tokoh"},
   {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mantan-Mufti-Wilayah.jpeg",caption:"Bersama Mantan Mufti Wilayah",category:"tokoh"},
   {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mantan-Mufti-Wilayah-2.jpeg",caption:"Bersama Mantan Mufti Wilayah",category:"tokoh"},
   {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mufti-Perak.jpeg",caption:"Bersama Mantan Mufti Perak",category:"tokoh"},
   {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mufti-Perak-2.jpeg",caption:"Bersama Mantan Mufti Perak",category:"tokoh"},
   {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mufti-Wilayah-.jpeg",caption:"Bersama Mantan Mufti Wilayah",category:"tokoh"},
   {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Pengarah-JAWI-scaled.jpeg",caption:"Bersama Mantan Pengarah JAWI",category:"tokoh"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-N9-2.jpeg",caption:"Bersama Mantan Timbalan Mufti Negeri Sembilan",category:"tokoh"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-N9-4.jpeg",caption:"Bersama Mantan Timbalan Mufti Negeri Sembilan",category:"tokoh"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-N9-5.jpeg",caption:"Bersama Mantan Timbalan Mufti Negeri Sembilan",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-N9-2.jpeg",caption:"Bersama Mantan Timbalan Mufti",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-N9-4.jpeg",caption:"Bersama Mantan Timbalan Mufti",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-N9-5.jpeg",caption:"Bersama Mantan Timbalan Mufti",category:"tokoh"},
   {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-Wilayah.jpeg",caption:"Bersama Timbalan Mufti Wilayah",category:"tokoh"},
   {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-Wilayah-2.jpeg",caption:"Bersama Timbalan Mufti Wilayah",category:"tokoh"},
   {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Ustaz-Don.png",caption:"Bersama Ustaz Don Daniyal",category:"tokoh"},
@@ -186,39 +168,69 @@ var galleryData = [
   {url:"/images/gallery/Tokoh%20dan%20Ulama/Pengarah-JAWI.jpeg",caption:"Bersama Mantan Pengarah JAWI",category:"tokoh"},
   {url:"/images/gallery/Tokoh%20dan%20Ulama/Timbalan%20Mufti%20Perak%20-%20Dr%20Zamri.jpg",caption:"Bersama Timbalan Mufti Perak",category:"tokoh"},
   {url:"/images/gallery/Tokoh%20dan%20Ulama/aku-Yusof-Chambers-scaled.jpeg",caption:"Bersama Yusuf Chambers",category:"tokoh"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/aku-Yusof-Chambers-2-scaled.jpeg",caption:"Bersama Yusuf Chambers",category:"tokoh"}
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/aku-Yusof-Chambers-2-scaled.jpeg",caption:"Bersama Yusuf Chambers",category:"tokoh"},
+  {url:"/images/gallery/Korporat/BroHafizi.com%20-%20Profesional%201.png",caption:"BroHafizi - Profesional",category:"korporat"},
+  {url:"/images/gallery/Korporat/BroHafizi.com%20-%20Profesional%202.png",caption:"BroHafizi - Profesional",category:"korporat"},
+  {url:"/images/gallery/Korporat/BroHafizi.com%20-%20Profesional%203.png",caption:"BroHafizi - Profesional",category:"korporat"},
+  {url:"/images/gallery/Korporat/BroHafizi.com%20-%20Profesional%204.png",caption:"BroHafizi - Profesional",category:"korporat"},
+  {url:"/images/gallery/Korporat/BroHafizi.com%20-%20Profesional%205.png",caption:"BroHafizi - Profesional",category:"korporat"},
+  {url:"/images/gallery/Korporat/BroHafizi.com%20-%20Profesional%206.png",caption:"BroHafizi - Profesional",category:"korporat"},
+  {url:"/images/gallery/Korporat/BroHafizi.com%20-%20Profesional%207.png",caption:"BroHafizi - Profesional",category:"korporat"},
+  {url:"/images/gallery/Korporat/BroHafizi.com%20-%20Profesional%208.png",caption:"BroHafizi - Profesional",category:"korporat"},
+  {url:"/images/gallery/Korporat/BroHafizi.com%20-%20Profesional%209.png",caption:"BroHafizi - Profesional",category:"korporat"},
+  {url:"/images/gallery/Korporat/BroHafizi.com%20-%20Profesional%2010.png",caption:"BroHafizi - Profesional",category:"korporat"},
+  {url:"/images/gallery/Korporat/BroHafizi.com%20-%20Profesional%2011.png",caption:"BroHafizi - Profesional",category:"korporat"},
+  {url:"/images/gallery/Korporat/BroHafizi.com%20-%20Profesional%2012.png",caption:"BroHafizi - Profesional",category:"korporat"}
 ];
 
-var currentFilter = 'all';
+var sections = [
+  {id:'street', title:'Street Dakwah', desc:'Aktiviti dakwah lapangan dan UFO (Unity For Ummah Benefit Organization) yang mendekatkan dakwah kepada komunitas lokal dan masyarakat luas di berbagai lokasi strategis.'},
+  {id:'interfaith', title:'Interfaith', desc:'Program dialog antara agama yang mempromosikan pemahaman, toleransi dan kerjasama harmonis antara pelbagai komuniti agama di Malaysia untuk pembinaan masyarakat yang lebih bersatu.'},
+  {id:'program', title:'Program Dakwah', desc:'Aktiviti program dakwah terstruktur termasuk bengkel, seminar, training dan workshop untuk mengembangkan kemampuan pendakwah dan kader dakwah di pelbagai organisasi dan institusi.'},
+  {id:'ceramah', title:'Ceramah', desc:'Sesi ceramah dan penceramahan yang disampaikan kepada pelbagai audience di masjid, institusi pendidikan, organisasi korporat dan komunitas lokal.'},
+  {id:'tokoh', title:'Bersama Tokoh dan Ulama', desc:'Momen berharga bersama tokoh terkemuka, mufti, pengarah institusi dan ulama ternama dalam bidang dakwah dan pendidikan Islam di Malaysia.'},
+  {id:'korporat', title:'Korporat', desc:'Koleksi gambar profesional BroHafizi untuk keperluan korporat, media sosial, website dan materi promosi dalam kapasitas sebagai trainer, strategist dan pendakwah digital.'}
+];
+
 var lbCurrent = 0;
 
-window.renderGallery = function(filter) {
-  var grid = document.getElementById('gallery-grid');
-  grid.innerHTML = '';
-  var filtered = filter === 'all' ? galleryData : galleryData.filter(img => img.category === filter);
+window.renderGallery = function() {
+  var main = document.getElementById('gallery-main');
+  main.innerHTML = '';
   
-  filtered.forEach(function(img, idx) {
-    var item = document.createElement('div');
-    item.className = 'masonry-item';
-    item.innerHTML = '<img src="' + img.url + '" alt="' + img.caption + '"><div class="masonry-overlay"><div class="masonry-caption">' + img.caption + '</div></div>';
-    item.onclick = function() { window.openLightbox(galleryData.indexOf(img)); };
-    grid.appendChild(item);
+  sections.forEach(function(section) {
+    var filtered = allGalleryData.filter(img => img.category === section.id);
+    
+    var sectionDiv = document.createElement('div');
+    sectionDiv.className = 'gallery-section';
+    
+    var headerDiv = document.createElement('div');
+    headerDiv.className = 'section-header';
+    headerDiv.innerHTML = '<h2 class="section-title">' + section.title + '</h2><p class="section-desc">' + section.desc + '</p>';
+    
+    var gridDiv = document.createElement('div');
+    gridDiv.className = 'masonry-grid';
+    
+    filtered.forEach(function(img) {
+      var item = document.createElement('div');
+      item.className = 'masonry-item';
+      item.innerHTML = '<img src="' + img.url + '" alt="' + img.caption + '"><div class="masonry-overlay"><div class="masonry-caption">' + img.caption + '</div></div>';
+      item.onclick = function() { window.openLightbox(allGalleryData.indexOf(img)); };
+      gridDiv.appendChild(item);
+    });
+    
+    sectionDiv.appendChild(headerDiv);
+    sectionDiv.appendChild(gridDiv);
+    main.appendChild(sectionDiv);
   });
-};
-
-window.filterGallery = function(cat) {
-  currentFilter = cat;
-  document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-  event.target.closest('.filter-btn').classList.add('active');
-  window.renderGallery(cat);
 };
 
 window.openLightbox = function(idx) {
   lbCurrent = idx;
-  var img = galleryData[idx];
+  var img = allGalleryData[idx];
   document.getElementById('lb-img').src = img.url;
   document.getElementById('lb-caption').textContent = img.caption;
-  document.getElementById('lb-counter').textContent = (idx + 1) + ' / ' + galleryData.length;
+  document.getElementById('lb-counter').textContent = (idx + 1) + ' / ' + allGalleryData.length;
   document.getElementById('lightbox').classList.add('active');
   document.body.style.overflow = 'hidden';
 };
@@ -231,11 +243,11 @@ window.closeLightbox = function(e) {
 };
 
 window.lbNav = function(d) {
-  lbCurrent = (lbCurrent + d + galleryData.length) % galleryData.length;
-  var img = galleryData[lbCurrent];
+  lbCurrent = (lbCurrent + d + allGalleryData.length) % allGalleryData.length;
+  var img = allGalleryData[lbCurrent];
   document.getElementById('lb-img').src = img.url;
   document.getElementById('lb-caption').textContent = img.caption;
-  document.getElementById('lb-counter').textContent = (lbCurrent + 1) + ' / ' + galleryData.length;
+  document.getElementById('lb-counter').textContent = (lbCurrent + 1) + ' / ' + allGalleryData.length;
 };
 
 document.addEventListener('keydown', function(e) {
@@ -247,7 +259,7 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-window.renderGallery('all');
+window.renderGallery();
 </script>
 
 </Layout>
