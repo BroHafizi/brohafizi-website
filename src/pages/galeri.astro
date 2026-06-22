@@ -23,7 +23,6 @@ import Layout from '../layouts/Layout.astro';
 
 .gallery-main{max-width:1200px;margin:0 auto;padding:40px 5% 60px}
 
-/* Masonry layout */
 .masonry-grid{columns:4;column-gap:12px}
 .masonry-item{break-inside:avoid;margin-bottom:12px;cursor:pointer;position:relative;overflow:hidden;border-radius:6px;display:block}
 .masonry-item img{width:100%;display:block;transition:transform 0.3s ease}
@@ -32,15 +31,6 @@ import Layout from '../layouts/Layout.astro';
 .masonry-item:hover .masonry-overlay{opacity:1}
 .masonry-caption{color:#fff;font-size:11px;font-weight:500;line-height:1.4}
 
-.section-header{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #e8e4dc}
-.section-title{font-family:"Playfair Display",serif;font-size:22px;font-weight:700;color:#0d1b3e}
-.section-badge{font-size:11px;background:#f0ede8;color:#888;padding:3px 10px;border-radius:10px}
-.section-desc{font-size:14px;color:#666;line-height:1.7;margin-top:8px;max-width:700px}
-
-.gallery-section{margin-bottom:48px}
-.gallery-section.hidden{display:none}
-
-/* Lightbox */
 .lightbox{display:none;position:fixed;inset:0;background:rgba(6,15,34,0.97);z-index:999;align-items:center;justify-content:center;padding:20px}
 .lightbox.active{display:flex}
 .lb-inner{position:relative;max-width:90vw;max-height:90vh;display:flex;align-items:center;justify-content:center}
@@ -63,184 +53,201 @@ import Layout from '../layouts/Layout.astro';
   <div class="page-header-inner">
     <div class="page-header-label">Galeri Foto</div>
     <h1 class="page-header-title">Dakwah di<br><em style="color:#f0c040;font-style:italic">Setiap Tempat</em></h1>
-    <p class="page-header-sub">Koleksi gambar dakwah lapangan, interfaith, program dakwah dan ceramah BroHafizi dari seluruh Malaysia.</p>
+    <p class="page-header-sub">Koleksi aktivitas dakwah lapangan, program interfaith, ceramah dan acara korporat dari seluruh Malaysia.</p>
   </div>
 </div>
 
 <div class="filter-bar">
   <div class="filter-inner">
-    <button class="filter-btn active" onclick="window.filterGallery('all',this)">Semua <span class="filter-count" id="count-all"></span></button>
-    <button class="filter-btn" onclick="window.filterGallery('street',this)">Street Dakwah <span class="filter-count" id="count-street"></span></button>
-    <button class="filter-btn" onclick="window.filterGallery('interfaith',this)">Interfaith <span class="filter-count" id="count-interfaith"></span></button>
-    <button class="filter-btn" onclick="window.filterGallery('program',this)">Program Dakwah <span class="filter-count" id="count-program"></span></button>
-    <button class="filter-btn" onclick="window.filterGallery('ceramah',this)">Ceramah <span class="filter-count" id="count-ceramah"></span></button>
-    <button class="filter-btn" onclick="window.filterGallery('korporat',this)">Korporat <span class="filter-count" id="count-korporat"></span></button>
-    <button class="filter-btn" onclick="window.filterGallery('tokoh',this)">Bersama Tokoh <span class="filter-count" id="count-tokoh"></span></button>
+    <button class="filter-btn active" onclick="window.filterGallery('all')">Semua <span class="filter-count" id="count-all">82</span></button>
+    <button class="filter-btn" onclick="window.filterGallery('street')">Street Dakwah <span class="filter-count" id="count-street">4</span></button>
+    <button class="filter-btn" onclick="window.filterGallery('ufo')">UFO <span class="filter-count" id="count-ufo">13</span></button>
+    <button class="filter-btn" onclick="window.filterGallery('ceramah')">Ceramah <span class="filter-count" id="count-ceramah">9</span></button>
+    <button class="filter-btn" onclick="window.filterGallery('program')">Program <span class="filter-count" id="count-program">17</span></button>
+    <button class="filter-btn" onclick="window.filterGallery('interfaith')">Interfaith <span class="filter-count" id="count-interfaith">14</span></button>
+    <button class="filter-btn" onclick="window.filterGallery('tokoh')">Tokoh <span class="filter-count" id="count-tokoh">31</span></button>
   </div>
 </div>
 
 <div class="gallery-main">
-
-  <section class="gallery-section" id="section-street">
-    <div class="section-header">
-      <div class="section-title">Street Dakwah</div>
-      <div class="section-badge" id="label-street"></div>
-    </div>
-    <p class="section-desc">Turun ke jalanan, berdepan dengan non-Muslim, menjawab persoalan tentang Islam secara langsung. Inilah dakwah yang sebenar-benarnya.</p>
-    <div class="masonry-grid" id="grid-street"></div>
-  </section>
-
-  <section class="gallery-section" id="section-interfaith">
-    <div class="section-header">
-      <div class="section-title">Interfaith</div>
-      <div class="section-badge" id="label-interfaith"></div>
-    </div>
-    <p class="section-desc">Berdialog, bukan berdebat. Program bersama komuniti bukan Islam untuk membina jambatan kefahaman dan memperkenalkan Islam dengan penuh hikmah.</p>
-    <div class="masonry-grid" id="grid-interfaith"></div>
-  </section>
-
-  <section class="gallery-section" id="section-program">
-    <div class="section-header">
-      <div class="section-title">Program Dakwah</div>
-      <div class="section-badge" id="label-program"></div>
-    </div>
-    <p class="section-desc">Dijemput sebagai penceramah dan fasilitator dalam pelbagai program, kursus dan latihan daripada pelbagai penganjur seperti agensi agama, NGO dan pelbagai organisasi membawa pengisian dakwah yang berimpak kepada peserta dari seluruh Malaysia.</p>
-    <div class="masonry-grid" id="grid-program"></div>
-  </section>
-
-  <section class="gallery-section" id="section-ceramah">
-    <div class="section-header">
-      <div class="section-title">Ceramah</div>
-      <div class="section-badge" id="label-ceramah"></div>
-    </div>
-    <p class="section-desc">Dari masjid ke surau, dari utara ke selatan. Dijemput untuk menyampaikan ceramah bertema dakwah kontemporari, hubungan Islam dengan bukan Muslim, dan cabaran umat di era digital.</p>
-    <div class="masonry-grid" id="grid-ceramah"></div>
-  </section>
-
-  <section class="gallery-section" id="section-korporat">
-    <div class="section-header">
-      <div class="section-title">Korporat &amp; Training</div>
-      <div class="section-badge" id="label-korporat"></div>
-    </div>
-    <p class="section-desc">Koleksi gambar profesional BroHafizi untuk tujuan publisiti, jemputan program, bengkel dan ceramah korporat.</p>
-    <div class="masonry-grid" id="grid-korporat"></div>
-  </section>
-
-  <section class="gallery-section" id="section-tokoh">
-    <div class="section-header">
-      <div class="section-title">Bersama Tokoh &amp; Ulama</div>
-      <div class="section-badge" id="label-tokoh"></div>
-    </div>
-    <p class="section-desc">Menimba ilmu dan bersama para ulama, mufti dan tokoh agama adalah antara nikmat terbesar dalam perjalanan dakwah.</p>
-    <div class="masonry-grid" id="grid-tokoh"></div>
-  </section>
-
+  <div class="masonry-grid" id="gallery-grid"></div>
 </div>
 
-<!-- Lightbox -->
 <div class="lightbox" id="lightbox" onclick="window.closeLightbox(event)">
+  <button class="lb-close" onclick="window.closeLightbox()">✕</button>
   <div class="lb-inner">
     <img class="lb-img" id="lb-img" src="" alt="">
   </div>
-  <button class="lb-close" onclick="window.closeLb()">&times;</button>
   <button class="lb-nav lb-prev" onclick="window.lbNav(-1)">&#8249;</button>
   <button class="lb-nav lb-next" onclick="window.lbNav(1)">&#8250;</button>
   <div class="lb-caption" id="lb-caption"></div>
   <div class="lb-counter" id="lb-counter"></div>
 </div>
 
+<script is:inline>
 var galleryData = [
-  // Street Dakwah
-  {url:"/images/gallery/street%20dakwah/Street%20Dakwah%201.jpg",caption:"Street Dakwah"},
-  {url:"/images/gallery/street%20dakwah/Street%20Dakwah%202.jpg",caption:"Street Dakwah"},
-  {url:"/images/gallery/street%20dakwah/Street%20Dakwah%203.jpg",caption:"Street Dakwah"},
-  {url:"/images/gallery/street%20dakwah/Street%20Dakwah%204.jpg",caption:"Street Dakwah"},
-  
-  // UFO Activities
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%201.jpeg",caption:"Aktiviti UFO"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%202.jpeg",caption:"Aktiviti UFO"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%203.jpeg",caption:"Aktiviti UFO"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%204.jpeg",caption:"Aktiviti UFO"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%205.jpeg",caption:"Aktiviti UFO"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%206.jpeg",caption:"Aktiviti UFO"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%207.jpeg",caption:"Aktiviti UFO"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%208.jpeg",caption:"Aktiviti UFO"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%209.jpeg",caption:"Aktiviti UFO"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%2010.jpeg",caption:"Aktiviti UFO"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%2011.jpeg",caption:"Aktiviti UFO"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%2012.png",caption:"Aktiviti UFO"},
-  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%2013.png",caption:"Aktiviti UFO"},
-  
-  // Ceramah
-  {url:"/images/gallery/Ceramah/Ceramah%201.jpg",caption:"Ceramah"},
-  {url:"/images/gallery/Ceramah/Ceramah%202.jpg",caption:"Ceramah"},
-  {url:"/images/gallery/Ceramah/Ceramah%203.jpg",caption:"Ceramah"},
-  {url:"/images/gallery/Ceramah/Ceramah%204.jpg",caption:"Ceramah"},
-  {url:"/images/gallery/Ceramah/Ceramah%205.jpeg",caption:"Ceramah"},
-  
-  // Program Dakwah
-  {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2016.jpeg",caption:"Program Dakwah"},
-  {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2017.jpeg",caption:"Program Dakwah"},
-  {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2018.jpeg",caption:"Program Dakwah"},
-  {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2019.jpeg",caption:"Program Dakwah"},
-  {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2021.jpeg",caption:"Program Dakwah"},
-  {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2022.jpeg",caption:"Program Dakwah"},
-  {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2023.jpeg",caption:"Program Dakwah"},
-  {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2024.jpeg",caption:"Program Dakwah"},
-  {url:"/images/gallery/Program%20Dakwah/Program%20Dakwah%207.jpg",caption:"Program Dakwah"},
-  {url:"/images/gallery/Program%20Dakwah/Program%20Dakwah%208.jpg",caption:"Program Dakwah"},
-  {url:"/images/gallery/Program%20Dakwah/Program%20Dakwah%2011.jpg",caption:"Program Dakwah"},
-  {url:"/images/gallery/Program%20Dakwah/Program%20Dakwah%2012.jpg",caption:"Program Dakwah"},
-  {url:"/images/gallery/Program%20Dakwah/Program%20Dakwah%2013.jpg",caption:"Program Dakwah"},
-  
-  // Interfaith
-  {url:"/images/gallery/Interfaith/Interfaith%201.jpg",caption:"Program Interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%202.jpeg",caption:"Program Interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%203.jpg",caption:"Program Interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%204.jpg",caption:"Program Interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%205.jpg",caption:"Program Interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%206.jpg",caption:"Program Interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%207.jpg",caption:"Program Interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%208.jpeg",caption:"Program Interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%209.jpg",caption:"Program Interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%2010.jpg",caption:"Program Interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%2011.jpg",caption:"Program Interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%2012.jpg",caption:"Program Interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%2013.jpg",caption:"Program Interfaith"},
-  {url:"/images/gallery/Interfaith/Interfaith%2014.jpg",caption:"Program Interfaith"},
-  
-  // Tokoh dan Ulama
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/1.png",caption:"Bersama Tokoh Ulamak"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/2.png",caption:"Bersama Tokoh Ulamak"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mantan-Mufti-N9.jpeg",caption:"Bersama Mantan Mufti Negeri Sembilan - Almarhum S.S. Dato Hj. Mohd Yusof bin Hj. Ahmad"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mantan-Mufti-Wilayah.jpeg",caption:"Bersama Mantan Mufti Wilayah dan Mantan Menteri Agama - Datuk Dr. Zulkifli Mohamad al-Bakri"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mantan-Mufti-Wilayah-2.jpeg",caption:"Bersama Mantan Mufti Wilayah dan Mantan Menteri Agama - Datuk Dr. Zulkifli Mohamad al-Bakri"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mufti-Perak.jpeg",caption:"Bersama Mantan Mufti Perak - S.S Datuk Wan Zahidi Wan Teh"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mufti-Perak-2.jpeg",caption:"Bersama Mantan Mufti Perak - S. Datuk Wan Zahidi Wan Teh"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mufti-Wilayah-.jpeg",caption:"Bersama Mantan Mufti Wilayah Persekutuan - S.S Dato Dr Luqman Abdullah"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Pengarah-JAWI-scaled.jpeg",caption:"Bersama Mantan Pengarah JAWI - YBrs. Datuk Haji Mohd Ajib bin Ismail"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-N9-2.jpeg",caption:"Bersama Mantan Timbalan Mufti Negeri Sembilan - S.F Ustaz Amran bin Awaludin"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-N9-4.jpeg",caption:"Bersama Mantan Timbalan Mufti Negeri Sembilan - S.F Ustaz Amran bin Awaludin"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-N9-5.jpeg",caption:"Bersama Mantan Timbalan Mufti Negeri Sembilan - S.F Ustaz Amran bin Awaludin"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-Wilayah.jpeg",caption:"Bersama Timbalan Mufti Wilayah Persekutuan - S.S Ustaz Jamali bin Mohd Adnan"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-Wilayah-2.jpeg",caption:"Bersama Timbalan Mufti Wilayah Persekutuan - S.S Ustaz Jamali bin Mohd Adnan"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Ustaz-Don.png",caption:"Bersama Pendakwah Selebriti - Ustaz Don Daniyal Don Biyajid"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Ustaz-Firdaus-Subhi.jpeg",caption:"Bersama Ustaz Firdaus bin Subhi - Penolong Pengarah Bahagian Dakwah JAIS"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-dan-Dr-Zul.png",caption:"Bersama Mantan Mufti Wilayah dan Mantan Menteri Agama - Datuk Dr. Zulkifli Mohamad al-Bakri"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-dan-Maulana-Helmi.jpeg",caption:"Bersama Tokoh Ulamak Negeri Pahang dan Ikon Dakwah YADIM - Maulana Helmi"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-dan-Ust-Syed-Shahrizan-scaled.jpeg",caption:"Bersama Ketua Penolong Mufti Wilayah Persekutuan Bahagian Fatwa - Ustaz Syed Shahridzan Syed Mohamed"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-dan-Ustaz-Sujak-scaled.jpeg",caption:"Bersama Ketua Penolong Mufti Pejabat Mufti Wilayah Persekutuan Bahagian Fatwa - Muhamad Sujak Bin Muhamad Dasuki"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-the2-white-Muslims-scaled.jpeg",caption:"Bersama Pendakwah Antarabangsa dari UK - The Two White Muslims"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Bengkel-Istitabah-Perak-5.png",caption:"Bersama Timbalan Mufti Perak - Dr Zambri bin Hashim"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Bersama%20Mantan%20Mufti%20Wilayah%20Dato%20Dr%20Luqman%20Abdullah.jpeg",caption:"Bersama Mantan Mufti Wilayah Persekutuan - S.S Dato Dr Luqman Abdullah"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Bersama%20Pengarah%20JAWI%20-%20Ustaz%20Hanifuddin%20Roslan.jpeg",caption:"Bersama Pengarah JAWI - Ustaz Hanifuddin bin Roslan"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Dato%20Zaidi.jpg",caption:"Bersama Mantan Timbalan Mufti Negeri Sembilan - Dato Ustaz Mohd Zaidi Ramli"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Mantan%20Mufti%20Wilayah%20-%20Dr%20Luqman.jpg",caption:"Bersama Mantan Mufti Wilayah Persekutuan - S.S Dato Dr Luqman Abdullah"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Mufti%20Melaka.jpg",caption:"Bersama S.S Datuk Wira Hj Abdul Halim Bin Tawil - Mufti Kerajaan Negeri Melaka"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Mufti-N9.jpeg",caption:"Bersama S.S Mufti Negeri Sembilan - Prof Madya Dr. Faudzinaim bin Badaruddin"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Pengarah%20JAWI%20-%20Ustaz%20Haniffuddin.jpg",caption:"Bersama Mantan Pengarah JAWI - YBrs. Datuk Haji Mohd Ajib bin Ismail"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Pengarah-JAWI.jpeg",caption:"Bersama Mantan Pengarah JAWI"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/Timbalan%20Mufti%20Perak%20-%20Dr%20Zamri.jpg",caption:"Bersama Timbalan Mufti Perak - Dr Zambri bin Hashim"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/aku-Yusof-Chambers-scaled.jpeg",caption:"Bersama Pendakwah Antarabangsa dari UK - Yusuf Chambers"},
-  {url:"/images/gallery/Tokoh%20dan%20Ulama/aku-Yusof-Chambers-2-scaled.jpeg",caption:"Bersama Pendakwah Antarabangsa dari UK - Yusuf Chambers"}
+  {url:"/images/gallery/street%20dakwah/Street%20Dakwah%201.jpg",caption:"Street Dakwah",category:"street"},
+  {url:"/images/gallery/street%20dakwah/Street%20Dakwah%202.jpg",caption:"Street Dakwah",category:"street"},
+  {url:"/images/gallery/street%20dakwah/Street%20Dakwah%203.jpg",caption:"Street Dakwah",category:"street"},
+  {url:"/images/gallery/street%20dakwah/Street%20Dakwah%204.jpg",caption:"Street Dakwah",category:"street"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%201.jpeg",caption:"Aktiviti UFO",category:"ufo"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%202.jpeg",caption:"Aktiviti UFO",category:"ufo"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%203.jpeg",caption:"Aktiviti UFO",category:"ufo"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%204.jpeg",caption:"Aktiviti UFO",category:"ufo"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%205.jpeg",caption:"Aktiviti UFO",category:"ufo"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%206.jpeg",caption:"Aktiviti UFO",category:"ufo"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%207.jpeg",caption:"Aktiviti UFO",category:"ufo"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%208.jpeg",caption:"Aktiviti UFO",category:"ufo"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%209.jpeg",caption:"Aktiviti UFO",category:"ufo"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%2010.jpeg",caption:"Aktiviti UFO",category:"ufo"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%2011.jpeg",caption:"Aktiviti UFO",category:"ufo"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%2012.png",caption:"Aktiviti UFO",category:"ufo"},
+  {url:"/images/gallery/street%20dakwah/Aku%20%26%20UFO%2013.png",caption:"Aktiviti UFO",category:"ufo"},
+  {url:"/images/gallery/Ceramah/Ceramah%201.jpg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/Ceramah/Ceramah%202.jpg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/Ceramah/Ceramah%203.jpg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/Ceramah/Ceramah%204.jpg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/Ceramah/Ceramah%205.jpeg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/Ceramah/WhatsApp%20Image%202026-06-02%20at%201.19.19%20PM.jpeg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/Ceramah/WhatsApp%20Image%202026-06-02%20at%201.19.19%20PM111.jpeg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/Ceramah/WhatsApp%20Image%202026-06-02%20at%201.19.19%20PM1111.jpeg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/Ceramah/WhatsApp%20Image%202026-06-02%20at%201.19.20%20PMxc.jpeg",caption:"Ceramah",category:"ceramah"},
+  {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2016.jpeg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2017.jpeg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2018.jpeg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2019.jpeg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2021.jpeg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2022.jpeg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2023.jpeg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/Aku%20dan%20Ceramah%2024.jpeg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/Bengkel%20Perlis%206.jpeg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/IMG_1899.JPG",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/IMG_1900.JPG",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/IMG_1901.JPG",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/IMG_1902.JPG",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/IMG_1903.JPG",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/IMG_1904.JPG",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/IMG_1905.JPG",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/IMG_1906.JPG",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/IMG_1907.JPG",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/Program%20Dakwah%201.jpg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/Program%20Dakwah%207.jpg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/Program%20Dakwah%208.jpg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/Program%20Dakwah%2011.jpg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/Program%20Dakwah%2012.jpg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/Program%20Dakwah%2013.jpg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/photo_2026-05-20_22-59-58.jpg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/photo_2026-05-20_23-02-18.jpg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/photo_2026-05-20_23-02-21.jpg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Program%20Dakwah/photo_2026-05-20_23-02-26.jpg",caption:"Program Dakwah",category:"program"},
+  {url:"/images/gallery/Interfaith/Interfaith%201.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%202.jpeg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%203.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%204.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%205.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%206.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%207.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%208.jpeg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%209.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%2010.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%2011.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%2012.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%2013.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Interfaith/Interfaith%2014.jpg",caption:"Program Interfaith",category:"interfaith"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/1.png",caption:"Bersama Tokoh Ulamak",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/2.png",caption:"Bersama Tokoh Ulamak",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mantan-Mufti-N9.jpeg",caption:"Bersama Mantan Mufti Negeri Sembilan",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mantan-Mufti-Wilayah.jpeg",caption:"Bersama Mantan Mufti Wilayah",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mantan-Mufti-Wilayah-2.jpeg",caption:"Bersama Mantan Mufti Wilayah",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mufti-Perak.jpeg",caption:"Bersama Mantan Mufti Perak",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mufti-Perak-2.jpeg",caption:"Bersama Mantan Mufti Perak",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Mufti-Wilayah-.jpeg",caption:"Bersama Mantan Mufti Wilayah",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Pengarah-JAWI-scaled.jpeg",caption:"Bersama Mantan Pengarah JAWI",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-N9-2.jpeg",caption:"Bersama Mantan Timbalan Mufti Negeri Sembilan",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-N9-4.jpeg",caption:"Bersama Mantan Timbalan Mufti Negeri Sembilan",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-N9-5.jpeg",caption:"Bersama Mantan Timbalan Mufti Negeri Sembilan",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-Wilayah.jpeg",caption:"Bersama Timbalan Mufti Wilayah",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Timb-Mufti-Wilayah-2.jpeg",caption:"Bersama Timbalan Mufti Wilayah",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Ustaz-Don.png",caption:"Bersama Ustaz Don Daniyal",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-Ustaz-Firdaus-Subhi.jpeg",caption:"Bersama Ustaz Firdaus Subhi",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-dan-Dr-Zul.png",caption:"Bersama Datuk Dr. Zulkifli",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-dan-Maulana-Helmi.jpeg",caption:"Bersama Maulana Helmi",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-dan-Ust-Syed-Shahrizan-scaled.jpeg",caption:"Bersama Ustaz Syed Shahridzan",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-dan-Ustaz-Sujak-scaled.jpeg",caption:"Bersama Muhamad Sujak",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Aku-the2-white-Muslims-scaled.jpeg",caption:"Bersama The Two White Muslims",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Bengkel-Istitabah-Perak-5.png",caption:"Bersama Timbalan Mufti Perak",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Bersama%20Mantan%20Mufti%20Wilayah%20Dato%20Dr%20Luqman%20Abdullah.jpeg",caption:"Bersama Mantan Mufti Wilayah",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Bersama%20Pengarah%20JAWI%20-%20Ustaz%20Hanifuddin%20Roslan.jpeg",caption:"Bersama Pengarah JAWI",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Dato%20Zaidi.jpg",caption:"Bersama Dato Zaidi",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Mantan%20Mufti%20Wilayah%20-%20Dr%20Luqman.jpg",caption:"Bersama Mantan Mufti Wilayah",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Mufti%20Melaka.jpg",caption:"Bersama Mufti Melaka",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Mufti-N9.jpeg",caption:"Bersama Mufti Negeri Sembilan",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Pengarah%20JAWI%20-%20Ustaz%20Haniffuddin.jpg",caption:"Bersama Pengarah JAWI",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Pengarah-JAWI.jpeg",caption:"Bersama Mantan Pengarah JAWI",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/Timbalan%20Mufti%20Perak%20-%20Dr%20Zamri.jpg",caption:"Bersama Timbalan Mufti Perak",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/aku-Yusof-Chambers-scaled.jpeg",caption:"Bersama Yusuf Chambers",category:"tokoh"},
+  {url:"/images/gallery/Tokoh%20dan%20Ulama/aku-Yusof-Chambers-2-scaled.jpeg",caption:"Bersama Yusuf Chambers",category:"tokoh"}
 ];
+
+var currentFilter = 'all';
+var lbCurrent = 0;
+
+window.renderGallery = function(filter) {
+  var grid = document.getElementById('gallery-grid');
+  grid.innerHTML = '';
+  var filtered = filter === 'all' ? galleryData : galleryData.filter(img => img.category === filter);
+  
+  filtered.forEach(function(img, idx) {
+    var item = document.createElement('div');
+    item.className = 'masonry-item';
+    item.innerHTML = '<img src="' + img.url + '" alt="' + img.caption + '"><div class="masonry-overlay"><div class="masonry-caption">' + img.caption + '</div></div>';
+    item.onclick = function() { window.openLightbox(galleryData.indexOf(img)); };
+    grid.appendChild(item);
+  });
+};
+
+window.filterGallery = function(cat) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.closest('.filter-btn').classList.add('active');
+  window.renderGallery(cat);
+};
+
+window.openLightbox = function(idx) {
+  lbCurrent = idx;
+  var img = galleryData[idx];
+  document.getElementById('lb-img').src = img.url;
+  document.getElementById('lb-caption').textContent = img.caption;
+  document.getElementById('lb-counter').textContent = (idx + 1) + ' / ' + galleryData.length;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeLightbox = function(e) {
+  if (!e || e.target.id === 'lightbox' || e.target.classList.contains('lb-close')) {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+};
+
+window.lbNav = function(d) {
+  lbCurrent = (lbCurrent + d + galleryData.length) % galleryData.length;
+  var img = galleryData[lbCurrent];
+  document.getElementById('lb-img').src = img.url;
+  document.getElementById('lb-caption').textContent = img.caption;
+  document.getElementById('lb-counter').textContent = (lbCurrent + 1) + ' / ' + galleryData.length;
+};
+
+document.addEventListener('keydown', function(e) {
+  var lb = document.getElementById('lightbox');
+  if (lb && lb.classList.contains('active')) {
+    if (e.key === 'ArrowLeft') window.lbNav(-1);
+    if (e.key === 'ArrowRight') window.lbNav(1);
+    if (e.key === 'Escape') window.closeLightbox();
+  }
+});
+
+window.renderGallery('all');
+</script>
+
+</Layout>
