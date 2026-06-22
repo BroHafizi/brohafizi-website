@@ -3,7 +3,7 @@ title: "Bengkel Dakwah di Bumi Indera Kayangan: Menyemai Daie Muda Sebagai Jamba
 slug: "bengkel-dakwah-di-bumi-indera-kayangan-menyemai-daie-muda-sebagai-jambatan-umat"
 date: "2025-05-26"
 excerpt: ""
-featuredImage: "/images/posts/Wisdom-1-1_136983301.png"
+featuredImage: "/images/posts/Wisdom-1-1.png"
 categories:
   - "Kursus Dakwah"
 tags:

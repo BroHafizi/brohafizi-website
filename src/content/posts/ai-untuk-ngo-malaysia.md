@@ -3,7 +3,7 @@ title: "Bengkel AI dalam Pengurusan NGO: Mempercepatkan Proses, Meningkatkan Pro
 slug: "ai-untuk-ngo-malaysia"
 date: "2026-02-11"
 excerpt: ""
-featuredImage: "/images/posts/ai-untuk-ngo-malaysia-thinkerz-solution_167792c90.webp"
+featuredImage: "/images/posts/ai-untuk-ngo-malaysia-thinkerz-solution.webp"
 categories:
   - "Dakwah"
 tags:
